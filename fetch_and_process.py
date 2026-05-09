@@ -29,44 +29,49 @@ NSE_HEADERS = {
 }
 
 # Maps known alternate column names → canonical names used in this script.
-# Add more entries here if NSE renames further columns in future.
+# Covers both the old ALL_CAPS format and the new camelCase format NSE switched to in 2025/26.
 COLUMN_ALIASES = {
-    # Prev close variants
-    "PREVCLOSE":    "PREV_CL_PR",
-    "PREV_CLOSE":   "PREV_CL_PR",
-    "PREVCLOSE_PR": "PREV_CL_PR",
-    # Open variants
-    "OPEN":         "OPEN_PRICE",
-    "OPENPRICE":    "OPEN_PRICE",
-    # High / Low variants
-    "HIGH":         "HIGH_PRICE",
-    "HIGHPRICE":    "HIGH_PRICE",
-    "LOW":          "LOW_PRICE",
-    "LOWPRICE":     "LOW_PRICE",
-    # Close variants
-    "CLOSE":        "CLOSE_PRICE",
-    "CLOSEPRICE":   "CLOSE_PRICE",
-    "LAST":         "CLOSE_PRICE",
-    "LAST_PRICE":   "CLOSE_PRICE",
-    # Volume / value variants
-    "TOTTRDVAL":    "NET_TRDVAL",
-    "TOTALTRDVAL":  "NET_TRDVAL",
-    "TOTTRDQTY":    "NET_TRDQTY",
-    "TOTALTRDQTY":  "NET_TRDQTY",
-    # 52-week variants
-    "52WH":         "HI_52_WK",
-    "52WL":         "LO_52_WK",
-    "HIGH52":       "HI_52_WK",
-    "LOW52":        "LO_52_WK",
-    # Security / symbol variants
-    "SYMBOL":       "SECURITY",
-    "SCRIP_NM":     "SECURITY",
-    # Market / series variants
-    "SERIES":       "MKT",
-    # Trade count variants
-    "TOTALTRADES":  "TRADES",
-    "TOTTRADES":    "TRADES",
-    "NO_OF_TRADES": "TRADES",
+    # ── New camelCase format (current as of 2026) ──────────────────────────
+    "PrvsClsgPric":      "PREV_CL_PR",
+    "OpnPric":           "OPEN_PRICE",
+    "HghPric":           "HIGH_PRICE",
+    "LwPric":            "LOW_PRICE",
+    "ClsPric":           "CLOSE_PRICE",
+    "LastPric":          "CLOSE_PRICE",   # fallback if ClsPric absent
+    "TtlTrfVal":         "NET_TRDVAL",
+    "TtlTradgVol":       "NET_TRDQTY",
+    "TtlNbOfTxsExctd":   "TRADES",
+    "TckrSymb":          "SECURITY",
+    "SctySrs":           "MKT",
+    # 52-week not present in new format — handled gracefully below
+    # ── Old ALL_CAPS format (pre-2025) ─────────────────────────────────────
+    "PREVCLOSE":         "PREV_CL_PR",
+    "PREV_CLOSE":        "PREV_CL_PR",
+    "PREVCLOSE_PR":      "PREV_CL_PR",
+    "OPEN":              "OPEN_PRICE",
+    "OPENPRICE":         "OPEN_PRICE",
+    "HIGH":              "HIGH_PRICE",
+    "HIGHPRICE":         "HIGH_PRICE",
+    "LOW":               "LOW_PRICE",
+    "LOWPRICE":          "LOW_PRICE",
+    "CLOSE":             "CLOSE_PRICE",
+    "CLOSEPRICE":        "CLOSE_PRICE",
+    "LAST":              "CLOSE_PRICE",
+    "LAST_PRICE":        "CLOSE_PRICE",
+    "TOTTRDVAL":         "NET_TRDVAL",
+    "TOTALTRDVAL":       "NET_TRDVAL",
+    "TOTTRDQTY":         "NET_TRDQTY",
+    "TOTALTRDQTY":       "NET_TRDQTY",
+    "52WH":              "HI_52_WK",
+    "52WL":              "LO_52_WK",
+    "HIGH52":            "HI_52_WK",
+    "LOW52":             "LO_52_WK",
+    "SYMBOL":            "SECURITY",
+    "SCRIP_NM":          "SECURITY",
+    "SERIES":            "MKT",
+    "TOTALTRADES":       "TRADES",
+    "TOTTRADES":         "TRADES",
+    "NO_OF_TRADES":      "TRADES",
 }
 
 
@@ -173,15 +178,19 @@ def process(df: pd.DataFrame) -> dict:
             "changePct":round((float(r["CLOSE_PRICE"]) - float(r["PREV_CL_PR"])) / float(r["PREV_CL_PR"]) * 100, 2),
         }
 
-    # 52-week proximity
-    near_high = active[
-        (active["CLOSE_PRICE"] > 0) & (active["HI_52_WK"] > 0) &
-        (active["CLOSE_PRICE"] >= active["HI_52_WK"] * 0.97)
-    ]
-    near_low = active[
-        (active["CLOSE_PRICE"] > 0) & (active["LO_52_WK"] > 0) &
-        (active["CLOSE_PRICE"] <= active["LO_52_WK"] * 1.03)
-    ]
+    # 52-week proximity (columns absent in the new NSE camelCase format)
+    if "HI_52_WK" in active.columns and "LO_52_WK" in active.columns:
+        near_high = active[
+            (active["CLOSE_PRICE"] > 0) & (active["HI_52_WK"] > 0) &
+            (active["CLOSE_PRICE"] >= active["HI_52_WK"] * 0.97)
+        ]
+        near_low = active[
+            (active["CLOSE_PRICE"] > 0) & (active["LO_52_WK"] > 0) &
+            (active["CLOSE_PRICE"] <= active["LO_52_WK"] * 1.03)
+        ]
+    else:
+        near_high = pd.DataFrame()
+        near_low  = pd.DataFrame()
 
     # Distribution
     bins   = [-100, -10, -5, -2, 0, 2, 5, 10, 100]
