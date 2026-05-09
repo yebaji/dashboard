@@ -28,93 +28,90 @@ NSE_HEADERS = {
     "Referer": "https://www.nseindia.com/",
 }
 
-# Maps known alternate column names → canonical names used in this script.
-# Covers both the old ALL_CAPS format and the new camelCase format NSE switched to in 2025/26.
+# Maps actual NSE column names (exact, case-sensitive) → canonical names.
+# Covers both the old ALL_CAPS format and the new camelCase format (2025/26+).
 COLUMN_ALIASES = {
     # ── New camelCase format (current as of 2026) ──────────────────────────
-    "PrvsClsgPric":      "PREV_CL_PR",
-    "OpnPric":           "OPEN_PRICE",
-    "HghPric":           "HIGH_PRICE",
-    "LwPric":            "LOW_PRICE",
-    "ClsPric":           "CLOSE_PRICE",
-    "LastPric":          "CLOSE_PRICE",   # fallback if ClsPric absent
-    "TtlTrfVal":         "NET_TRDVAL",
-    "TtlTradgVol":       "NET_TRDQTY",
-    "TtlNbOfTxsExctd":   "TRADES",
-    "TckrSymb":          "SECURITY",
-    "SctySrs":           "MKT",
-    # 52-week not present in new format — handled gracefully below
+    "PrvsClsgPric":    "PREV_CL_PR",
+    "OpnPric":         "OPEN_PRICE",
+    "HghPric":         "HIGH_PRICE",
+    "LwPric":          "LOW_PRICE",
+    "ClsPric":         "CLOSE_PRICE",
+    "LastPric":        "LAST_PRICE",    # kept separate; used as fallback below
+    "TtlTrfVal":       "NET_TRDVAL",
+    "TtlTradgVol":     "NET_TRDQTY",
+    "TtlNbOfTxsExctd": "TRADES",
+    "TckrSymb":        "SECURITY",
+    "SctySrs":         "MKT",
     # ── Old ALL_CAPS format (pre-2025) ─────────────────────────────────────
-    "PREVCLOSE":         "PREV_CL_PR",
-    "PREV_CLOSE":        "PREV_CL_PR",
-    "PREVCLOSE_PR":      "PREV_CL_PR",
-    "OPEN":              "OPEN_PRICE",
-    "OPENPRICE":         "OPEN_PRICE",
-    "HIGH":              "HIGH_PRICE",
-    "HIGHPRICE":         "HIGH_PRICE",
-    "LOW":               "LOW_PRICE",
-    "LOWPRICE":          "LOW_PRICE",
-    "CLOSE":             "CLOSE_PRICE",
-    "CLOSEPRICE":        "CLOSE_PRICE",
-    "LAST":              "CLOSE_PRICE",
-    "LAST_PRICE":        "CLOSE_PRICE",
-    "TOTTRDVAL":         "NET_TRDVAL",
-    "TOTALTRDVAL":       "NET_TRDVAL",
-    "TOTTRDQTY":         "NET_TRDQTY",
-    "TOTALTRDQTY":       "NET_TRDQTY",
-    "52WH":              "HI_52_WK",
-    "52WL":              "LO_52_WK",
-    "HIGH52":            "HI_52_WK",
-    "LOW52":             "LO_52_WK",
-    "SYMBOL":            "SECURITY",
-    "SCRIP_NM":          "SECURITY",
-    "SERIES":            "MKT",
-    "TOTALTRADES":       "TRADES",
-    "TOTTRADES":         "TRADES",
-    "NO_OF_TRADES":      "TRADES",
+    "PREVCLOSE":       "PREV_CL_PR",
+    "PREV_CLOSE":      "PREV_CL_PR",
+    "PREVCLOSE_PR":    "PREV_CL_PR",
+    "OPEN":            "OPEN_PRICE",
+    "OPENPRICE":       "OPEN_PRICE",
+    "HIGH":            "HIGH_PRICE",
+    "HIGHPRICE":       "HIGH_PRICE",
+    "LOW":             "LOW_PRICE",
+    "LOWPRICE":        "LOW_PRICE",
+    "CLOSE":           "CLOSE_PRICE",
+    "CLOSEPRICE":      "CLOSE_PRICE",
+    "LAST":            "CLOSE_PRICE",
+    "LAST_PRICE":      "CLOSE_PRICE",
+    "TOTTRDVAL":       "NET_TRDVAL",
+    "TOTALTRDVAL":     "NET_TRDVAL",
+    "TOTTRDQTY":       "NET_TRDQTY",
+    "TOTALTRDQTY":     "NET_TRDQTY",
+    "52WH":            "HI_52_WK",
+    "52WL":            "LO_52_WK",
+    "HIGH52":          "HI_52_WK",
+    "LOW52":           "LO_52_WK",
+    "SYMBOL":          "SECURITY",
+    "SCRIP_NM":        "SECURITY",
+    "SERIES":          "MKT",
+    "TOTALTRADES":     "TRADES",
+    "TOTTRADES":       "TRADES",
+    "NO_OF_TRADES":    "TRADES",
 }
 
 
 def normalise_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Strip whitespace from column names and remap any known aliases
-    to the canonical column names expected by process().
-    Prints a warning for each remapped column so it's visible in CI logs.
+    Strip whitespace then rename any column that appears in COLUMN_ALIASES
+    (exact match, case-sensitive) to its canonical name.
+    If CLOSE_PRICE is still missing but LAST_PRICE exists, promote it.
     """
     df.columns = df.columns.str.strip()
+
     rename_map = {}
     for col in df.columns:
-        canonical = COLUMN_ALIASES.get(col.upper())
-        if canonical and canonical not in df.columns:
-            rename_map[col] = canonical
+        if col in COLUMN_ALIASES:
+            canonical = COLUMN_ALIASES[col]
+            if canonical not in df.columns and canonical not in rename_map.values():
+                rename_map[col] = canonical
+
     if rename_map:
-        print(f"  ↳ Column rename applied: {rename_map}")
-    return df.rename(columns=rename_map)
+        print(f"  Column rename: {rename_map}")
+    df = df.rename(columns=rename_map)
+
+    # Fallback: if CLOSE_PRICE still missing but LAST_PRICE exists, use it
+    if "CLOSE_PRICE" not in df.columns and "LAST_PRICE" in df.columns:
+        df = df.rename(columns={"LAST_PRICE": "CLOSE_PRICE"})
+        print("  Used LAST_PRICE as CLOSE_PRICE fallback")
+
+    return df
 
 
 def bhavcopy_urls(d: date) -> list:
-    """
-    Return candidate URLs for a given date.
-    NSE has used two naming conventions — we try both.
-      Variant A (current): BhavCopy_NSE_CM_0_0_0_YYYYMMDD_F_0000.csv.zip
-      Variant B (older):   BhavCopy_NSE_CM_0_0_0_YYYYMMDD_F.CSV.zip
-    """
     ds = d.strftime("%Y%m%d")
     base = "https://nsearchives.nseindia.com/content/cm/"
     return [
-        f"{base}BhavCopy_NSE_CM_0_0_0_{ds}_F_0000.csv.zip",  # current format
-        f"{base}BhavCopy_NSE_CM_0_0_0_{ds}_F.CSV.zip",        # older format
+        f"{base}BhavCopy_NSE_CM_0_0_0_{ds}_F_0000.csv.zip",
+        f"{base}BhavCopy_NSE_CM_0_0_0_{ds}_F.CSV.zip",
     ]
 
 
 def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
-    """
-    Walk backwards from today until we find a trading day with data.
-    Returns (DataFrame, trade_date).
-    Raises RuntimeError if no data found in the last 10 calendar days.
-    """
     session = requests.Session()
-    # Warm up session cookie — NSE requires this
     session.get("https://www.nseindia.com", headers=NSE_HEADERS, timeout=10)
 
     for days_back in range(1, 11):
@@ -130,7 +127,7 @@ def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
                             df = pd.read_csv(f)
                     df = normalise_columns(df)
                     print(f"✓ Fetched bhavcopy for {trade_date} ({len(df)} rows)")
-                    print(f"  Columns: {list(df.columns)}")
+                    print(f"  Columns after normalisation: {list(df.columns)}")
                     return df, trade_date
                 else:
                     print(f"  HTTP {resp.status_code} — skipping")
@@ -143,7 +140,7 @@ def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
 # ── Processing ─────────────────────────────────────────────────────────────────
 
 def process(df: pd.DataFrame) -> dict:
-    # Only coerce columns that actually exist; warn about any that are missing.
+    # Coerce numeric columns that exist
     num_cols = [
         "PREV_CL_PR", "OPEN_PRICE", "HIGH_PRICE", "LOW_PRICE",
         "CLOSE_PRICE", "NET_TRDVAL", "NET_TRDQTY", "TRADES",
@@ -151,14 +148,19 @@ def process(df: pd.DataFrame) -> dict:
     ]
     missing = [c for c in num_cols if c not in df.columns]
     if missing:
-        print(f"  WARNING: expected columns not found after normalisation: {missing}")
-        print(f"  Available columns: {list(df.columns)}")
+        print(f"  WARNING: columns still missing after normalisation: {missing}")
 
     for c in num_cols:
         if c in df.columns:
             df[c] = pd.to_numeric(df[c], errors="coerce")
 
-    active = df[df["TRADES"] > 0].copy()
+    # Filter to active rows — use TRADES if present, else keep all rows
+    if "TRADES" in df.columns:
+        active = df[df["TRADES"] > 0].copy()
+    else:
+        print("  WARNING: TRADES column missing; using all rows as active")
+        active = df.copy()
+
     active["CHANGE"]     = active["CLOSE_PRICE"] - active["PREV_CL_PR"]
     active["CHANGE_PCT"] = (active["CHANGE"] / active["PREV_CL_PR"]) * 100
 
@@ -166,19 +168,23 @@ def process(df: pd.DataFrame) -> dict:
     losers    = int((active["CHANGE_PCT"] < 0).sum())
     unchanged = int((active["CHANGE_PCT"] == 0).sum())
 
-    # Nifty 50
-    nifty_row = df[df["SECURITY"] == "Nifty 50"]
+    # Nifty 50 index row
     nifty = {}
-    if not nifty_row.empty:
-        r = nifty_row.iloc[0]
-        nifty = {
-            "close":    round(float(r["CLOSE_PRICE"]), 2),
-            "prev":     round(float(r["PREV_CL_PR"]),  2),
-            "change":   round(float(r["CLOSE_PRICE"]) - float(r["PREV_CL_PR"]), 2),
-            "changePct":round((float(r["CLOSE_PRICE"]) - float(r["PREV_CL_PR"])) / float(r["PREV_CL_PR"]) * 100, 2),
-        }
+    if "SECURITY" in df.columns:
+        nifty_row = df[df["SECURITY"] == "Nifty 50"]
+        if not nifty_row.empty:
+            r = nifty_row.iloc[0]
+            nifty = {
+                "close":     round(float(r["CLOSE_PRICE"]), 2),
+                "prev":      round(float(r["PREV_CL_PR"]),  2),
+                "change":    round(float(r["CLOSE_PRICE"]) - float(r["PREV_CL_PR"]), 2),
+                "changePct": round(
+                    (float(r["CLOSE_PRICE"]) - float(r["PREV_CL_PR"]))
+                    / float(r["PREV_CL_PR"]) * 100, 2
+                ),
+            }
 
-    # 52-week proximity (columns absent in the new NSE camelCase format)
+    # 52-week proximity (not present in new NSE format)
     if "HI_52_WK" in active.columns and "LO_52_WK" in active.columns:
         near_high = active[
             (active["CLOSE_PRICE"] > 0) & (active["HI_52_WK"] > 0) &
@@ -192,15 +198,16 @@ def process(df: pd.DataFrame) -> dict:
         near_high = pd.DataFrame()
         near_low  = pd.DataFrame()
 
-    # Distribution
+    # Return % distribution
     bins   = [-100, -10, -5, -2, 0, 2, 5, 10, 100]
     labels = ["<-10%", "-10 to -5%", "-5 to -2%", "-2 to 0%",
               "0 to 2%", "2 to 5%", "5 to 10%", ">10%"]
     active["bucket"] = pd.cut(active["CHANGE_PCT"], bins=bins, labels=labels)
     dist = active["bucket"].value_counts().sort_index()
 
-    # Top gainers / losers
-    def rows(frame, col):
+    # Top gainers / losers helpers
+    def top_rows(frame, col, n=10, ascending=False):
+        fn = frame.nsmallest if ascending else frame.nlargest
         return [
             {
                 "security":   str(r["SECURITY"]),
@@ -209,19 +216,23 @@ def process(df: pd.DataFrame) -> dict:
                 "changePct":  round(float(r["CHANGE_PCT"]),  2),
                 "tradeValue": round(float(r["NET_TRDVAL"]),  0),
             }
-            for _, r in frame.nlargest(10, col).iterrows()
-            if pd.notna(r["CLOSE_PRICE"])
+            for _, r in fn(n, col).iterrows()
+            if pd.notna(r.get("CLOSE_PRICE"))
         ]
 
-    # Most traded (equity only)
-    equity = active[active["MKT"] == "N"]
+    # Most traded equity (series "EQ" in new format, "N" in old)
+    if "MKT" in active.columns:
+        equity = active[active["MKT"].isin(["N", "EQ"])]
+    else:
+        equity = active
+
     most_traded = [
         {
             "security":   str(r["SECURITY"]),
             "close":      round(float(r["CLOSE_PRICE"]), 2),
             "changePct":  round(float(r["CHANGE_PCT"]),  2),
             "tradeValue": round(float(r["NET_TRDVAL"]),  0),
-            "trades":     int(r["TRADES"]),
+            "trades":     int(r["TRADES"]) if "TRADES" in active.columns else 0,
         }
         for _, r in equity.nlargest(15, "NET_TRDVAL").iterrows()
     ]
@@ -239,18 +250,9 @@ def process(df: pd.DataFrame) -> dict:
             "labels": labels,
             "values": [int(dist.get(l, 0)) for l in labels],
         },
-        "topGainers":  rows(active, "CHANGE_PCT"),
-        "topLosers":   [
-            {
-                "security":   str(r["SECURITY"]),
-                "prevClose":  round(float(r["PREV_CL_PR"]),  2),
-                "close":      round(float(r["CLOSE_PRICE"]), 2),
-                "changePct":  round(float(r["CHANGE_PCT"]),  2),
-                "tradeValue": round(float(r["NET_TRDVAL"]),  0),
-            }
-            for _, r in active.nsmallest(10, "CHANGE_PCT").iterrows()
-        ],
-        "mostTraded":  most_traded,
+        "topGainers": top_rows(active, "CHANGE_PCT"),
+        "topLosers":  top_rows(active, "CHANGE_PCT", ascending=True),
+        "mostTraded": most_traded,
     }
 
 
