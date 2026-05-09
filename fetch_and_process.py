@@ -29,12 +29,19 @@ NSE_HEADERS = {
 }
 
 
-def bhavcopy_url(d: date) -> str:
-    """Return the CM-UDiFF bhavcopy zip URL for a given date (post Jul 2024)."""
-    return (
-        f"https://nsearchives.nseindia.com/content/cm/"
-        f"BhavCopy_NSE_CM_0_0_0_{d.strftime('%Y%m%d')}_F.CSV.zip"
-    )
+def bhavcopy_urls(d: date) -> list:
+    """
+    Return candidate URLs for a given date.
+    NSE has used two naming conventions — we try both.
+      Variant A (current): BhavCopy_NSE_CM_0_0_0_YYYYMMDD_F_0000.csv.zip
+      Variant B (older):   BhavCopy_NSE_CM_0_0_0_YYYYMMDD_F.CSV.zip
+    """
+    ds = d.strftime("%Y%m%d")
+    base = "https://nsearchives.nseindia.com/content/cm/"
+    return [
+        f"{base}BhavCopy_NSE_CM_0_0_0_{ds}_F_0000.csv.zip",  # current format
+        f"{base}BhavCopy_NSE_CM_0_0_0_{ds}_F.CSV.zip",        # older format
+    ]
 
 
 def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
@@ -49,21 +56,21 @@ def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
 
     for days_back in range(1, 11):
         trade_date = date.today() - timedelta(days=days_back)
-        url = bhavcopy_url(trade_date)
-        print(f"Trying {url} ...")
-        try:
-            resp = session.get(url, headers=NSE_HEADERS, timeout=30)
-            if resp.status_code == 200:
-                with zipfile.ZipFile(io.BytesIO(resp.content)) as z:
-                    csv_name = z.namelist()[0]
-                    with z.open(csv_name) as f:
-                        df = pd.read_csv(f)
-                print(f"✓ Fetched bhavcopy for {trade_date} ({len(df)} rows)")
-                return df, trade_date
-            else:
-                print(f"  HTTP {resp.status_code} — skipping")
-        except Exception as e:
-            print(f"  Error: {e} — skipping")
+        for url in bhavcopy_urls(trade_date):
+            print(f"Trying {url} ...")
+            try:
+                resp = session.get(url, headers=NSE_HEADERS, timeout=30)
+                if resp.status_code == 200:
+                    with zipfile.ZipFile(io.BytesIO(resp.content)) as z:
+                        csv_name = z.namelist()[0]
+                        with z.open(csv_name) as f:
+                            df = pd.read_csv(f)
+                    print(f"✓ Fetched bhavcopy for {trade_date} ({len(df)} rows)")
+                    return df, trade_date
+                else:
+                    print(f"  HTTP {resp.status_code} — skipping")
+            except Exception as e:
+                print(f"  Error: {e} — skipping")
 
     raise RuntimeError("Could not fetch bhavcopy for the last 10 days.")
 
