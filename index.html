@@ -1,422 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NSE Bhavcopy Dashboard</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NSE Market Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --surface2:  #21262d;
+  --border:    #30363d;
+  --text:      #e6edf3;
+  --muted:     #8b949e;
+  --green:     #3fb950;
+  --green-bg:  rgba(63,185,80,.15);
+  --red:       #f85149;
+  --red-bg:    rgba(248,81,73,.15);
+  --blue:      #58a6ff;
+  --yellow:    #d29922;
+  --purple:    #a371f7;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── Layout ── */
+.page { max-width: 1440px; margin: 0 auto; padding: 16px 20px 40px; }
 
-  :root {
-    --bg:       #0b0d11;
-    --surface:  #111318;
-    --border:   #1d2130;
-    --text:     #e8e8e8;
-    --muted:    #555a6e;
-    --up:       #00d97e;
-    --down:     #ff4d6d;
-    --flat:     #888;
-    --accent:   #4f8ef7;
-    --mono:     'DM Mono', monospace;
-    --sans:     'DM Sans', sans-serif;
-  }
+/* ── Header ── */
+.header {
+  display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  padding: 20px 0 22px; border-bottom: 1px solid var(--border); margin-bottom: 22px;
+}
+.header h1 { font-size: 18px; font-weight: 700; letter-spacing: -.3px; }
+.header .sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.nifty-pill {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 18px; text-align: right; min-width: 180px;
+}
+.nifty-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
+.nifty-pill .val { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.nifty-pill .chg { font-size: 13px; font-weight: 600; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 14px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+/* ── Scorecard grid ── */
+.cards {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 20px;
+}
+@media(max-width:1080px){ .cards { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:600px){  .cards { grid-template-columns: repeat(2,1fr); } }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px;
+}
+.card .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+.card .val { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+.card .hint { font-size: 11px; color: var(--muted); margin-top: 5px; }
 
-  /* ── Layout ── */
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 1.25rem 2rem;
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-  header h1 {
-    font-family: var(--mono);
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-  }
-  #trade-date {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-  }
-  #status-pill {
-    margin-left: auto;
-    font-size: 11px;
-    padding: 3px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-  }
+/* ── Chart row ── */
+.chart-row { display: grid; grid-template-columns: 300px 1fr; gap: 14px; margin-bottom: 20px; }
+@media(max-width:800px){ .chart-row { grid-template-columns: 1fr; } }
+.panel {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px;
+}
+.panel h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin-bottom: 14px; }
 
-  main { padding: 1.5rem 2rem 3rem; max-width: 1200px; margin: 0 auto; }
+/* breadth bar */
+.bbar-track { height: 8px; border-radius: 4px; display: flex; overflow: hidden; background: var(--border); margin: 10px 0 6px; }
+.bbar-g { background: var(--green); }
+.bbar-u { background: var(--muted); opacity: .5; }
+.bbar-l { background: var(--red); }
+.bbar-legend { display: flex; justify-content: space-between; font-size: 11px; }
 
-  /* ── Metrics ── */
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-bottom: 1.75rem;
-  }
-  .metric {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1rem 1.1rem;
-  }
-  .metric-label {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 5px;
-  }
-  .metric-value {
-    font-family: var(--mono);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1;
-  }
-  .metric-sub {
-    font-family: var(--mono);
-    font-size: 11px;
-    margin-top: 4px;
-    color: var(--muted);
-  }
-  .up   { color: var(--up); }
-  .down { color: var(--down); }
+/* ── Tabs ── */
+.tabs-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+.tab-bar { display: flex; border-bottom: 1px solid var(--border); background: var(--surface2); overflow-x: auto; }
+.tab-btn {
+  padding: 11px 18px; background: none; border: none; border-bottom: 2px solid transparent;
+  color: var(--muted); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap;
+  transition: color .12s, border-color .12s;
+}
+.tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+.tab-btn:hover:not(.active) { color: var(--text); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
 
-  /* ── Section head ── */
-  .section-head {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 6px;
-    margin-bottom: 1rem;
-  }
+/* ── Tables ── */
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  background: var(--surface2); padding: 9px 14px; text-align: left;
+  font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .5px; position: sticky; top: 0; z-index: 1;
+}
+th.r, td.r { text-align: right; }
+td { padding: 9px 14px; border-bottom: 1px solid var(--border); font-size: 13px; font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface2); }
+.sym { font-weight: 600; }
+.empty { text-align: center; padding: 28px; color: var(--muted); }
 
-  /* ── Charts row ── */
-  .charts-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-  }
-  .chart-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.1rem;
-  }
-  .chart-box canvas { display: block; }
+/* ── Badges ── */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.g { color: var(--green); }
+.r { color: var(--red); }
+.b { color: var(--blue); }
+.y { color: var(--yellow); }
+.m { color: var(--muted); }
+.bg-g { background: var(--green-bg); color: var(--green); }
+.bg-r { background: var(--red-bg);   color: var(--red); }
+.bg-m { background: var(--surface2); color: var(--muted); }
 
-  /* ── Tables row ── */
-  .tables-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-  }
-  .table-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.1rem;
-    overflow-x: auto;
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  th {
-    text-align: left;
-    font-size: 10px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 0 8px 8px;
-    border-bottom: 1px solid var(--border);
-  }
-  td {
-    padding: 6px 8px;
-    border-bottom: 1px solid #161820;
-    font-family: var(--mono);
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  tr:last-child td { border-bottom: none; }
-  td:first-child { font-family: var(--sans); font-size: 12.5px; white-space: normal; max-width: 160px; }
+/* ── Split panel (circuits) ── */
+.split { display: grid; grid-template-columns: 1fr 1fr; }
+.split > div + div { border-left: 1px solid var(--border); }
+.split-hdr { padding: 10px 14px; background: var(--surface2); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
 
-  .badge {
-    display: inline-block;
-    font-size: 10.5px;
-    padding: 1px 7px;
-    border-radius: 999px;
-    font-family: var(--mono);
-  }
-  .badge-up   { background: rgba(0,217,126,0.12); color: var(--up); }
-  .badge-down { background: rgba(255,77,109,0.12); color: var(--down); }
+/* ── 52-week grid ── */
+.week52 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+@media(max-width:700px){ .week52 { grid-template-columns: 1fr; } }
 
-  /* ── Most traded bar chart ── */
-  .bar-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.1rem;
-    margin-bottom: 1.75rem;
-  }
+/* ── Stats footer ── */
+.stats-bar {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 28px;
+}
+.stat .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.stat .val { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
 
-  /* ── Loading / error ── */
-  #loading {
-    position: fixed; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--bg);
-    font-family: var(--mono);
-    color: var(--muted);
-    font-size: 14px;
-    z-index: 99;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .spinner {
-    width: 32px; height: 32px;
-    border: 2px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  @media (max-width: 700px) {
-    .charts-row, .tables-row { grid-template-columns: 1fr; }
-    main { padding: 1rem; }
-    header { padding: 1rem; }
-  }
+/* ── State screens ── */
+.state { text-align: center; padding: 80px 20px; color: var(--muted); }
+.state .icon { font-size: 48px; margin-bottom: 14px; }
+.state h2 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
 </style>
 </head>
 <body>
+<div class="page">
 
-<div id="loading">
-  <div class="spinner"></div>
-  <span>Loading market data…</span>
-</div>
+  <!-- Loading -->
+  <div id="s-loading" class="state">
+    <div class="icon">⏳</div>
+    <h2>Loading market data…</h2>
+    <p>Fetching data.json</p>
+  </div>
 
-<header>
-  <h1>📈 NSE Bhavcopy</h1>
-  <span id="trade-date">—</span>
-  <span id="status-pill">Loading…</span>
-</header>
+  <!-- Error -->
+  <div id="s-error" class="state" style="display:none">
+    <div class="icon">⚠️</div>
+    <h2>Could not load data</h2>
+    <p id="err-msg">Make sure data.json is present in the same directory.</p>
+  </div>
 
-<main id="app" style="display:none">
+  <!-- Dashboard -->
+  <div id="dash" style="display:none">
 
-  <div class="metrics-grid" id="metrics"></div>
-
-  <div class="charts-row">
-    <div class="chart-box">
-      <p class="section-head">Price move distribution</p>
-      <div style="position:relative;height:240px">
-        <canvas id="distChart" role="img" aria-label="Price move distribution bar chart"></canvas>
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1>NSE Market Dashboard</h1>
+        <div class="sub" id="hdr-date">—</div>
+      </div>
+      <div class="nifty-pill">
+        <div class="lbl">Nifty 50</div>
+        <div class="val" id="n-close">—</div>
+        <div class="chg" id="n-chg">—</div>
       </div>
     </div>
-    <div class="chart-box">
-      <p class="section-head">Advance / Decline</p>
-      <div style="position:relative;height:240px">
-        <canvas id="adChart" role="img" aria-label="Advance decline doughnut chart"></canvas>
+
+    <!-- Scorecards -->
+    <div class="cards">
+      <div class="card">
+        <div class="lbl">Market Turnover</div>
+        <div class="val b" id="sc-turn">—</div>
+        <div class="hint">Total traded value</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Active Stocks</div>
+        <div class="val" id="sc-active">—</div>
+        <div class="hint" id="sc-active-h">of — listed</div>
+      </div>
+      <div class="card">
+        <div class="lbl">A / D Ratio</div>
+        <div class="val" id="sc-ad">—</div>
+        <div class="hint">Advance / Decline</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Breadth</div>
+        <div class="val" id="sc-breadth">—</div>
+        <div class="hint">% stocks advancing</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Upper Circuit</div>
+        <div class="val g" id="sc-uc">—</div>
+        <div class="hint">Stocks at upper limit</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Lower Circuit</div>
+        <div class="val r" id="sc-lc">—</div>
+        <div class="hint">Stocks at lower limit</div>
       </div>
     </div>
-  </div>
 
-  <div class="tables-row">
-    <div class="table-box">
-      <p class="section-head">Top 10 gainers</p>
-      <table id="gainers-table">
-        <thead><tr><th>Security</th><th>Change</th><th>Close</th><th>Value</th></tr></thead>
-        <tbody></tbody>
-      </table>
+    <!-- Charts row -->
+    <div class="chart-row">
+      <!-- Breadth panel -->
+      <div class="panel">
+        <h3>Market Breadth</h3>
+        <div style="position:relative;height:160px"><canvas id="c-breadth"></canvas></div>
+        <div class="bbar-track" id="bbar"></div>
+        <div class="bbar-legend" id="bbar-leg"></div>
+      </div>
+      <!-- Distribution histogram -->
+      <div class="panel">
+        <h3>Return Distribution</h3>
+        <div style="position:relative;height:210px"><canvas id="c-dist"></canvas></div>
+      </div>
     </div>
-    <div class="table-box">
-      <p class="section-head">Top 10 losers</p>
-      <table id="losers-table">
-        <thead><tr><th>Security</th><th>Change</th><th>Close</th><th>Value</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
 
-  <div class="bar-box">
-    <p class="section-head">Most traded by value — top 15 equities</p>
-    <div style="position:relative" id="barWrap">
-      <canvas id="barChart" role="img" aria-label="Most traded securities by value"></canvas>
-    </div>
-  </div>
+    <!-- Tabbed tables -->
+    <div class="tabs-section">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="gainers">Top Gainers</button>
+        <button class="tab-btn" data-tab="losers">Top Losers</button>
+        <button class="tab-btn" data-tab="tval">Most Traded ₹</button>
+        <button class="tab-btn" data-tab="tqty">Most Traded Qty</button>
+        <button class="tab-btn" data-tab="vol">Most Volatile</button>
+        <button class="tab-btn" data-tab="circ">Circuit Breakers</button>
+      </div>
 
-</main>
+      <!-- Gainers -->
+      <div class="tab-pane active" id="tab-gainers">
+        <div class="tbl-wrap"><table>
+          <thead><tr>
+            <th>#</th><th>Symbol</th>
+            <th class="r">Prev Close</th><th class="r">Close</th>
+            <th class="r">Change %</th><th class="r">Traded Value</th>
+          </tr></thead>
+          <tbody id="tb-gainers"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Losers -->
+      <div class="tab-pane" id="tab-losers">
+        <div class="tbl-wrap"><table>
+          <thead><tr>
+            <th>#</th><th>Symbol</th>
+            <th class="r">Prev Close</th><th class="r">Close</th>
+            <th class="r">Change %</th><th class="r">Traded Value</th>
+          </tr></thead>
+          <tbody id="tb-losers"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Most traded by value -->
+      <div class="tab-pane" id="tab-tval">
+        <div class="tbl-wrap"><table>
+          <thead><tr>
+            <th>#</th><th>Symbol</th><th class="r">Close</th>
+            <th class="r">Change %</th><th class="r">Traded Value (₹)</th><th class="r">Trades</th>
+          </tr></thead>
+          <tbody id="tb-tval"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Most traded by qty -->
+      <div class="tab-pane" id="tab-tqty">
+        <div class="tbl-wrap"><table>
+          <thead><tr>
+            <th>#</th><th>Symbol</th><th class="r">Close</th>
+            <th class="r">Change %</th><th class="r">Trade Qty</th>
+          </tr></thead>
+          <tbody id="tb-tqty"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Most volatile -->
+      <div class="tab-pane" id="tab-vol">
+        <div class="tbl-wrap"><table>
+          <thead><tr>
+            <th>#</th><th>Symbol</th><th class="r">Close</th>
+            <th class="r">Change %</th><th class="r">H–L Range %</th><th class="r">Traded Value</th>
+          </tr></thead>
+          <tbody id="tb-vol"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Circuit breakers -->
+      <div class="tab-pane" id="tab-circ">
+        <div class="split">
+          <div>
+            <div class="split-hdr g">▲ Upper Circuit &nbsp;<span id="uc-cnt" style="font-weight:400;color:var(--muted)"></span></div>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>#</th><th>Symbol</th><th class="r">Close</th><th class="r">Change %</th></tr></thead>
+              <tbody id="tb-uc"></tbody>
+            </table></div>
+          </div>
+          <div>
+            <div class="split-hdr r">▼ Lower Circuit &nbsp;<span id="lc-cnt" style="font-weight:400;color:var(--muted)"></span></div>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>#</th><th>Symbol</th><th class="r">Close</th><th class="r">Change %</th></tr></thead>
+              <tbody id="tb-lc"></tbody>
+            </table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 52-week proximity -->
+    <div class="week52" id="w52" style="display:none">
+      <div class="panel">
+        <h3>Near 52-Week High &nbsp;<span id="nh-cnt" class="m" style="font-weight:400"></span></h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Symbol</th><th class="r">Close</th><th class="r">52W High</th><th class="r">% from High</th></tr></thead>
+          <tbody id="tb-nh"></tbody>
+        </table></div>
+      </div>
+      <div class="panel">
+        <h3>Near 52-Week Low &nbsp;<span id="nl-cnt" class="m" style="font-weight:400"></span></h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Symbol</th><th class="r">Close</th><th class="r">52W Low</th><th class="r">% from Low</th></tr></thead>
+          <tbody id="tb-nl"></tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Stats footer -->
+    <div class="stats-bar" id="stats-bar"></div>
+
+  </div><!-- /dash -->
+</div><!-- /page -->
 
 <script>
-const fmt = {
-  price: v => '₹' + Number(v).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2}),
-  crore: v => '₹' + (v / 1e7).toFixed(1) + 'Cr',
-  pct:   v => (v >= 0 ? '+' : '') + Number(v).toFixed(2) + '%',
-  num:   v => Number(v).toLocaleString('en-IN'),
-};
+// ── Tiny helpers ──────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
 
-async function init() {
-  try {
-    const res  = await fetch('data.json?t=' + Date.now());
-    if (!res.ok) throw new Error('data.json not found');
-    const d = await res.json();
-    render(d);
-  } catch(e) {
-    document.getElementById('loading').innerHTML =
-      '<span style="color:#ff4d6d">⚠ Could not load data.json — run fetch_and_process.py first</span>';
-  }
+const N = (n, d = 2) =>
+  n == null || isNaN(n) ? '—'
+  : Number(n).toLocaleString('en-IN', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const sign = n => (n > 0 ? '+' : '');
+
+function fmtCr(v) {
+  if (v == null) return '—';
+  const cr = v / 1e7;
+  if (cr >= 1e5) return `₹${N(cr / 1e5, 1)}L Cr`;
+  if (cr >= 1e3) return `₹${N(cr / 1e3, 1)}k Cr`;
+  return `₹${N(cr, 0)} Cr`;
 }
 
-function render(d) {
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('app').style.display = '';
-  document.getElementById('trade-date').textContent = d.date || '';
-  document.getElementById('status-pill').textContent =
-    `${fmt.num(d.activeRows)} securities traded`;
+function fmtQty(v) {
+  if (v == null) return '—';
+  if (v >= 1e7) return `${N(v / 1e7, 2)} Cr`;
+  if (v >= 1e5) return `${N(v / 1e5, 2)} L`;
+  if (v >= 1e3) return `${N(v / 1e3, 1)} k`;
+  return v.toLocaleString('en-IN');
+}
 
-  // ── Metrics ──
-  const n = d.nifty;
-  const niftyClass = n.change >= 0 ? 'up' : 'down';
-  const niftyArrow = n.change >= 0 ? '▲' : '▼';
-  const mets = [
-    { label: 'Nifty 50',      value: fmt.price(n.close).replace('₹',''),
-      sub: `<span class="${niftyClass}">${niftyArrow} ${Math.abs(n.change).toFixed(2)} (${Math.abs(n.changePct).toFixed(2)}%)</span>`,
-      cls: niftyClass },
-    { label: 'Advances',  value: fmt.num(d.gainers),   sub: 'gainers today', cls: 'up' },
-    { label: 'Declines',  value: fmt.num(d.losers),    sub: 'losers today',  cls: 'down' },
-    { label: 'Unchanged', value: fmt.num(d.unchanged), sub: 'flat close',    cls: '' },
-    { label: 'Near 52w High', value: fmt.num(d.nearHigh), sub: 'within 3%',  cls: 'up' },
-    { label: 'Near 52w Low',  value: fmt.num(d.nearLow),  sub: 'within 3%',  cls: 'down' },
-  ];
-  document.getElementById('metrics').innerHTML = mets.map(m => `
-    <div class="metric">
-      <div class="metric-label">${m.label}</div>
-      <div class="metric-value ${m.cls}">${m.value}</div>
-      <div class="metric-sub">${m.sub}</div>
-    </div>`).join('');
+function badge(pct) {
+  if (pct == null) return '—';
+  const cls = pct > 0 ? 'bg-g' : pct < 0 ? 'bg-r' : 'bg-m';
+  return `<span class="badge ${cls}">${sign(pct)}${N(pct)}%</span>`;
+}
 
-  // ── Distribution chart ──
-  const distColors = ['#ff4d6d','#ff6b82','#ff8fa0','#ffb8c3','#9de8c4','#4dd9a0','#00d97e','#00b068'];
-  new Chart(document.getElementById('distChart'), {
-    type: 'bar',
-    data: {
-      labels: d.distribution.labels,
-      datasets: [{ data: d.distribution.values, backgroundColor: distColors,
-                   borderRadius: 4, borderSkipped: false }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false },
-                 tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y.toLocaleString()} securities` } } },
-      scales: {
-        x: { ticks: { color: '#555a6e', font: { size: 10 }, maxRotation: 30 }, grid: { color: '#1d2130' } },
-        y: { ticks: { color: '#555a6e', font: { size: 10 } }, grid: { color: '#1d2130' } }
-      }
-    }
+function colorOf(v) { return v > 0 ? 'g' : v < 0 ? 'r' : 'm'; }
+
+function emptyRow(cols, msg = 'No data available') {
+  return `<tr><td colspan="${cols}" class="empty">${msg}</td></tr>`;
+}
+
+// ── Tab wiring ────────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    $('tab-' + btn.dataset.tab).classList.add('active');
   });
+});
 
-  // ── A/D doughnut ──
-  const adChart = new Chart(document.getElementById('adChart'), {
+// ── Chart instances ───────────────────────────────────────────────────────────
+let cBreadth = null, cDist = null;
+
+function buildBreadth(g, l, u) {
+  if (cBreadth) cBreadth.destroy();
+  cBreadth = new Chart($('c-breadth').getContext('2d'), {
     type: 'doughnut',
     data: {
-      labels: ['Advances', 'Declines', 'Unchanged'],
-      datasets: [{ data: [d.gainers, d.losers, d.unchanged],
-                   backgroundColor: ['#00d97e','#ff4d6d','#333845'], borderWidth: 0 }]
+      labels: ['Gainers', 'Losers', 'Unchanged'],
+      datasets: [{ data: [g, l, u], backgroundColor: ['#3fb950', '#f85149', '#444c56'], borderWidth: 0, hoverOffset: 4 }]
     },
     options: {
-      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      cutout: '68%',
       plugins: {
-        legend: { position: 'bottom',
-                  labels: { color: '#555a6e', font: { size: 11 }, boxWidth: 10, padding: 14 } },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed.toLocaleString()}` } }
-      }
-    }
-  });
-  // Centre annotation
-  const pct = Math.round(d.gainers / (d.gainers + d.losers + d.unchanged) * 100);
-  Chart.register({
-    id: 'adAnnotation',
-    afterDraw(chart) {
-      if (chart !== adChart) return;
-      const { ctx, chartArea: { top, bottom, left, right } } = chart;
-      const cx = (left + right) / 2, cy = (top + bottom) / 2;
-      ctx.save();
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillStyle = '#e8e8e8'; ctx.font = '500 16px DM Mono, monospace';
-      ctx.fillText(pct + '%', cx, cy - 8);
-      ctx.fillStyle = '#555a6e'; ctx.font = '11px DM Sans, sans-serif';
-      ctx.fillText('advances', cx, cy + 10);
-      ctx.restore();
-    }
-  });
-
-  // ── Gainers table ──
-  const gainTbody = document.querySelector('#gainers-table tbody');
-  d.topGainers.forEach(r => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${r.security}</td>
-      <td><span class="badge badge-up">${fmt.pct(r.changePct)}</span></td>
-      <td>${fmt.price(r.close)}</td>
-      <td>${fmt.crore(r.tradeValue)}</td>`;
-    gainTbody.appendChild(tr);
-  });
-
-  // ── Losers table ──
-  const loseTbody = document.querySelector('#losers-table tbody');
-  d.topLosers.forEach(r => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${r.security}</td>
-      <td><span class="badge badge-down">${fmt.pct(r.changePct)}</span></td>
-      <td>${fmt.price(r.close)}</td>
-      <td>${fmt.crore(r.tradeValue)}</td>`;
-    loseTbody.appendChild(tr);
-  });
-
-  // ── Most traded bar chart ──
-  const labels = d.mostTraded.map(r => r.security);
-  const values = d.mostTraded.map(r => r.tradeValue / 1e9);
-  const barColors = d.mostTraded.map(r => r.changePct >= 0 ? '#00d97e' : '#ff4d6d');
-  document.getElementById('barWrap').style.height = (d.mostTraded.length * 38 + 60) + 'px';
-  new Chart(document.getElementById('barChart'), {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{ data: values, backgroundColor: barColors,
-                   borderRadius: 3, borderSkipped: false }]
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false },
-                 tooltip: { callbacks: { label: ctx => ` ₹${ctx.parsed.x.toFixed(2)}B` } } },
-      scales: {
-        x: { ticks: { color: '#555a6e', font: { size: 10 },
-                      callback: v => '₹' + v.toFixed(1) + 'B' },
-             grid: { color: '#1d2130' } },
-        y: { ticks: { color: '#ccc', font: { size: 11 } }, grid: { display: false } }
+        legend: { position: 'bottom', labels: { color: '#8b949e', boxWidth: 10, padding: 10, font: { size: 11 } } },
+        tooltip: { callbacks: { label: c => ` ${c.label}: ${c.parsed.toLocaleString('en-IN')}` } }
       }
     }
   });
 }
 
-init();
+function buildDist(labels, values) {
+  if (cDist) cDist.destroy();
+  const colors = labels.map(l => (l.startsWith('<') || l.startsWith('-')) ? '#f8514988' : '#3fb95088');
+  cDist = new Chart($('c-dist').getContext('2d'), {
+    type: 'bar',
+    data: { labels, datasets: [{ data: values, backgroundColor: colors, borderRadius: 3, borderSkipped: false }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => ` ${c.parsed.y.toLocaleString('en-IN')} stocks` } }
+      },
+      scales: {
+        x: { ticks: { color: '#8b949e', font: { size: 10 }, maxRotation: 50, minRotation: 30 }, grid: { color: '#21262d' } },
+        y: { ticks: { color: '#8b949e', font: { size: 10 } }, grid: { color: '#21262d' } }
+      }
+    }
+  });
+}
+
+// ── Table renderers ───────────────────────────────────────────────────────────
+function renderGainLoss(tbId, rows) {
+  const tb = $(tbId);
+  if (!rows?.length) { tb.innerHTML = emptyRow(6); return; }
+  tb.innerHTML = rows.map((r, i) => `<tr>
+    <td class="m">${i + 1}</td>
+    <td class="sym">${r.security}</td>
+    <td class="r m">${N(r.prevClose)}</td>
+    <td class="r">${N(r.close)}</td>
+    <td class="r">${badge(r.changePct)}</td>
+    <td class="r m">${fmtCr(r.tradeValue)}</td>
+  </tr>`).join('');
+}
+
+function renderTradedVal(rows) {
+  const tb = $('tb-tval');
+  if (!rows?.length) { tb.innerHTML = emptyRow(6); return; }
+  tb.innerHTML = rows.map((r, i) => `<tr>
+    <td class="m">${i + 1}</td>
+    <td class="sym">${r.security}</td>
+    <td class="r">${N(r.close)}</td>
+    <td class="r">${badge(r.changePct)}</td>
+    <td class="r b">${fmtCr(r.tradeValue)}</td>
+    <td class="r m">${r.trades != null ? r.trades.toLocaleString('en-IN') : '—'}</td>
+  </tr>`).join('');
+}
+
+function renderTradedQty(rows) {
+  const tb = $('tb-tqty');
+  if (!rows?.length) { tb.innerHTML = emptyRow(5, 'Quantity data not available'); return; }
+  tb.innerHTML = rows.map((r, i) => `<tr>
+    <td class="m">${i + 1}</td>
+    <td class="sym">${r.security}</td>
+    <td class="r">${N(r.close)}</td>
+    <td class="r">${badge(r.changePct)}</td>
+    <td class="r b">${fmtQty(r.tradeQty)}</td>
+  </tr>`).join('');
+}
+
+function renderVolatile(rows) {
+  const tb = $('tb-vol');
+  if (!rows?.length) { tb.innerHTML = emptyRow(6, 'Volatility data not available'); return; }
+  tb.innerHTML = rows.map((r, i) => `<tr>
+    <td class="m">${i + 1}</td>
+    <td class="sym">${r.security}</td>
+    <td class="r">${N(r.close)}</td>
+    <td class="r">${badge(r.changePct)}</td>
+    <td class="r y">${N(r.rangePct)}%</td>
+    <td class="r m">${fmtCr(r.tradeValue)}</td>
+  </tr>`).join('');
+}
+
+function renderCircuits(uc, lc, ucCnt, lcCnt) {
+  $('uc-cnt').textContent = `(${(ucCnt || 0).toLocaleString('en-IN')})`;
+  $('lc-cnt').textContent = `(${(lcCnt || 0).toLocaleString('en-IN')})`;
+
+  const buildC = (tbId, rows) => {
+    const tb = $(tbId);
+    if (!rows?.length) { tb.innerHTML = emptyRow(4); return; }
+    tb.innerHTML = rows.slice(0, 25).map((r, i) => {
+      const sym  = typeof r === 'string' ? r : r.security;
+      const cl   = typeof r === 'object' ? N(r.close) : '—';
+      const chg  = typeof r === 'object' ? badge(r.changePct) : '—';
+      return `<tr><td class="m">${i+1}</td><td class="sym">${sym}</td><td class="r">${cl}</td><td class="r">${chg}</td></tr>`;
+    }).join('');
+  };
+  buildC('tb-uc', uc);
+  buildC('tb-lc', lc);
+}
+
+function render52(highList, lowList) {
+  const hasH = highList?.length, hasL = lowList?.length;
+  if (!hasH && !hasL) return;
+  $('w52').style.display = 'grid';
+  $('nh-cnt').textContent = hasH ? `(${highList.length})` : '';
+  $('nl-cnt').textContent = hasL ? `(${lowList.length})` : '';
+
+  const tbH = $('tb-nh'), tbL = $('tb-nl');
+  if (!hasH) { tbH.innerHTML = emptyRow(4); }
+  else tbH.innerHTML = highList.slice(0, 15).map(r => `<tr>
+    <td class="sym">${r.security}</td>
+    <td class="r">${N(r.close)}</td>
+    <td class="r g">${N(r.high52)}</td>
+    <td class="r m">${N(r.pctFromHigh)}%</td>
+  </tr>`).join('');
+
+  if (!hasL) { tbL.innerHTML = emptyRow(4); }
+  else tbL.innerHTML = lowList.slice(0, 15).map(r => `<tr>
+    <td class="sym">${r.security}</td>
+    <td class="r">${N(r.close)}</td>
+    <td class="r r">${N(r.low52)}</td>
+    <td class="r m">${N(r.pctFromLow)}%</td>
+  </tr>`).join('');
+}
+
+function renderStats(s, v) {
+  const items = [];
+  if (s) {
+    items.push(
+      { lbl: 'Mean Return',    val: `${sign(s.meanChangePct)}${N(s.meanChangePct)}%`,   cls: colorOf(s.meanChangePct) },
+      { lbl: 'Median Return',  val: `${sign(s.medianChangePct)}${N(s.medianChangePct)}%`, cls: colorOf(s.medianChangePct) },
+      { lbl: 'Std Dev',        val: `${N(s.stdChangePct)}%`,  cls: '' },
+      { lbl: 'P10 → P90',      val: `${N(s.p10Change)}% → +${N(s.p90Change)}%`, cls: '' },
+      { lbl: 'Total Turnover', val: fmtCr(s.totalMarketValue), cls: 'b' },
+    );
+  }
+  if (v && v.medianRangePct != null) {
+    items.push(
+      { lbl: 'Median H–L Range', val: `${N(v.medianRangePct)}%`, cls: 'y' },
+      { lbl: 'High Volatility',  val: (v.highVolatility || 0).toLocaleString('en-IN'), cls: 'y', hint: 'H–L > 5%' },
+    );
+  }
+  $('stats-bar').innerHTML = items.map(it =>
+    `<div class="stat">
+      <div class="lbl">${it.lbl}${it.hint ? ` <span class="m">(${it.hint})</span>` : ''}</div>
+      <div class="val ${it.cls}">${it.val}</div>
+    </div>`
+  ).join('');
+}
+
+// ── Main render ───────────────────────────────────────────────────────────────
+function render(d) {
+  // Header
+  $('hdr-date').textContent = `Trade Date: ${d.date || '—'}`;
+
+  if (d.nifty?.close) {
+    $('n-close').textContent = N(d.nifty.close);
+    const p = d.nifty.changePct;
+    $('n-chg').textContent  = `${sign(p)}${N(d.nifty.change)} (${sign(p)}${N(p)}%)`;
+    $('n-close').className  = `val ${colorOf(p)}`;
+    $('n-chg').className    = `chg ${colorOf(p)}`;
+  }
+
+  // Normalise — support flat (old) and nested (new) data shapes
+  const s = d.summary || d;
+  const g = s.gainers   || 0;
+  const l = s.losers    || 0;
+  const u = s.unchanged || 0;
+  const tot = g + l + u;
+
+  const adRatio    = s.advanceDeclineRatio ?? (l ? +(g / l).toFixed(2) : null);
+  const breadthPct = s.breadthPct         ?? (tot ? +((g / tot) * 100).toFixed(1) : null);
+  const turnover   = s.totalMarketValue   ?? (d.mostTradedByValue || d.mostTraded || []).reduce((a, r) => a + (r.tradeValue || 0), 0);
+
+  // Scorecards
+  $('sc-turn').textContent   = fmtCr(turnover);
+  $('sc-active').textContent = (s.activeRows || d.activeRows || '—').toLocaleString('en-IN');
+  $('sc-active-h').textContent = `of ${(s.totalRows || d.totalRows || '—').toLocaleString('en-IN')} listed`;
+
+  $('sc-ad').textContent   = adRatio != null ? N(adRatio) : '—';
+  $('sc-ad').className     = `val ${adRatio >= 1 ? 'g' : 'r'}`;
+  $('sc-breadth').textContent = breadthPct != null ? `${N(breadthPct, 1)}%` : '—';
+  $('sc-breadth').className   = `val ${breadthPct >= 50 ? 'g' : 'r'}`;
+
+  const uc = d.circuits?.upperCircuitCount ?? d.upperCircuitCount ?? 0;
+  const lc = d.circuits?.lowerCircuitCount ?? d.lowerCircuitCount ?? 0;
+  $('sc-uc').textContent = uc.toLocaleString('en-IN');
+  $('sc-lc').textContent = lc.toLocaleString('en-IN');
+
+  // Breadth chart
+  buildBreadth(g, l, u);
+  if (tot > 0) {
+    const gp = (g / tot * 100).toFixed(1), lp = (l / tot * 100).toFixed(1), up = (u / tot * 100).toFixed(1);
+    $('bbar').innerHTML = `
+      <div class="bbar-g" style="width:${gp}%"></div>
+      <div class="bbar-u" style="width:${up}%"></div>
+      <div class="bbar-l" style="width:${lp}%"></div>`;
+    $('bbar-leg').innerHTML = `
+      <span class="g">▲ ${g.toLocaleString('en-IN')} (${gp}%)</span>
+      <span class="m">— ${u.toLocaleString('en-IN')}</span>
+      <span class="r">▼ ${l.toLocaleString('en-IN')} (${lp}%)</span>`;
+  }
+
+  // Distribution (prefer fine buckets)
+  const dist = d.fineDistribution || d.distribution;
+  if (dist) buildDist(dist.labels, dist.values);
+
+  // Tables
+  renderGainLoss('tb-gainers', d.topGainers);
+  renderGainLoss('tb-losers',  d.topLosers);
+  renderTradedVal(d.mostTradedByValue || d.mostTraded);
+  renderTradedQty(d.mostTradedByQty);
+  renderVolatile(d.volatility?.mostVolatile);
+
+  const ucS = d.circuits?.upperCircuitStocks ?? d.upperCircuitStocks ?? [];
+  const lcS = d.circuits?.lowerCircuitStocks ?? d.lowerCircuitStocks ?? [];
+  renderCircuits(ucS, lcS, uc, lc);
+
+  render52(d.near52High, d.near52Low);
+  renderStats(d.summary || (d.stats ? d : null), d.volatility);
+
+  $('s-loading').style.display = 'none';
+  $('dash').style.display      = 'block';
+}
+
+// ── Fetch ─────────────────────────────────────────────────────────────────────
+fetch('data.json')
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — ${r.statusText}`); return r.json(); })
+  .then(render)
+  .catch(e => {
+    $('s-loading').style.display = 'none';
+    $('s-error').style.display   = 'block';
+    $('err-msg').textContent     = e.message;
+  });
 </script>
 </body>
 </html>
