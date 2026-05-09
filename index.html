@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NSE Bhavcopy Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0b0d11;
+    --surface:  #111318;
+    --border:   #1d2130;
+    --text:     #e8e8e8;
+    --muted:    #555a6e;
+    --up:       #00d97e;
+    --down:     #ff4d6d;
+    --flat:     #888;
+    --accent:   #4f8ef7;
+    --mono:     'DM Mono', monospace;
+    --sans:     'DM Sans', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  #trade-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  #status-pill {
+    margin-left: auto;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  main { padding: 1.5rem 2rem 3rem; max-width: 1200px; margin: 0 auto; }
+
+  /* ── Metrics ── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.75rem;
+  }
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .metric-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .metric-value {
+    font-family: var(--mono);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .metric-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    margin-top: 4px;
+    color: var(--muted);
+  }
+  .up   { color: var(--up); }
+  .down { color: var(--down); }
+
+  /* ── Section head ── */
+  .section-head {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Charts row ── */
+  .charts-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .chart-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem;
+  }
+  .chart-box canvas { display: block; }
+
+  /* ── Tables row ── */
+  .tables-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .table-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem;
+    overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 8px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #161820;
+    font-family: var(--mono);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-family: var(--sans); font-size: 12.5px; white-space: normal; max-width: 160px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10.5px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-family: var(--mono);
+  }
+  .badge-up   { background: rgba(0,217,126,0.12); color: var(--up); }
+  .badge-down { background: rgba(255,77,109,0.12); color: var(--down); }
+
+  /* ── Most traded bar chart ── */
+  .bar-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ── Loading / error ── */
+  #loading {
+    position: fixed; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg);
+    font-family: var(--mono);
+    color: var(--muted);
+    font-size: 14px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .spinner {
+    width: 32px; height: 32px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 700px) {
+    .charts-row, .tables-row { grid-template-columns: 1fr; }
+    main { padding: 1rem; }
+    header { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <span>Loading market data…</span>
+</div>
+
+<header>
+  <h1>📈 NSE Bhavcopy</h1>
+  <span id="trade-date">—</span>
+  <span id="status-pill">Loading…</span>
+</header>
+
+<main id="app" style="display:none">
+
+  <div class="metrics-grid" id="metrics"></div>
+
+  <div class="charts-row">
+    <div class="chart-box">
+      <p class="section-head">Price move distribution</p>
+      <div style="position:relative;height:240px">
+        <canvas id="distChart" role="img" aria-label="Price move distribution bar chart"></canvas>
+      </div>
+    </div>
+    <div class="chart-box">
+      <p class="section-head">Advance / Decline</p>
+      <div style="position:relative;height:240px">
+        <canvas id="adChart" role="img" aria-label="Advance decline doughnut chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="tables-row">
+    <div class="table-box">
+      <p class="section-head">Top 10 gainers</p>
+      <table id="gainers-table">
+        <thead><tr><th>Security</th><th>Change</th><th>Close</th><th>Value</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="table-box">
+      <p class="section-head">Top 10 losers</p>
+      <table id="losers-table">
+        <thead><tr><th>Security</th><th>Change</th><th>Close</th><th>Value</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="bar-box">
+    <p class="section-head">Most traded by value — top 15 equities</p>
+    <div style="position:relative" id="barWrap">
+      <canvas id="barChart" role="img" aria-label="Most traded securities by value"></canvas>
+    </div>
+  </div>
+
+</main>
+
+<script>
+const fmt = {
+  price: v => '₹' + Number(v).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2}),
+  crore: v => '₹' + (v / 1e7).toFixed(1) + 'Cr',
+  pct:   v => (v >= 0 ? '+' : '') + Number(v).toFixed(2) + '%',
+  num:   v => Number(v).toLocaleString('en-IN'),
+};
+
+async function init() {
+  try {
+    const res  = await fetch('data.json?t=' + Date.now());
+    if (!res.ok) throw new Error('data.json not found');
+    const d = await res.json();
+    render(d);
+  } catch(e) {
+    document.getElementById('loading').innerHTML =
+      '<span style="color:#ff4d6d">⚠ Could not load data.json — run fetch_and_process.py first</span>';
+  }
+}
+
+function render(d) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('app').style.display = '';
+  document.getElementById('trade-date').textContent = d.date || '';
+  document.getElementById('status-pill').textContent =
+    `${fmt.num(d.activeRows)} securities traded`;
+
+  // ── Metrics ──
+  const n = d.nifty;
+  const niftyClass = n.change >= 0 ? 'up' : 'down';
+  const niftyArrow = n.change >= 0 ? '▲' : '▼';
+  const mets = [
+    { label: 'Nifty 50',      value: fmt.price(n.close).replace('₹',''),
+      sub: `<span class="${niftyClass}">${niftyArrow} ${Math.abs(n.change).toFixed(2)} (${Math.abs(n.changePct).toFixed(2)}%)</span>`,
+      cls: niftyClass },
+    { label: 'Advances',  value: fmt.num(d.gainers),   sub: 'gainers today', cls: 'up' },
+    { label: 'Declines',  value: fmt.num(d.losers),    sub: 'losers today',  cls: 'down' },
+    { label: 'Unchanged', value: fmt.num(d.unchanged), sub: 'flat close',    cls: '' },
+    { label: 'Near 52w High', value: fmt.num(d.nearHigh), sub: 'within 3%',  cls: 'up' },
+    { label: 'Near 52w Low',  value: fmt.num(d.nearLow),  sub: 'within 3%',  cls: 'down' },
+  ];
+  document.getElementById('metrics').innerHTML = mets.map(m => `
+    <div class="metric">
+      <div class="metric-label">${m.label}</div>
+      <div class="metric-value ${m.cls}">${m.value}</div>
+      <div class="metric-sub">${m.sub}</div>
+    </div>`).join('');
+
+  // ── Distribution chart ──
+  const distColors = ['#ff4d6d','#ff6b82','#ff8fa0','#ffb8c3','#9de8c4','#4dd9a0','#00d97e','#00b068'];
+  new Chart(document.getElementById('distChart'), {
+    type: 'bar',
+    data: {
+      labels: d.distribution.labels,
+      datasets: [{ data: d.distribution.values, backgroundColor: distColors,
+                   borderRadius: 4, borderSkipped: false }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+                 tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y.toLocaleString()} securities` } } },
+      scales: {
+        x: { ticks: { color: '#555a6e', font: { size: 10 }, maxRotation: 30 }, grid: { color: '#1d2130' } },
+        y: { ticks: { color: '#555a6e', font: { size: 10 } }, grid: { color: '#1d2130' } }
+      }
+    }
+  });
+
+  // ── A/D doughnut ──
+  const adChart = new Chart(document.getElementById('adChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Advances', 'Declines', 'Unchanged'],
+      datasets: [{ data: [d.gainers, d.losers, d.unchanged],
+                   backgroundColor: ['#00d97e','#ff4d6d','#333845'], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      plugins: {
+        legend: { position: 'bottom',
+                  labels: { color: '#555a6e', font: { size: 11 }, boxWidth: 10, padding: 14 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed.toLocaleString()}` } }
+      }
+    }
+  });
+  // Centre annotation
+  const pct = Math.round(d.gainers / (d.gainers + d.losers + d.unchanged) * 100);
+  Chart.register({
+    id: 'adAnnotation',
+    afterDraw(chart) {
+      if (chart !== adChart) return;
+      const { ctx, chartArea: { top, bottom, left, right } } = chart;
+      const cx = (left + right) / 2, cy = (top + bottom) / 2;
+      ctx.save();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#e8e8e8'; ctx.font = '500 16px DM Mono, monospace';
+      ctx.fillText(pct + '%', cx, cy - 8);
+      ctx.fillStyle = '#555a6e'; ctx.font = '11px DM Sans, sans-serif';
+      ctx.fillText('advances', cx, cy + 10);
+      ctx.restore();
+    }
+  });
+
+  // ── Gainers table ──
+  const gainTbody = document.querySelector('#gainers-table tbody');
+  d.topGainers.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.security}</td>
+      <td><span class="badge badge-up">${fmt.pct(r.changePct)}</span></td>
+      <td>${fmt.price(r.close)}</td>
+      <td>${fmt.crore(r.tradeValue)}</td>`;
+    gainTbody.appendChild(tr);
+  });
+
+  // ── Losers table ──
+  const loseTbody = document.querySelector('#losers-table tbody');
+  d.topLosers.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.security}</td>
+      <td><span class="badge badge-down">${fmt.pct(r.changePct)}</span></td>
+      <td>${fmt.price(r.close)}</td>
+      <td>${fmt.crore(r.tradeValue)}</td>`;
+    loseTbody.appendChild(tr);
+  });
+
+  // ── Most traded bar chart ──
+  const labels = d.mostTraded.map(r => r.security);
+  const values = d.mostTraded.map(r => r.tradeValue / 1e9);
+  const barColors = d.mostTraded.map(r => r.changePct >= 0 ? '#00d97e' : '#ff4d6d');
+  document.getElementById('barWrap').style.height = (d.mostTraded.length * 38 + 60) + 'px';
+  new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ data: values, backgroundColor: barColors,
+                   borderRadius: 3, borderSkipped: false }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+                 tooltip: { callbacks: { label: ctx => ` ₹${ctx.parsed.x.toFixed(2)}B` } } },
+      scales: {
+        x: { ticks: { color: '#555a6e', font: { size: 10 },
+                      callback: v => '₹' + v.toFixed(1) + 'B' },
+             grid: { color: '#1d2130' } },
+        y: { ticks: { color: '#ccc', font: { size: 11 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+init();
+</script>
+</body>
+</html>
