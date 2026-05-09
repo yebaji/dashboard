@@ -28,6 +28,64 @@ NSE_HEADERS = {
     "Referer": "https://www.nseindia.com/",
 }
 
+# Maps known alternate column names → canonical names used in this script.
+# Add more entries here if NSE renames further columns in future.
+COLUMN_ALIASES = {
+    # Prev close variants
+    "PREVCLOSE":    "PREV_CL_PR",
+    "PREV_CLOSE":   "PREV_CL_PR",
+    "PREVCLOSE_PR": "PREV_CL_PR",
+    # Open variants
+    "OPEN":         "OPEN_PRICE",
+    "OPENPRICE":    "OPEN_PRICE",
+    # High / Low variants
+    "HIGH":         "HIGH_PRICE",
+    "HIGHPRICE":    "HIGH_PRICE",
+    "LOW":          "LOW_PRICE",
+    "LOWPRICE":     "LOW_PRICE",
+    # Close variants
+    "CLOSE":        "CLOSE_PRICE",
+    "CLOSEPRICE":   "CLOSE_PRICE",
+    "LAST":         "CLOSE_PRICE",
+    "LAST_PRICE":   "CLOSE_PRICE",
+    # Volume / value variants
+    "TOTTRDVAL":    "NET_TRDVAL",
+    "TOTALTRDVAL":  "NET_TRDVAL",
+    "TOTTRDQTY":    "NET_TRDQTY",
+    "TOTALTRDQTY":  "NET_TRDQTY",
+    # 52-week variants
+    "52WH":         "HI_52_WK",
+    "52WL":         "LO_52_WK",
+    "HIGH52":       "HI_52_WK",
+    "LOW52":        "LO_52_WK",
+    # Security / symbol variants
+    "SYMBOL":       "SECURITY",
+    "SCRIP_NM":     "SECURITY",
+    # Market / series variants
+    "SERIES":       "MKT",
+    # Trade count variants
+    "TOTALTRADES":  "TRADES",
+    "TOTTRADES":    "TRADES",
+    "NO_OF_TRADES": "TRADES",
+}
+
+
+def normalise_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Strip whitespace from column names and remap any known aliases
+    to the canonical column names expected by process().
+    Prints a warning for each remapped column so it's visible in CI logs.
+    """
+    df.columns = df.columns.str.strip()
+    rename_map = {}
+    for col in df.columns:
+        canonical = COLUMN_ALIASES.get(col.upper())
+        if canonical and canonical not in df.columns:
+            rename_map[col] = canonical
+    if rename_map:
+        print(f"  ↳ Column rename applied: {rename_map}")
+    return df.rename(columns=rename_map)
+
 
 def bhavcopy_urls(d: date) -> list:
     """
@@ -65,7 +123,9 @@ def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
                         csv_name = z.namelist()[0]
                         with z.open(csv_name) as f:
                             df = pd.read_csv(f)
+                    df = normalise_columns(df)
                     print(f"✓ Fetched bhavcopy for {trade_date} ({len(df)} rows)")
+                    print(f"  Columns: {list(df.columns)}")
                     return df, trade_date
                 else:
                     print(f"  HTTP {resp.status_code} — skipping")
@@ -78,13 +138,20 @@ def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
 # ── Processing ─────────────────────────────────────────────────────────────────
 
 def process(df: pd.DataFrame) -> dict:
+    # Only coerce columns that actually exist; warn about any that are missing.
     num_cols = [
         "PREV_CL_PR", "OPEN_PRICE", "HIGH_PRICE", "LOW_PRICE",
         "CLOSE_PRICE", "NET_TRDVAL", "NET_TRDQTY", "TRADES",
         "HI_52_WK", "LO_52_WK",
     ]
+    missing = [c for c in num_cols if c not in df.columns]
+    if missing:
+        print(f"  WARNING: expected columns not found after normalisation: {missing}")
+        print(f"  Available columns: {list(df.columns)}")
+
     for c in num_cols:
-        df[c] = pd.to_numeric(df[c], errors="coerce")
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
 
     active = df[df["TRADES"] > 0].copy()
     active["CHANGE"]     = active["CLOSE_PRICE"] - active["PREV_CL_PR"]
