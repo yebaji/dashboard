@@ -1,4 +1,4 @@
-# NSE Bhavcopy Dashboard
+# NSE Dashboard
 
 Automated daily dashboard for NSE CM bhavcopy data.  
 Fetches data → processes it → publishes to GitHub Pages. Zero servers, zero cost.
