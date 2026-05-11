@@ -100,7 +100,7 @@ def bhavcopy_urls(d: date) -> list:
 
 def fetch_latest_bhavcopy() -> tuple[pd.DataFrame, date]:
     session = requests.Session()
-    session.get("https://www.nseindia.com", headers=NSE_HEADERS, timeout=10)
+    session.get("https://www.nseindia.com/all-reports", headers=NSE_HEADERS, timeout=10)
 
     for days_back in range(1, 11):
         trade_date = date.today() - timedelta(days=days_back)
