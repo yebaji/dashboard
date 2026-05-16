@@ -109,6 +109,9 @@ tr:hover td { background: var(--surface2); }
 .bg-g { background: var(--green-bg); color: var(--green); }
 .bg-r { background: var(--red-bg);   color: var(--red); }
 .bg-m { background: var(--surface2); color: var(--muted); }
+.close-g { color: var(--green); }
+.close-r { color: var(--red); }
+.close-m { color: var(--muted); }
 
 /* ── Split panel (circuits) ── */
 .split { display: grid; grid-template-columns: 1fr 1fr; }
@@ -362,6 +365,7 @@ function badge(pct) {
 }
 
 function colorOf(v) { return v > 0 ? 'g' : v < 0 ? 'r' : 'm'; }
+function closeColor(v) { return v > 0 ? 'close-g' : v < 0 ? 'close-r' : 'close-m'; }
 
 function emptyRow(cols, msg = 'No data available') {
   return `<tr><td colspan="${cols}" class="empty">${msg}</td></tr>`;
@@ -426,7 +430,7 @@ function renderGainLoss(tbId, rows) {
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
     <td class="r m">${N(r.prevClose)}</td>
-    <td class="r ${colorOf(r.changePct)}">${N(r.close)}</td>
+    <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r">${badge(r.changePct)}</td>
     <td class="r m">${fmtCr(r.tradeValue)}</td>
   </tr>`).join('');
@@ -438,7 +442,7 @@ function renderTradedVal(rows) {
   tb.innerHTML = rows.map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
-    <td class="r ${colorOf(r.changePct)}">${N(r.close)}</td>
+    <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r">${badge(r.changePct)}</td>
     <td class="r b">${fmtCr(r.tradeValue)}</td>
     <td class="r m">${r.trades != null ? r.trades.toLocaleString('en-IN') : '—'}</td>
@@ -451,7 +455,7 @@ function renderTradedQty(rows) {
   tb.innerHTML = rows.map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
-    <td class="r ${colorOf(r.changePct)}">${N(r.close)}</td>
+    <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r">${badge(r.changePct)}</td>
     <td class="r b">${fmtQty(r.tradeQty)}</td>
   </tr>`).join('');
@@ -463,7 +467,7 @@ function renderVolatile(rows) {
   tb.innerHTML = rows.map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
-    <td class="r ${colorOf(r.changePct)}">${N(r.close)}</td>
+    <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r">${badge(r.changePct)}</td>
     <td class="r y">${N(r.rangePct)}%</td>
     <td class="r m">${fmtCr(r.tradeValue)}</td>
@@ -481,7 +485,7 @@ function renderCircuits(uc, lc, ucCnt, lcCnt) {
       const sym  = typeof r === 'string' ? r : r.security;
       const cl   = typeof r === 'object' ? N(r.close) : '—';
       const chg  = typeof r === 'object' ? badge(r.changePct) : '—';
-      return `<tr><td class="m">${i+1}</td><td class="sym">${sym}</td><td class="r ${colorOf(typeof r === 'object' ? r.changePct : 0)}">${cl}</td><td class="r">${chg}</td></tr>`;
+      return `<tr><td class="m">${i+1}</td><td class="sym">${sym}</td><td class="r ${closeColor(typeof r === 'object' ? r.changePct : 0)}">${cl}</td><td class="r">${chg}</td></tr>`;
     }).join('');
   };
   buildC('tb-uc', uc);
@@ -499,7 +503,7 @@ function render52(highList, lowList) {
   if (!hasH) { tbH.innerHTML = emptyRow(4); }
   else tbH.innerHTML = highList.slice(0, 15).map(r => `<tr>
     <td class="sym">${r.security}</td>
-    <td class="r ${colorOf(r.changePct)}">${N(r.close)}</td>
+    <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r g">${N(r.high52)}</td>
     <td class="r m">${N(r.pctFromHigh)}%</td>
   </tr>`).join('');
@@ -507,7 +511,7 @@ function render52(highList, lowList) {
   if (!hasL) { tbL.innerHTML = emptyRow(4); }
   else tbL.innerHTML = lowList.slice(0, 15).map(r => `<tr>
     <td class="sym">${r.security}</td>
-    <td class="r ${colorOf(r.changePct)}">${N(r.close)}</td>
+    <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r r">${N(r.low52)}</td>
     <td class="r m">${N(r.pctFromLow)}%</td>
   </tr>`).join('');
