@@ -34,4 +34,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
           git diff --cached --quiet || git commit -m "chore: update bhavcopy data $(date +'%Y-%m-%d')"
+          git fetch origin main
+          git rebase origin/main
           git push
+
+  
