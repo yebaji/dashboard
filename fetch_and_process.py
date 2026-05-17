@@ -10,6 +10,7 @@ Run by CI:      same command, triggered by GitHub Actions on a schedule
 
 import io
 import json
+import re
 import zipfile
 from datetime import date, timedelta
 
@@ -17,6 +18,31 @@ import pandas as pd
 import requests
 
 # ── NSE URL helpers ────────────────────────────────────────────────────────────
+
+
+# ── NIFTY 500 symbol list ─────────────────────────────────────────────────────
+
+NIFTY500_FILE = "NSE500.csv"
+
+def load_nifty500_symbols(path: str = NIFTY500_FILE) -> set:
+    """Return the set of NIFTY 500 symbols from NSE500.csv."""
+    symbols = set()
+    try:
+        with open(path, encoding="utf-8-sig") as f:
+            for i, line in enumerate(f):
+                if i == 0:
+                    continue  # skip header
+                sym = line.split(",")[0].strip().strip('"')
+                if sym:
+                    symbols.add(sym)
+        print(f"  Loaded {len(symbols)} NIFTY 500 symbols from {path}")
+    except FileNotFoundError:
+        print(f"  WARNING: {path} not found — no symbol filtering will be applied")
+    return symbols
+
+def has_digit(sym: str) -> bool:
+    """Return True if the symbol contains any digit (bond/debt instrument)."""
+    return bool(re.search(r"\d", str(sym)))
 
 NSE_HEADERS = {
     "User-Agent": (
@@ -252,7 +278,7 @@ def process(df: pd.DataFrame) -> dict:
                 "rangePct":  safe_float(r["HL_RANGE_PCT"]),
                 "tradeValue": round(float(r["NET_TRDVAL"]), 0) if "NET_TRDVAL" in active.columns else None,
             }
-            for _, r in valid_vol.nlargest(15, "HL_RANGE_PCT").iterrows()
+            for _, r in valid_vol.nlargest(25, "HL_RANGE_PCT").iterrows()
         ]
         volatility = {
             "medianRangePct": round(float(valid_vol["HL_RANGE_PCT"].median()), 2),
@@ -309,7 +335,7 @@ def process(df: pd.DataFrame) -> dict:
         ]
 
     # ── Top gainers / losers ──────────────────────────────────────────────────
-    def top_rows(frame, col, n=10, ascending=False):
+    def top_rows(frame, col, n=25, ascending=False):
         fn = frame.nsmallest if ascending else frame.nlargest
         rows = []
         for _, r in fn(n, col).iterrows():
@@ -338,7 +364,7 @@ def process(df: pd.DataFrame) -> dict:
             "tradeValue": round(float(r["NET_TRDVAL"]), 0),
             "trades":     int(r["TRADES"]) if "TRADES" in equity.columns and pd.notna(r["TRADES"]) else None,
         }
-        for _, r in equity.nlargest(15, "NET_TRDVAL").iterrows()
+        for _, r in equity.nlargest(25, "NET_TRDVAL").iterrows()
         if "NET_TRDVAL" in equity.columns
     ]
 
@@ -351,7 +377,7 @@ def process(df: pd.DataFrame) -> dict:
                 "changePct": safe_float(r["CHANGE_PCT"]),
                 "tradeQty":  int(r["NET_TRDQTY"]) if pd.notna(r["NET_TRDQTY"]) else None,
             }
-            for _, r in equity.nlargest(15, "NET_TRDQTY").iterrows()
+            for _, r in equity.nlargest(25, "NET_TRDQTY").iterrows()
         ]
 
     return {
@@ -380,6 +406,16 @@ def process(df: pd.DataFrame) -> dict:
 
 if __name__ == "__main__":
     df, trade_date = fetch_latest_bhavcopy()
+
+    # ── Filter to NIFTY 500 symbols only ──────────────────────────────────────
+    nifty500 = load_nifty500_symbols()
+    if nifty500 and "SECURITY" in df.columns:
+        before = len(df)
+        df = df[df["SECURITY"].isin(nifty500)].copy()
+        print(f"  Filtered bhavcopy: {before} rows → {len(df)} rows (NIFTY 500 only)")
+    else:
+        print("  WARNING: Skipping NIFTY 500 filter (no symbols loaded or SECURITY column missing)")
+
     data = process(df)
     data["date"] = trade_date.strftime("%d %b %Y")
 
