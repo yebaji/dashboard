@@ -427,7 +427,7 @@ function buildDist(labels, values) {
 function renderGainLoss(tbId, rows) {
   const tb = $(tbId);
   if (!rows?.length) { tb.innerHTML = emptyRow(6); return; }
-  tb.innerHTML = rows.map((r, i) => `<tr>
+  tb.innerHTML = rows.slice(0, 25).map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
     <td class="r m">${N(r.prevClose)}</td>
@@ -440,7 +440,7 @@ function renderGainLoss(tbId, rows) {
 function renderTradedVal(rows) {
   const tb = $('tb-tval');
   if (!rows?.length) { tb.innerHTML = emptyRow(6); return; }
-  tb.innerHTML = rows.map((r, i) => `<tr>
+  tb.innerHTML = rows.slice(0, 25).map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
     <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
@@ -453,7 +453,7 @@ function renderTradedVal(rows) {
 function renderTradedQty(rows) {
   const tb = $('tb-tqty');
   if (!rows?.length) { tb.innerHTML = emptyRow(5, 'Quantity data not available'); return; }
-  tb.innerHTML = rows.map((r, i) => `<tr>
+  tb.innerHTML = rows.slice(0, 25).map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
     <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
@@ -465,7 +465,7 @@ function renderTradedQty(rows) {
 function renderVolatile(rows) {
   const tb = $('tb-vol');
   if (!rows?.length) { tb.innerHTML = emptyRow(6, 'Volatility data not available'); return; }
-  tb.innerHTML = rows.map((r, i) => `<tr>
+  tb.innerHTML = rows.slice(0, 25).map((r, i) => `<tr>
     <td class="m">${i + 1}</td>
     <td class="sym">${r.security}</td>
     <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
@@ -502,7 +502,7 @@ function render52(highList, lowList) {
 
   const tbH = $('tb-nh'), tbL = $('tb-nl');
   if (!hasH) { tbH.innerHTML = emptyRow(4); }
-  else tbH.innerHTML = highList.slice(0, 15).map(r => `<tr>
+  else tbH.innerHTML = highList.slice(0, 25).map(r => `<tr>
     <td class="sym">${r.security}</td>
     <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r g">${N(r.high52)}</td>
@@ -510,7 +510,7 @@ function render52(highList, lowList) {
   </tr>`).join('');
 
   if (!hasL) { tbL.innerHTML = emptyRow(4); }
-  else tbL.innerHTML = lowList.slice(0, 15).map(r => `<tr>
+  else tbL.innerHTML = lowList.slice(0, 25).map(r => `<tr>
     <td class="sym">${r.security}</td>
     <td class="r ${closeColor(r.changePct)}">${N(r.close)}</td>
     <td class="r r">${N(r.low52)}</td>
