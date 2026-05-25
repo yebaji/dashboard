@@ -3,7 +3,7 @@ name: Fetch & publish NSE bhavcopy
 on:
   schedule:
     # 11:30 UTC = 5:00 PM IST — 60 min after NSE market close
-    - cron: "0 11 * * 1-5"
+    - cron: "30 11 * * 1-5"
   workflow_dispatch: # allow manual trigger from GitHub UI
 
 permissions:
