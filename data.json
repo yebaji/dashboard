@@ -1,2412 +1,2212 @@
 {
   "nifty": {},
   "summary": {
-    "totalRows": 3756,
-    "activeRows": 3756,
-    "gainers": 1751,
-    "losers": 1898,
-    "unchanged": 107,
-    "advanceDeclineRatio": 0.92,
-    "breadthPct": 46.6,
-    "totalMarketValue": 1210250729991.0,
-    "meanChangePct": 0.05,
-    "medianChangePct": -0.02,
-    "stdChangePct": 3.34,
-    "p10Change": -2.62,
-    "p90Change": 2.69
+    "totalRows": 3702,
+    "activeRows": 3702,
+    "gainers": 1028,
+    "losers": 2584,
+    "unchanged": 90,
+    "advanceDeclineRatio": 0.4,
+    "breadthPct": 27.8,
+    "totalMarketValue": 1083419663756.0,
+    "meanChangePct": -0.85,
+    "medianChangePct": -0.89,
+    "stdChangePct": 2.48,
+    "p10Change": -3.48,
+    "p90Change": 1.61
   },
   "circuits": {
-    "upperCircuitCount": 203,
-    "lowerCircuitCount": 238,
+    "upperCircuitCount": 160,
+    "lowerCircuitCount": 241,
     "upperCircuitStocks": [
       {
-        "security": "SGBOCT27",
-        "close": 13699.0,
-        "changePct": 1.11
-      },
-      {
-        "security": "743REC35",
-        "close": 1156.0,
-        "changePct": 0.09
-      },
-      {
-        "security": "751HUDCO28",
-        "close": 1079.0,
-        "changePct": 0.18
-      },
-      {
-        "security": "764HUDCO31",
-        "close": 1148.0,
-        "changePct": 0.26
-      },
-      {
-        "security": "812REC27",
-        "close": 1031.95,
-        "changePct": 0.0
-      },
-      {
-        "security": "875NHAI29",
-        "close": 1133.0,
-        "changePct": 0.34
-      },
-      {
-        "security": "879NHPC28",
-        "close": 1122.0,
-        "changePct": 1.01
-      },
-      {
-        "security": "891NTPC33",
-        "close": 1320.0,
-        "changePct": 0.34
-      },
-      {
-        "security": "892NHPC33",
-        "close": 1285.0,
-        "changePct": 0.19
-      },
-      {
-        "security": "892PFCL33",
-        "close": 1225.5,
-        "changePct": 0.04
-      },
-      {
-        "security": "AAKAAR",
-        "close": 66.0,
-        "changePct": 0.61
-      },
-      {
-        "security": "AARADHYA",
-        "close": 121.95,
-        "changePct": 3.79
-      },
-      {
-        "security": "ABMINTLLTD",
-        "close": 41.12,
-        "changePct": 1.51
-      },
-      {
-        "security": "ADANIENSOL",
-        "close": 1493.7,
-        "changePct": 2.83
-      },
-      {
-        "security": "AEL12126",
-        "close": 1055.0,
-        "changePct": 1.25
-      },
-      {
-        "security": "AEL170725A",
-        "close": 1100.0,
-        "changePct": 0.55
-      },
-      {
-        "security": "860AEL28",
-        "close": 1062.99,
-        "changePct": 0.21
-      },
-      {
-        "security": "AESTHETIK",
-        "close": 73.0,
-        "changePct": 2.82
-      },
-      {
-        "security": "1150AFIL29",
-        "close": 9978.5,
-        "changePct": 0.78
-      },
-      {
-        "security": "ALMONDZ",
-        "close": 18.06,
-        "changePct": 5.0
-      },
-      {
-        "security": "ALUFLUOR",
-        "close": 690.35,
-        "changePct": 5.0
-      },
-      {
-        "security": "AMBAAUTO",
-        "close": 100.5,
-        "changePct": 2.76
-      },
-      {
-        "security": "AMBANIORGO",
-        "close": 189.9,
-        "changePct": 1.55
-      },
-      {
-        "security": "ANYA",
-        "close": 17.4,
-        "changePct": 0.29
-      },
-      {
-        "security": "930APMD33",
-        "close": 106852.0,
-        "changePct": 0.11
-      },
-      {
-        "security": "APSISAERO",
-        "close": 516.35,
-        "changePct": 2.0
-      },
-      {
-        "security": "ARABIAN",
-        "close": 113.85,
-        "changePct": 1.65
-      },
-      {
-        "security": "ADL",
-        "close": 71.0,
-        "changePct": 0.71
-      },
-      {
-        "security": "ASPIRE",
-        "close": 16.8,
-        "changePct": 5.0
-      },
-      {
-        "security": "105ASPL28",
-        "close": 10131.81,
-        "changePct": 0.26
-      },
-      {
-        "security": "BNALTD",
-        "close": 424.0,
-        "changePct": 0.95
-      },
-      {
-        "security": "BALAXI",
-        "close": 26.47,
-        "changePct": 19.99
-      },
-      {
-        "security": "BARFLEX",
-        "close": 59.95,
-        "changePct": 1.7
-      },
-      {
-        "security": "BHAGYANGR",
-        "close": 90.02,
-        "changePct": 4.99
-      },
-      {
-        "security": "GROWW",
-        "close": 219.0,
-        "changePct": 119.0
-      },
-      {
-        "security": "888NHB29",
-        "close": 5677.1,
-        "changePct": 0.04
-      },
-      {
-        "security": "BRANDMAN",
-        "close": 145.0,
-        "changePct": 1.4
-      },
-      {
-        "security": "CPS",
-        "close": 981.5,
-        "changePct": 5.0
-      },
-      {
-        "security": "CADSYS",
-        "close": 32.85,
-        "changePct": 4.95
-      },
-      {
-        "security": "CTE",
-        "close": 42.38,
-        "changePct": 4.98
-      },
-      {
-        "security": "CHETANA",
-        "close": 36.45,
-        "changePct": 4.89
-      },
-      {
-        "security": "CHOLAFIN",
-        "close": 1884.7,
-        "changePct": 1.89
-      },
-      {
-        "security": "CUBEXTUB",
-        "close": 211.25,
-        "changePct": 2.0
-      },
-      {
-        "security": "DCMFINSERV",
-        "close": 4.97,
-        "changePct": 6.88
-      },
-      {
-        "security": "DSKULKARNI",
-        "close": 46.12,
-        "changePct": 1.99
-      },
-      {
-        "security": "GSEC10ADD",
-        "close": 26.62,
-        "changePct": 0.04
-      },
-      {
-        "security": "MIDBANKADD",
-        "close": 17.15,
-        "changePct": 1.18
-      },
-      {
-        "security": "DUGLOBAL",
-        "close": 24.0,
-        "changePct": 3.23
-      },
-      {
-        "security": "ENSER",
-        "close": 13.15,
-        "changePct": 4.37
-      },
-      {
-        "security": "FASCINATE",
-        "close": 147.3,
-        "changePct": 4.99
-      },
-      {
-        "security": "FLEXITUFF",
-        "close": 5.11,
-        "changePct": 9.89
-      },
-      {
-        "security": "GTECJAINX",
-        "close": 31.52,
-        "changePct": 5.0
-      },
-      {
-        "security": "GAJANAND",
-        "close": 7.2,
-        "changePct": 20.0
-      },
-      {
-        "security": "GALLANTT",
-        "close": 527.0,
-        "changePct": 4.77
-      },
-      {
-        "security": "GRCL",
-        "close": 670.0,
-        "changePct": 1.36
-      },
-      {
-        "security": "GIRIRAJ",
-        "close": 50.0,
-        "changePct": 1.63
-      },
-      {
-        "security": "591GS2028",
-        "close": 101.02,
-        "changePct": 0.12
-      },
-      {
-        "security": "636GS2031",
-        "close": 98.23,
-        "changePct": 0.02
-      },
-      {
-        "security": "653GS2031",
-        "close": 100.0,
-        "changePct": 3.09
-      },
-      {
-        "security": "702GS2027",
-        "close": 103.7,
-        "changePct": 1.02
-      },
-      {
-        "security": "706GS2028",
-        "close": 101.24,
-        "changePct": 0.24
-      },
-      {
-        "security": "717GS2030",
-        "close": 101.95,
-        "changePct": 1.19
-      },
-      {
-        "security": "619GS2034",
-        "close": 93.14,
-        "changePct": 0.68
-      },
-      {
-        "security": "772GS2049",
-        "close": 112.97,
-        "changePct": 2.5
-      },
-      {
-        "security": "91D031226",
-        "close": 99.69,
-        "changePct": 0.63
-      },
-      {
-        "security": "GRADIENTE",
-        "close": 1.98,
-        "changePct": 4.76
-      },
-      {
-        "security": "GJL",
-        "close": 465.0,
-        "changePct": 0.54
-      },
-      {
-        "security": "HBESD",
-        "close": 83.94,
-        "changePct": 3.03
-      },
-      {
-        "security": "HAPPYFORGE",
-        "close": 1845.0,
-        "changePct": 61.14
-      },
-      {
-        "security": "HAPPY",
-        "close": 66.75,
-        "changePct": 0.38
-      },
-      {
-        "security": "HEXATRADEX",
-        "close": 154.99,
-        "changePct": 0.46
-      },
-      {
-        "security": "HIMALAYAN",
-        "close": 71.25,
-        "changePct": 7.3
-      },
-      {
-        "security": "HISARMETAL",
-        "close": 149.99,
-        "changePct": 1.14
-      },
-      {
-        "security": "HPTL",
-        "close": 566.0,
-        "changePct": 3.1
-      },
-      {
-        "security": "837IIFL28",
-        "close": 1000.0,
-        "changePct": 0.5
-      },
-      {
-        "security": "865IIFL31",
-        "close": 982.01,
-        "changePct": 0.21
-      },
-      {
-        "security": "870IIFL28",
-        "close": 1040.0,
-        "changePct": 0.31
-      },
-      {
-        "security": "INDGN",
-        "close": 655.0,
-        "changePct": 11.02
-      },
-      {
-        "security": "IPHL",
-        "close": 93.8,
-        "changePct": 19.95
-      },
-      {
-        "security": "INDIFRA",
-        "close": 11.05,
-        "changePct": 4.74
-      },
-      {
-        "security": "INNOMET",
-        "close": 395.35,
-        "changePct": 2.0
-      },
-      {
-        "security": "INSPIRE",
-        "close": 13.2,
-        "changePct": 2.72
-      },
-      {
-        "security": "INVICTA",
-        "close": 78.9,
-        "changePct": 2.6
-      },
-      {
-        "security": "925ISF29",
-        "close": 9914.7,
-        "changePct": 0.86
-      },
-      {
-        "security": "JAINIK",
-        "close": 160.0,
-        "changePct": 0.25
-      },
-      {
-        "security": "JFLLIFE",
-        "close": 12.95,
-        "changePct": 1.17
-      },
-      {
-        "security": "KODYTECH",
-        "close": 1731.85,
-        "changePct": 5.0
-      },
-      {
-        "security": "KRIDHANINF",
-        "close": 2.06,
-        "changePct": 4.57
-      },
-      {
-        "security": "LYKALABS",
-        "close": 88.03,
-        "changePct": 1.99
-      },
-      {
-        "security": "MAKS",
-        "close": 14.15,
-        "changePct": 4.81
-      },
-      {
-        "security": "MIEL",
-        "close": 11.9,
-        "changePct": 1.71
-      },
-      {
-        "security": "MANILAM",
-        "close": 32.5,
-        "changePct": 0.46
-      },
-      {
-        "security": "MARICO",
-        "close": 924.0,
-        "changePct": 1.13
-      },
-      {
-        "security": "MAXVOLT",
-        "close": 426.05,
-        "changePct": 4.99
-      },
-      {
-        "security": "MAXENGS",
-        "close": 296.3,
-        "changePct": 5.0
-      },
-      {
-        "security": "MCON",
-        "close": 36.1,
-        "changePct": 0.28
-      },
-      {
-        "security": "MMWL",
-        "close": 19.95,
-        "changePct": 5.0
-      },
-      {
-        "security": "MEP",
-        "close": 0.67,
-        "changePct": 1.52
-      },
-      {
-        "security": "METALIC",
-        "close": 139.0,
-        "changePct": 4.98
-      },
-      {
-        "security": "GSEC10YEAR",
-        "close": 30.26,
-        "changePct": 1.07
-      },
-      {
-        "security": "MODTHREAD",
-        "close": 55.92,
-        "changePct": 20.0
-      },
-      {
-        "security": "MMEL",
-        "close": 38.1,
-        "changePct": 4.96
-      },
-      {
-        "security": "MYSORPETRO",
-        "close": 124.75,
-        "changePct": 1.4
-      },
-      {
-        "security": "NDRINVIT",
-        "close": 151.75,
-        "changePct": 2.87
-      },
-      {
-        "security": "NEELAM",
-        "close": 6.8,
-        "changePct": 4.62
-      },
-      {
-        "security": "NFPSAMPOOR",
-        "close": 19.75,
-        "changePct": 4.5
-      },
-      {
-        "security": "NIDAN",
-        "close": 13.25,
-        "changePct": 6.0
-      },
-      {
-        "security": "NIKITA",
-        "close": 79.9,
-        "changePct": 4.99
-      },
-      {
-        "security": "NIRAJISPAT",
-        "close": 262.09,
-        "changePct": 5.0
-      },
-      {
-        "security": "ONYX",
-        "close": 39.55,
-        "changePct": 4.91
-      },
-      {
-        "security": "PROPEQUITY",
-        "close": 184.85,
-        "changePct": 5.63
-      },
-      {
-        "security": "PALASHSECU",
-        "close": 80.0,
-        "changePct": 1.91
-      },
-      {
-        "security": "PANACHE",
-        "close": 787.85,
-        "changePct": 1.99
-      },
-      {
-        "security": "PANSARI",
-        "close": 274.95,
-        "changePct": 0.97
-      },
-      {
-        "security": "PAPADMALJI",
-        "close": 51.2,
-        "changePct": 4.17
-      },
-      {
-        "security": "PSFL",
-        "close": 26.95,
-        "changePct": 2.67
-      },
-      {
-        "security": "PARTH",
-        "close": 502.95,
+        "security": "760PFCL35",
+        "close": 1160.0,
         "changePct": 2.56
       },
       {
-        "security": "920PMC32",
-        "close": 10214.0,
-        "changePct": 0.01
+        "security": "774IREDA31",
+        "close": 1145.0,
+        "changePct": 0.88
       },
       {
-        "security": "PRANIK",
-        "close": 39.55,
-        "changePct": 5.33
+        "security": "866NTPC33",
+        "close": 1275.0,
+        "changePct": 1.19
       },
       {
-        "security": "PRITIKA",
-        "close": 81.95,
-        "changePct": 2.44
+        "security": "ABMINTLLTD",
+        "close": 41.13,
+        "changePct": 0.02
       },
       {
-        "security": "QUICKTOUCH",
-        "close": 15.45,
-        "changePct": 4.75
+        "security": "848AEL29",
+        "close": 1010.0,
+        "changePct": 0.3
       },
       {
-        "security": "QUINTEGRA",
-        "close": 3.94,
-        "changePct": 1.81
-      },
-      {
-        "security": "QVCEL",
-        "close": 25.2,
-        "changePct": 5.0
-      },
-      {
-        "security": "RKFAL",
-        "close": 45.6,
-        "changePct": 4.95
-      },
-      {
-        "security": "ARENTERP",
-        "close": 32.62,
-        "changePct": 0.99
-      },
-      {
-        "security": "RAPPID",
-        "close": 362.0,
-        "changePct": 4.62
-      },
-      {
-        "security": "RELINFRA",
-        "close": 57.87,
-        "changePct": 1.99
-      },
-      {
-        "security": "RNPL",
-        "close": 64.0,
-        "changePct": 1.27
-      },
-      {
-        "security": "RFBL",
-        "close": 110.25,
-        "changePct": 5.0
-      },
-      {
-        "security": "RICHA",
-        "close": 73.5,
-        "changePct": 5.0
-      },
-      {
-        "security": "RITEZONE",
-        "close": 16.0,
-        "changePct": 0.63
-      },
-      {
-        "security": "ROLLT",
-        "close": 5.12,
-        "changePct": 1.99
-      },
-      {
-        "security": "SAB",
-        "close": 185.76,
-        "changePct": 5.0
-      },
-      {
-        "security": "SALASAR",
-        "close": 5.78,
-        "changePct": 19.92
-      },
-      {
-        "security": "LIQUIDSBI",
-        "close": 1000.01,
-        "changePct": 0.0
-      },
-      {
-        "security": "SCL01825",
-        "close": 1109.0,
-        "changePct": 1.95
-      },
-      {
-        "security": "SCL0182025",
-        "close": 1090.0,
-        "changePct": 2.61
-      },
-      {
-        "security": "9SCL27",
-        "close": 1005.21,
-        "changePct": 0.44
-      },
-      {
-        "security": "965SCL30",
-        "close": 1000.0,
-        "changePct": 0.25
-      },
-      {
-        "security": "802AP38",
-        "close": 101.0,
-        "changePct": 4.12
-      },
-      {
-        "security": "762HR31",
-        "close": 99.95,
-        "changePct": 0.35
-      },
-      {
-        "security": "735MH31",
-        "close": 97.5,
-        "changePct": 1.48
-      },
-      {
-        "security": "699TN32",
-        "close": 92.47,
-        "changePct": 0.22
-      },
-      {
-        "security": "745TS48",
-        "close": 90.95,
-        "changePct": 0.31
-      },
-      {
-        "security": "IIFLZC28B",
-        "close": 1315.0,
-        "changePct": 0.68
-      },
-      {
-        "security": "1003IIFL29",
-        "close": 1012.0,
-        "changePct": 0.2
-      },
-      {
-        "security": "890SFIL23A",
-        "close": 439.79,
-        "changePct": 17.27
-      },
-      {
-        "security": "1050IIFL29",
-        "close": 1023.9,
-        "changePct": 0.58
-      },
-      {
-        "security": "1065NFL27",
-        "close": 1003.0,
-        "changePct": 0.09
-      },
-      {
-        "security": "980SCL33",
-        "close": 840.0,
-        "changePct": 1.2
-      },
-      {
-        "security": "79NHIT35",
-        "close": 306.0,
+        "security": "862AEL31",
+        "close": 1020.0,
         "changePct": 0.29
       },
       {
-        "security": "820IIFL27",
-        "close": 996.63,
-        "changePct": 0.2
+        "security": "930AEL30",
+        "close": 1047.01,
+        "changePct": 0.08
       },
       {
-        "security": "850IIFL27",
-        "close": 1069.48,
-        "changePct": 0.23
+        "security": "114AFIL28A",
+        "close": 9961.92,
+        "changePct": 0.41
       },
       {
-        "security": "865IFL28",
-        "close": 988.8,
-        "changePct": 0.52
+        "security": "115AFIL28A",
+        "close": 10001.0,
+        "changePct": 1.45
       },
       {
-        "security": "9IIFL28",
-        "close": 1037.0,
-        "changePct": 1.87
+        "security": "AKANKSHA",
+        "close": 173.9,
+        "changePct": 4.98
       },
       {
-        "security": "91MOFSL27",
-        "close": 1046.74,
-        "changePct": 0.75
+        "security": "ALCODIS",
+        "close": 64.0,
+        "changePct": 6.67
       },
       {
-        "security": "932AEL27",
-        "close": 1030.0,
-        "changePct": 2.28
+        "security": "ALMONDZ",
+        "close": 18.96,
+        "changePct": 4.98
       },
       {
-        "security": "948SCL27D",
-        "close": 1057.63,
-        "changePct": 6.72
-      },
-      {
-        "security": "965AEL27",
-        "close": 1023.0,
-        "changePct": 0.17
-      },
-      {
-        "security": "971SCL28",
-        "close": 432.0,
-        "changePct": 10.77
-      },
-      {
-        "security": "IHFL261224",
-        "close": 1172.0,
-        "changePct": 0.18
-      },
-      {
-        "security": "AEL120924B",
-        "close": 1220.0,
-        "changePct": 1.67
-      },
-      {
-        "security": "97SFL28",
-        "close": 1047.0,
-        "changePct": 0.1
-      },
-      {
-        "security": "985ECL28",
-        "close": 1026.0,
-        "changePct": 0.39
-      },
-      {
-        "security": "905LTF27",
-        "close": 1053.0,
-        "changePct": 0.19
-      },
-      {
-        "security": "92SFIL28",
-        "close": 992.0,
-        "changePct": 1.49
-      },
-      {
-        "security": "SEYAIND",
-        "close": 11.98,
-        "changePct": 1.78
-      },
-      {
-        "security": "SCML",
-        "close": 88.0,
-        "changePct": 1.15
-      },
-      {
-        "security": "SHIGAN",
-        "close": 62.5,
-        "changePct": 1.96
-      },
-      {
-        "security": "SHRIKANHA",
-        "close": 21.3,
-        "changePct": 3.9
-      },
-      {
-        "security": "SHRITECH",
-        "close": 71.1,
-        "changePct": 0.14
-      },
-      {
-        "security": "SIGMAADV",
-        "close": 917.75,
-        "changePct": 5.0
-      },
-      {
-        "security": "SIMBHALS",
-        "close": 6.34,
-        "changePct": 1.28
-      },
-      {
-        "security": "8SMC29",
-        "close": 508.0,
-        "changePct": 1.6
-      },
-      {
-        "security": "8SMC30",
-        "close": 510.0,
-        "changePct": 1.76
-      },
-      {
-        "security": "SMLMAH",
-        "close": 5347.4,
-        "changePct": 5.0
-      },
-      {
-        "security": "SMVD",
-        "close": 11.3,
-        "changePct": 4.63
-      },
-      {
-        "security": "SNEHAA",
-        "close": 39.5,
-        "changePct": 2.86
-      },
-      {
-        "security": "SAIL",
-        "close": 171.31,
-        "changePct": 1.52
-      },
-      {
-        "security": "SUPREMEENG",
-        "close": 6.07,
-        "changePct": 4.84
-      },
-      {
-        "security": "SFML",
-        "close": 21.6,
-        "changePct": 0.47
-      },
-      {
-        "security": "TAPIFRUIT",
+        "security": "AISL",
         "close": 39.9,
         "changePct": 5.0
       },
       {
-        "security": "764IRFC31",
-        "close": 1088.0,
-        "changePct": 0.03
+        "security": "930APMD33",
+        "close": 106875.0,
+        "changePct": 0.02
       },
       {
-        "security": "PKTEA",
-        "close": 822.05,
-        "changePct": 0.61
+        "security": "APSISAERO",
+        "close": 526.65,
+        "changePct": 1.99
       },
       {
-        "security": "TIMESCAN",
-        "close": 44.8,
+        "security": "AQYLON",
+        "close": 11.51,
         "changePct": 4.92
       },
       {
-        "security": "TRANSTEEL",
-        "close": 85.0,
-        "changePct": 1.19
+        "security": "ARABIAN",
+        "close": 117.45,
+        "changePct": 3.16
       },
       {
-        "security": "TURTLEMINT",
-        "close": 70.74,
-        "changePct": 4.99
+        "security": "ARISTO",
+        "close": 126.95,
+        "changePct": 3.21
       },
       {
-        "security": "UCAL",
-        "close": 140.76,
-        "changePct": 2.0
+        "security": "ASHOKLEY",
+        "close": 162.45,
+        "changePct": 1.21
       },
       {
-        "security": "UHTL",
-        "close": 201.4,
-        "changePct": 4.98
+        "security": "ASPIRE",
+        "close": 17.6,
+        "changePct": 4.76
       },
       {
-        "security": "UNIVPHOTO",
-        "close": 443.7,
-        "changePct": 2.0
+        "security": "BEDMUTHA",
+        "close": 106.98,
+        "changePct": 0.93
       },
       {
-        "security": "96IIFL28A",
-        "close": 1006.0,
-        "changePct": 0.1
+        "security": "GSEC10ABSL",
+        "close": 111.9,
+        "changePct": 0.89
       },
       {
-        "security": "VLINFRA",
-        "close": 23.35,
-        "changePct": 1.3
+        "security": "810IRFC27",
+        "close": 1009.26,
+        "changePct": 0.01
       },
       {
-        "security": "VSCL",
-        "close": 27.0,
-        "changePct": 4.85
+        "security": "BRANDMAN",
+        "close": 148.8,
+        "changePct": 2.62
       },
       {
-        "security": "VIAZ",
-        "close": 101.3,
-        "changePct": 4.97
+        "security": "CPS",
+        "close": 1005.0,
+        "changePct": 2.39
       },
       {
-        "security": "VIJIFIN",
-        "close": 14.06,
-        "changePct": 1.96
+        "security": "CADSYS",
+        "close": 34.45,
+        "changePct": 4.87
       },
       {
-        "security": "VILINBIO",
-        "close": 50.55,
-        "changePct": 0.5
+        "security": "CELLECOR",
+        "close": 27.2,
+        "changePct": 0.74
       },
       {
-        "security": "VMOBILE",
-        "close": 52.5,
+        "security": "CHETANA",
+        "close": 38.25,
+        "changePct": 4.94
+      },
+      {
+        "security": "CONTI",
+        "close": 9.85,
         "changePct": 4.79
       },
       {
-        "security": "1075WCA28",
-        "close": 9785.6,
-        "changePct": 3.01
+        "security": "COREIN",
+        "close": 130.25,
+        "changePct": 1.13
       },
       {
-        "security": "WOL3D",
-        "close": 169.35,
+        "security": "CUBEXTUB",
+        "close": 215.47,
+        "changePct": 2.0
+      },
+      {
+        "security": "DCMFINSERV",
+        "close": 5.0,
+        "changePct": 0.6
+      },
+      {
+        "security": "DPSCLTD",
+        "close": 6.8,
+        "changePct": 4.94
+      },
+      {
+        "security": "DSKULKARNI",
+        "close": 47.04,
+        "changePct": 1.99
+      },
+      {
+        "security": "888ECL28",
+        "close": 992.0,
+        "changePct": 0.0
+      },
+      {
+        "security": "EVENTIONS",
+        "close": 55.0,
+        "changePct": 1.66
+      },
+      {
+        "security": "FLEXITUFF",
+        "close": 5.36,
+        "changePct": 4.89
+      },
+      {
+        "security": "FONEBOX",
+        "close": 129.0,
+        "changePct": 2.14
+      },
+      {
+        "security": "FELDVR",
+        "close": 1.99,
+        "changePct": 3.65
+      },
+      {
+        "security": "GTECJAINX",
+        "close": 33.09,
+        "changePct": 4.98
+      },
+      {
+        "security": "GRCL",
+        "close": 703.5,
+        "changePct": 5.0
+      },
+      {
+        "security": "GIRIRAJ",
+        "close": 52.5,
+        "changePct": 5.0
+      },
+      {
+        "security": "GLOBALPET",
+        "close": 162.75,
+        "changePct": 5.0
+      },
+      {
+        "security": "679GS2034A",
+        "close": 98.51,
+        "changePct": 0.04
+      },
+      {
+        "security": "697GR2034",
+        "close": 98.68,
+        "changePct": 4.98
+      },
+      {
+        "security": "636GS2031",
+        "close": 98.26,
+        "changePct": 0.03
+      },
+      {
+        "security": "654GS2032",
+        "close": 100.25,
+        "changePct": 0.36
+      },
+      {
+        "security": "668GS2033",
+        "close": 98.5,
+        "changePct": 0.51
+      },
+      {
+        "security": "718GS2033",
+        "close": 101.3,
+        "changePct": 0.3
+      },
+      {
+        "security": "723GS2039",
+        "close": 98.5,
+        "changePct": 0.1
+      },
+      {
+        "security": "732GS2030",
+        "close": 102.67,
+        "changePct": 1.15
+      },
+      {
+        "security": "750GS2056",
+        "close": 99.11,
+        "changePct": 0.1
+      },
+      {
+        "security": "763GS2056",
+        "close": 101.5,
+        "changePct": 1.4
+      },
+      {
+        "security": "772GS2055",
+        "close": 104.0,
+        "changePct": 2.97
+      },
+      {
+        "security": "795GS2032",
+        "close": 108.0,
+        "changePct": 0.19
+      },
+      {
+        "security": "828GS2032",
+        "close": 109.2,
+        "changePct": 5.0
+      },
+      {
+        "security": "897GS2030",
+        "close": 113.98,
+        "changePct": 0.18
+      },
+      {
+        "security": "91D070127",
+        "close": 99.0,
+        "changePct": 0.05
+      },
+      {
+        "security": "91D271126",
+        "close": 99.87,
+        "changePct": 0.8
+      },
+      {
+        "security": "GOLDENTOBC",
+        "close": 22.86,
+        "changePct": 4.96
+      },
+      {
+        "security": "GRADIENTE",
+        "close": 2.07,
+        "changePct": 4.55
+      },
+      {
+        "security": "GJL",
+        "close": 487.0,
+        "changePct": 4.73
+      },
+      {
+        "security": "GURUNANAK",
+        "close": 29.9,
+        "changePct": 0.34
+      },
+      {
+        "security": "WHITEFORCE",
+        "close": 32.8,
+        "changePct": 2.5
+      },
+      {
+        "security": "920HFL30",
+        "close": 106376.0,
+        "changePct": 0.02
+      },
+      {
+        "security": "HPTL",
+        "close": 594.3,
+        "changePct": 5.0
+      },
+      {
+        "security": "1225IFL27",
+        "close": 5000.0,
+        "changePct": 1.01
+      },
+      {
+        "security": "852IIFL29",
+        "close": 980.0,
+        "changePct": 0.51
+      },
+      {
+        "security": "865IIFL31",
+        "close": 984.0,
+        "changePct": 0.2
+      },
+      {
+        "security": "INFOLLION",
+        "close": 144.8,
+        "changePct": 1.33
+      },
+      {
+        "security": "INNOMET",
+        "close": 403.25,
+        "changePct": 2.0
+      },
+      {
+        "security": "KCK",
+        "close": 11.2,
+        "changePct": 4.67
+      },
+      {
+        "security": "KSHITIJPOL",
+        "close": 3.2,
+        "changePct": 4.92
+      },
+      {
+        "security": "LADDERUP",
+        "close": 47.85,
+        "changePct": 1.81
+      },
+      {
+        "security": "LAMOSAIC",
+        "close": 49.85,
+        "changePct": 0.3
+      },
+      {
+        "security": "LRRPL",
+        "close": 101.85,
+        "changePct": 5.0
+      },
+      {
+        "security": "LYKALABS",
+        "close": 89.79,
+        "changePct": 2.0
+      },
+      {
+        "security": "MPEL",
+        "close": 24.95,
+        "changePct": 1.22
+      },
+      {
+        "security": "MSL",
+        "close": 142.9,
+        "changePct": 4.31
+      },
+      {
+        "security": "MARINETRAN",
+        "close": 14.1,
+        "changePct": 4.83
+      },
+      {
+        "security": "MCON",
+        "close": 36.4,
+        "changePct": 0.83
+      },
+      {
+        "security": "MMWL",
+        "close": 20.94,
+        "changePct": 4.96
+      },
+      {
+        "security": "MEDIORG",
+        "close": 23.35,
+        "changePct": 4.94
+      },
+      {
+        "security": "MEGAFLEX",
+        "close": 177.0,
+        "changePct": 1.32
+      },
+      {
+        "security": "MEP",
+        "close": 0.68,
+        "changePct": 1.49
+      },
+      {
+        "security": "GSEC10YEAR",
+        "close": 30.32,
+        "changePct": 0.2
+      },
+      {
+        "security": "MORARJEE",
+        "close": 5.72,
+        "changePct": 4.95
+      },
+      {
+        "security": "MTEDUCARE",
+        "close": 1.5,
+        "changePct": 1.35
+      },
+      {
+        "security": "NEOCHEM",
+        "close": 106.95,
+        "changePct": 1.86
+      },
+      {
+        "security": "890NHB34",
+        "close": 7087.98,
+        "changePct": 15.0
+      },
+      {
+        "security": "NIRAJISPAT",
+        "close": 275.19,
+        "changePct": 5.0
+      },
+      {
+        "security": "805NMC33",
+        "close": 127.5,
+        "changePct": 8.05
+      },
+      {
+        "security": "OMPOWER",
+        "close": 152.74,
+        "changePct": 19.99
+      },
+      {
+        "security": "PANACHE",
+        "close": 803.6,
+        "changePct": 2.0
+      },
+      {
+        "security": "PCCL",
+        "close": 409.85,
+        "changePct": 2.76
+      },
+      {
+        "security": "POSITRON",
+        "close": 280.5,
+        "changePct": 5.0
+      },
+      {
+        "security": "POWERGRID",
+        "close": 259.1,
+        "changePct": 0.43
+      },
+      {
+        "security": "PRIMECAB",
+        "close": 177.4,
+        "changePct": 2.57
+      },
+      {
+        "security": "PRITIKA",
+        "close": 82.35,
+        "changePct": 0.49
+      },
+      {
+        "security": "PROV",
+        "close": 2295.0,
+        "changePct": 2.0
+      },
+      {
+        "security": "QFIL",
+        "close": 47.3,
         "changePct": 4.99
       },
       {
-        "security": "YCCL",
-        "close": 11.95,
-        "changePct": 5.29
+        "security": "QUICKTOUCH",
+        "close": 16.2,
+        "changePct": 4.85
       },
       {
-        "security": "ZEAL",
-        "close": 88.65,
-        "changePct": 4.97
+        "security": "QUINTEGRA",
+        "close": 4.01,
+        "changePct": 1.78
       },
       {
-        "security": "ZENITHEXPO",
-        "close": 176.12,
+        "security": "RADAAN",
+        "close": 2.55,
+        "changePct": 4.08
+      },
+      {
+        "security": "RADIOWALLA",
+        "close": 21.0,
+        "changePct": 5.0
+      },
+      {
+        "security": "RAJINDLTD",
+        "close": 61.85,
+        "changePct": 4.83
+      },
+      {
+        "security": "READYMIX",
+        "close": 50.9,
+        "changePct": 6.15
+      },
+      {
+        "security": "RICHA",
+        "close": 77.0,
+        "changePct": 4.76
+      },
+      {
+        "security": "ROLLT",
+        "close": 5.22,
+        "changePct": 1.95
+      },
+      {
+        "security": "SAB",
+        "close": 194.4,
+        "changePct": 4.65
+      },
+      {
+        "security": "SAAKSHI",
+        "close": 357.0,
+        "changePct": 0.56
+      },
+      {
+        "security": "975SCL35",
+        "close": 102000.0,
+        "changePct": 0.99
+      },
+      {
+        "security": "769AP42",
+        "close": 97.86,
+        "changePct": 0.89
+      },
+      {
+        "security": "758HR30",
+        "close": 101.0,
+        "changePct": 0.49
+      },
+      {
+        "security": "725MH37",
+        "close": 90.69,
+        "changePct": 0.08
+      },
+      {
+        "security": "749OR36",
+        "close": 94.63,
+        "changePct": 0.34
+      },
+      {
+        "security": "1003ISFL28",
+        "close": 1013.99,
+        "changePct": 0.89
+      },
+      {
+        "security": "1040UCL27B",
+        "close": 1000.0,
         "changePct": 0.5
       },
       {
-        "security": "BANKCASE",
-        "close": 114.63,
-        "changePct": 1.36
+        "security": "1075SCL34",
+        "close": 1054.0,
+        "changePct": 4.25
+      },
+      {
+        "security": "865IFL28",
+        "close": 994.0,
+        "changePct": 0.53
+      },
+      {
+        "security": "9IIFL28A",
+        "close": 1061.25,
+        "changePct": 0.1
+      },
+      {
+        "security": "970CAGL28",
+        "close": 1026.99,
+        "changePct": 0.87
+      },
+      {
+        "security": "990SCL27B",
+        "close": 1019.0,
+        "changePct": 0.01
+      },
+      {
+        "security": "943ECL28",
+        "close": 1000.0,
+        "changePct": 0.39
+      },
+      {
+        "security": "SHREEOSFM",
+        "close": 55.55,
+        "changePct": 1.83
+      },
+      {
+        "security": "SVLL",
+        "close": 790.0,
+        "changePct": 1.91
+      },
+      {
+        "security": "SHRIKANHA",
+        "close": 21.5,
+        "changePct": 0.94
+      },
+      {
+        "security": "SHRITECH",
+        "close": 74.5,
+        "changePct": 4.78
+      },
+      {
+        "security": "SHYAMDHANI",
+        "close": 53.0,
+        "changePct": 1.44
+      },
+      {
+        "security": "BALCO",
+        "close": 18.3,
+        "changePct": 4.87
+      },
+      {
+        "security": "SPCENET",
+        "close": 3.7,
+        "changePct": 4.82
+      },
+      {
+        "security": "SPCON",
+        "close": 212.0,
+        "changePct": 2.91
+      },
+      {
+        "security": "STRIDERS",
+        "close": 50.85,
+        "changePct": 2.73
+      },
+      {
+        "security": "SUPREMEENG",
+        "close": 6.19,
+        "changePct": 1.98
+      },
+      {
+        "security": "SYRMA",
+        "close": 1475.0,
+        "changePct": 2.87
+      },
+      {
+        "security": "TANKUP",
+        "close": 1624.9,
+        "changePct": 0.93
+      },
+      {
+        "security": "TATACONSUM",
+        "close": 1130.9,
+        "changePct": 1.66
+      },
+      {
+        "security": "TEJASCARGO",
+        "close": 399.0,
+        "changePct": 5.0
+      },
+      {
+        "security": "753NTPC30E",
+        "close": 1077.0,
+        "changePct": 0.47
+      },
+      {
+        "security": "TCL",
+        "close": 127.5,
+        "changePct": 1.19
+      },
+      {
+        "security": "THAKDEV",
+        "close": 138.5,
+        "changePct": 0.87
+      },
+      {
+        "security": "GROBTEA",
+        "close": 925.0,
+        "changePct": 0.87
+      },
+      {
+        "security": "PKTEA",
+        "close": 838.45,
+        "changePct": 2.0
+      },
+      {
+        "security": "TIMESCAN",
+        "close": 47.0,
+        "changePct": 4.91
+      },
+      {
+        "security": "ULTRACEMCO",
+        "close": 12428.0,
+        "changePct": 1.12
+      },
+      {
+        "security": "UFBL",
+        "close": 530.55,
+        "changePct": 5.0
+      },
+      {
+        "security": "UHTL",
+        "close": 211.45,
+        "changePct": 4.99
+      },
+      {
+        "security": "IIFLZC28",
+        "close": 1700.45,
+        "changePct": 0.68
+      },
+      {
+        "security": "10IIFL28",
+        "close": 1020.68,
+        "changePct": 0.06
+      },
+      {
+        "security": "910TCAP28",
+        "close": 1044.0,
+        "changePct": 0.58
+      },
+      {
+        "security": "LIQUIDBETA",
+        "close": 1017.22,
+        "changePct": 0.03
+      },
+      {
+        "security": "UTSSAV",
+        "close": 715.05,
+        "changePct": 5.0
+      },
+      {
+        "security": "1025VCCL28",
+        "close": 97240.43,
+        "changePct": 1.29
+      },
+      {
+        "security": "125VCCL31",
+        "close": 99500.0,
+        "changePct": 1.43
+      },
+      {
+        "security": "VDEAL",
+        "close": 101.0,
+        "changePct": 2.59
+      },
+      {
+        "security": "VIAZ",
+        "close": 106.35,
+        "changePct": 4.99
+      },
+      {
+        "security": "VIJIFIN",
+        "close": 14.34,
+        "changePct": 1.99
+      },
+      {
+        "security": "VILINBIO",
+        "close": 51.25,
+        "changePct": 1.38
+      },
+      {
+        "security": "VOLERCAR",
+        "close": 299.0,
+        "changePct": 0.34
+      },
+      {
+        "security": "ZEAL",
+        "close": 93.05,
+        "changePct": 4.96
       }
     ],
     "lowerCircuitStocks": [
       {
-        "security": "740IIFCL33",
-        "close": 1156.01,
-        "changePct": -1.11
+        "security": "SGBJUN27",
+        "close": 13161.71,
+        "changePct": -3.03
       },
       {
-        "security": "873NTPC28",
-        "close": 1143.01,
-        "changePct": -0.61
+        "security": "SGBJAN27",
+        "close": 13170.0,
+        "changePct": -2.98
       },
       {
-        "security": "AASTHA",
-        "close": 24.03,
-        "changePct": -4.98
+        "security": "769HUDCO31",
+        "close": 1158.9,
+        "changePct": -0.01
+      },
+      {
+        "security": "AGUL",
+        "close": 65.2,
+        "changePct": -4.89
       },
       {
         "security": "ABAN",
-        "close": 14.4,
-        "changePct": -1.97
+        "close": 14.12,
+        "changePct": -1.94
       },
       {
-        "security": "ACCPL",
-        "close": 205.25,
-        "changePct": -4.98
-      },
-      {
-        "security": "ACTIVEINFR",
-        "close": 172.0,
-        "changePct": -0.29
-      },
-      {
-        "security": "AUSL",
-        "close": 23.0,
-        "changePct": -0.22
-      },
-      {
-        "security": "ADVIKCA",
-        "close": 0.86,
-        "changePct": -1.15
-      },
-      {
-        "security": "AEL120126",
-        "close": 1070.0,
-        "changePct": -0.74
-      },
-      {
-        "security": "1125AFIL29",
-        "close": 9667.0,
-        "changePct": -0.0
-      },
-      {
-        "security": "114AFIL28A",
-        "close": 9921.16,
-        "changePct": -0.79
-      },
-      {
-        "security": "AGARWALFT",
-        "close": 21.55,
-        "changePct": -4.86
-      },
-      {
-        "security": "AGASTYAEN",
-        "close": 48.9,
-        "changePct": -1.98
-      },
-      {
-        "security": "ALKEM",
-        "close": 5050.0,
-        "changePct": -2.88
-      },
-      {
-        "security": "AMDIND",
-        "close": 46.68,
-        "changePct": -4.99
-      },
-      {
-        "security": "AMEYA",
-        "close": 167.25,
-        "changePct": -4.97
-      },
-      {
-        "security": "AISL",
-        "close": 38.0,
-        "changePct": -5.0
-      },
-      {
-        "security": "ANKITMETAL",
-        "close": 1.76,
-        "changePct": -1.68
-      },
-      {
-        "security": "ANSALAPI",
-        "close": 3.02,
-        "changePct": -1.95
-      },
-      {
-        "security": "ANZEN",
-        "close": 127.5,
-        "changePct": -0.35
-      },
-      {
-        "security": "APEXECO",
-        "close": 200.5,
-        "changePct": -9.99
-      },
-      {
-        "security": "APOLLOHOSP",
-        "close": 8712.5,
-        "changePct": -0.67
-      },
-      {
-        "security": "APOORVA",
-        "close": 25.89,
-        "changePct": -4.99
-      },
-      {
-        "security": "ARSHIYA",
-        "close": 0.97,
-        "changePct": -4.9
-      },
-      {
-        "security": "ARUNAYA",
-        "close": 12.9,
-        "changePct": -1.9
-      },
-      {
-        "security": "ARVINDPORT",
-        "close": 30.65,
-        "changePct": -5.4
-      },
-      {
-        "security": "ASHOKLEY",
-        "close": 160.5,
-        "changePct": -4.17
-      },
-      {
-        "security": "ASTAR",
-        "close": 640.1,
-        "changePct": -2.22
-      },
-      {
-        "security": "ASIANTNE",
-        "close": 8.8,
-        "changePct": -1.01
-      },
-      {
-        "security": "AVANA",
-        "close": 133.5,
-        "changePct": -1.87
-      },
-      {
-        "security": "AVIANSH",
-        "close": 98.5,
-        "changePct": -0.51
-      },
-      {
-        "security": "BMISL",
-        "close": 197.6,
-        "changePct": -5.0
-      },
-      {
-        "security": "BHADORA",
-        "close": 113.75,
-        "changePct": -4.97
-      },
-      {
-        "security": "BIKEWO",
-        "close": 123.0,
-        "changePct": -1.05
-      },
-      {
-        "security": "GSEC10ABSL",
-        "close": 110.91,
-        "changePct": -0.57
-      },
-      {
-        "security": "BLUECHIP",
-        "close": 1.59,
-        "changePct": -1.85
-      },
-      {
-        "security": "BNAGROCHEM",
-        "close": 16.23,
-        "changePct": -4.98
-      },
-      {
-        "security": "862REC33",
-        "close": 1190.0,
-        "changePct": -0.75
-      },
-      {
-        "security": "888IRFC29",
-        "close": 1139.9,
+        "security": "ABHAPOWER",
+        "close": 22.0,
         "changePct": -0.45
       },
       {
-        "security": "901NHB34",
-        "close": 6605.0,
-        "changePct": -0.66
+        "security": "AILIMITED",
+        "close": 16.0,
+        "changePct": -3.61
       },
       {
-        "security": "886REC34",
-        "close": 1299.99,
+        "security": "ACETEC",
+        "close": 140.0,
+        "changePct": -5.41
+      },
+      {
+        "security": "ADDICTIVE",
+        "close": 43.0,
+        "changePct": -2.49
+      },
+      {
+        "security": "890AEL31",
+        "close": 1077.1,
+        "changePct": -0.06
+      },
+      {
+        "security": "AGASTYAEN",
+        "close": 47.93,
+        "changePct": -1.98
+      },
+      {
+        "security": "ALKALI",
+        "close": 77.0,
+        "changePct": -3.31
+      },
+      {
+        "security": "AMEYA",
+        "close": 158.95,
+        "changePct": -4.96
+      },
+      {
+        "security": "ANKITMETAL",
+        "close": 1.73,
+        "changePct": -1.7
+      },
+      {
+        "security": "ANYA",
+        "close": 16.3,
+        "changePct": -6.32
+      },
+      {
+        "security": "930APMD28",
+        "close": 101501.0,
         "changePct": -0.0
       },
       {
-        "security": "CALSOFT",
-        "close": 26.83,
-        "changePct": -4.99
+        "security": "930APMD31",
+        "close": 104884.0,
+        "changePct": -0.01
       },
       {
-        "security": "CELLPOINT",
-        "close": 15.35,
-        "changePct": -0.97
+        "security": "APOORVA",
+        "close": 24.73,
+        "changePct": -4.48
       },
       {
-        "security": "CHAMUNDA",
-        "close": 38.15,
-        "changePct": -4.51
+        "security": "ARSHIYA",
+        "close": 0.93,
+        "changePct": -4.12
       },
       {
-        "security": "CONNPLEX",
-        "close": 228.0,
-        "changePct": -1.77
+        "security": "ASHALOG",
+        "close": 60.0,
+        "changePct": -1.64
       },
       {
-        "security": "CONTI",
-        "close": 9.4,
-        "changePct": -4.57
-      },
-      {
-        "security": "DKEGL",
-        "close": 70.05,
-        "changePct": -1.34
-      },
-      {
-        "security": "DCCL",
-        "close": 36.0,
-        "changePct": -2.7
-      },
-      {
-        "security": "1275DCCL28",
-        "close": 9912.02,
-        "changePct": -0.9
-      },
-      {
-        "security": "DELAPLEX",
-        "close": 108.85,
-        "changePct": -4.98
-      },
-      {
-        "security": "DHANSA",
-        "close": 22.0,
-        "changePct": -2.22
-      },
-      {
-        "security": "DHARIWAL",
-        "close": 21.8,
-        "changePct": -4.8
-      },
-      {
-        "security": "DTL",
-        "close": 110.0,
-        "changePct": -4.35
-      },
-      {
-        "security": "INSURADD",
-        "close": 15.27,
-        "changePct": -0.39
-      },
-      {
-        "security": "DUCON",
-        "close": 1.34,
-        "changePct": -2.19
-      },
-      {
-        "security": "EASTSILK",
-        "close": 70.54,
-        "changePct": -5.0
-      },
-      {
-        "security": "EMULTIMQ",
-        "close": 40.78,
-        "changePct": -0.59
-      },
-      {
-        "security": "ELITECON",
-        "close": 4.75,
-        "changePct": -4.81
-      },
-      {
-        "security": "EMKAYTOOLS",
-        "close": 97.5,
-        "changePct": -0.66
-      },
-      {
-        "security": "ENNATURE",
-        "close": 188.55,
-        "changePct": -4.99
-      },
-      {
-        "security": "EUROTEXIND",
-        "close": 12.15,
-        "changePct": -2.02
-      },
-      {
-        "security": "GATECHDVR",
-        "close": 0.44,
-        "changePct": -4.35
-      },
-      {
-        "security": "GML",
-        "close": 17.7,
-        "changePct": -4.32
-      },
-      {
-        "security": "GILLANDERS",
-        "close": 98.0,
-        "changePct": -1.34
-      },
-      {
-        "security": "GODFRYPHLP",
-        "close": 1788.0,
-        "changePct": -1.32
-      },
-      {
-        "security": "657GS2033A",
-        "close": 97.05,
-        "changePct": -0.96
-      },
-      {
-        "security": "692GS2039",
-        "close": 97.15,
-        "changePct": -1.87
-      },
-      {
-        "security": "697GR2034",
-        "close": 94.0,
-        "changePct": -2.12
-      },
-      {
-        "security": "610GS2031",
-        "close": 101.0,
-        "changePct": -0.08
-      },
-      {
-        "security": "668GS2033",
-        "close": 98.0,
-        "changePct": -0.2
-      },
-      {
-        "security": "68GS2060",
-        "close": 92.7,
-        "changePct": -0.75
-      },
-      {
-        "security": "704GS2029",
-        "close": 103.0,
-        "changePct": -0.24
-      },
-      {
-        "security": "601GS2028",
-        "close": 98.75,
-        "changePct": -0.25
-      },
-      {
-        "security": "795GS2032",
-        "close": 107.8,
-        "changePct": -0.09
-      },
-      {
-        "security": "91D140127",
-        "close": 98.49,
-        "changePct": -0.67
-      },
-      {
-        "security": "91D280127",
-        "close": 98.65,
-        "changePct": -0.15
-      },
-      {
-        "security": "GOLDSTAR",
-        "close": 9.8,
-        "changePct": -4.85
-      },
-      {
-        "security": "GRAPHISAD",
-        "close": 23.0,
-        "changePct": -2.54
-      },
-      {
-        "security": "GRASIM",
-        "close": 3054.8,
-        "changePct": -0.96
-      },
-      {
-        "security": "GSMFOILS",
-        "close": 49.85,
-        "changePct": -4.96
-      },
-      {
-        "security": "HAL",
-        "close": 4727.0,
-        "changePct": -1.29
-      },
-      {
-        "security": "HRHNEXT",
-        "close": 23.75,
-        "changePct": -5.0
-      },
-      {
-        "security": "ICDSLTD",
-        "close": 45.0,
-        "changePct": -0.09
-      },
-      {
-        "security": "QUAL30IETF",
-        "close": 20.41,
+        "security": "ASHUTOSH",
+        "close": 124.95,
         "changePct": -1.69
       },
       {
-        "security": "1225IFL27",
-        "close": 4950.0,
-        "changePct": -1.0
+        "security": "ASSAMENT",
+        "close": 816.75,
+        "changePct": -4.95
       },
       {
-        "security": "1225IFL28",
-        "close": 6299.99,
-        "changePct": -2.33
+        "security": "ATHERENERG",
+        "close": 1901.1,
+        "changePct": -0.39
       },
       {
-        "security": "960IIFL30",
-        "close": 1000.0,
-        "changePct": -4.4
+        "security": "AVANCE",
+        "close": 0.68,
+        "changePct": -1.45
       },
       {
-        "security": "IWARE",
-        "close": 361.2,
-        "changePct": -5.0
+        "security": "AVIANSH",
+        "close": 94.5,
+        "changePct": -4.06
       },
       {
-        "security": "JAINAM",
-        "close": 164.35,
-        "changePct": -5.0
+        "security": "BAGDIGITAL",
+        "close": 101.0,
+        "changePct": -2.84
       },
       {
-        "security": "RETAIL",
-        "close": 26.9,
-        "changePct": -1.1
-      },
-      {
-        "security": "KJMCFIN",
-        "close": 70.42,
-        "changePct": -4.99
-      },
-      {
-        "security": "KANANIIND",
-        "close": 1.52,
-        "changePct": -1.3
-      },
-      {
-        "security": "KDL",
-        "close": 23.2,
-        "changePct": -4.92
-      },
-      {
-        "security": "LRRPL",
-        "close": 97.0,
-        "changePct": -3.77
-      },
-      {
-        "security": "MACOBSTECH",
-        "close": 193.0,
-        "changePct": -1.51
-      },
-      {
-        "security": "MAITREYA",
-        "close": 112.9,
-        "changePct": -2.04
-      },
-      {
-        "security": "MANDEEP",
-        "close": 16.2,
-        "changePct": -4.71
-      },
-      {
-        "security": "MAL",
-        "close": 32.2,
-        "changePct": -0.31
-      },
-      {
-        "security": "MANKIND",
-        "close": 2610.0,
-        "changePct": -0.63
-      },
-      {
-        "security": "MARCO",
-        "close": 32.7,
-        "changePct": -7.23
-      },
-      {
-        "security": "MARINETRAN",
-        "close": 13.45,
-        "changePct": -0.37
-      },
-      {
-        "security": "MARUSHIKA",
-        "close": 121.0,
-        "changePct": -0.49
-      },
-      {
-        "security": "MDL",
-        "close": 60.75,
-        "changePct": -7.67
-      },
-      {
-        "security": "MBECL",
-        "close": 296.45,
+        "security": "BAFNAPH",
+        "close": 470.4,
         "changePct": -2.0
       },
       {
-        "security": "MEDICAPQ",
-        "close": 22.79,
-        "changePct": -4.96
+        "security": "BARFLEX",
+        "close": 57.05,
+        "changePct": -4.84
       },
       {
-        "security": "MEDIORG",
-        "close": 22.25,
-        "changePct": -4.91
-      },
-      {
-        "security": "DIVIDEND",
-        "close": 35.19,
-        "changePct": -0.03
-      },
-      {
-        "security": "MOBILISE",
-        "close": 107.7,
-        "changePct": -4.98
-      },
-      {
-        "security": "MOS",
-        "close": 7.65,
-        "changePct": -4.97
-      },
-      {
-        "security": "MOMGF",
-        "close": 158.43,
-        "changePct": -0.08
-      },
-      {
-        "security": "MOQUALITY",
-        "close": 194.45,
-        "changePct": -0.47
-      },
-      {
-        "security": "MTEDUCARE",
-        "close": 1.48,
-        "changePct": -4.52
-      },
-      {
-        "security": "MUNISH",
-        "close": 68.25,
-        "changePct": -1.16
-      },
-      {
-        "security": "MUTHOOTFIN",
-        "close": 2749.0,
-        "changePct": -1.01
-      },
-      {
-        "security": "NDL",
-        "close": 2.51,
-        "changePct": -1.18
-      },
-      {
-        "security": "FARBEES",
-        "close": 133.33,
+        "security": "BEACON",
+        "close": 89.0,
         "changePct": -0.5
       },
       {
-        "security": "NXT-INFRA",
-        "close": 95.0,
-        "changePct": -3.06
+        "security": "BENARAS",
+        "close": 10200.0,
+        "changePct": -0.13
       },
       {
-        "security": "ONGC",
-        "close": 223.52,
-        "changePct": -1.53
-      },
-      {
-        "security": "ONIXSOLAR",
-        "close": 249.75,
-        "changePct": -4.98
-      },
-      {
-        "security": "ONWARDTEC",
-        "close": 345.2,
-        "changePct": -5.0
-      },
-      {
-        "security": "OPTIVALUE",
-        "close": 207.0,
-        "changePct": -0.24
-      },
-      {
-        "security": "OSIAHYPER",
-        "close": 1.84,
-        "changePct": -1.6
-      },
-      {
-        "security": "PARSVNATH",
-        "close": 2.57,
-        "changePct": -1.91
-      },
-      {
-        "security": "PASHUPATI",
-        "close": 31.69,
-        "changePct": -4.98
-      },
-      {
-        "security": "9PCPL28",
-        "close": 98000.95,
-        "changePct": -0.52
-      },
-      {
-        "security": "975PCPL27A",
-        "close": 100583.8,
-        "changePct": -0.08
-      },
-      {
-        "security": "PHOENXINTL",
-        "close": 35.25,
-        "changePct": -4.99
-      },
-      {
-        "security": "POLYSIL",
-        "close": 35.85,
-        "changePct": -4.91
-      },
-      {
-        "security": "PRECISION",
-        "close": 6.5,
-        "changePct": -2.99
-      },
-      {
-        "security": "PRESSTONIC",
-        "close": 41.85,
-        "changePct": -4.99
-      },
-      {
-        "security": "PROLIFE",
-        "close": 65.0,
-        "changePct": -0.15
-      },
-      {
-        "security": "PULZ",
-        "close": 32.35,
-        "changePct": -4.99
-      },
-      {
-        "security": "QUESTLAB",
-        "close": 89.05,
-        "changePct": -1.17
-      },
-      {
-        "security": "RMDRIP",
-        "close": 18.1,
-        "changePct": -4.99
-      },
-      {
-        "security": "RADIOWALLA",
-        "close": 20.0,
-        "changePct": -0.99
-      },
-      {
-        "security": "RCDL",
-        "close": 18.7,
-        "changePct": -3.11
-      },
-      {
-        "security": "RTL",
-        "close": 111.7,
-        "changePct": -0.71
-      },
-      {
-        "security": "RBS",
-        "close": 81.5,
-        "changePct": -0.73
-      },
-      {
-        "security": "RVHL",
-        "close": 36.0,
-        "changePct": -0.08
-      },
-      {
-        "security": "RRECL",
-        "close": 130.0,
-        "changePct": -2.29
-      },
-      {
-        "security": "0RL34",
-        "close": 69000.0,
-        "changePct": -19.95
-      },
-      {
-        "security": "REFRACTORY",
-        "close": 35.15,
-        "changePct": -4.87
-      },
-      {
-        "security": "SDREAMS",
-        "close": 78.85,
-        "changePct": -3.84
-      },
-      {
-        "security": "SAHASRA",
-        "close": 370.95,
-        "changePct": -4.99
-      },
-      {
-        "security": "SAJHOTELS",
-        "close": 25.65,
-        "changePct": -2.29
-      },
-      {
-        "security": "SAROJA",
-        "close": 36.1,
-        "changePct": -5.0
-      },
-      {
-        "security": "SCL271224A",
-        "close": 1187.0,
-        "changePct": -0.08
-      },
-      {
-        "security": "905SCL36",
-        "close": 99000.0,
-        "changePct": -3.86
-      },
-      {
-        "security": "975SCL29",
-        "close": 102471.0,
-        "changePct": -0.97
-      },
-      {
-        "security": "743AP44",
-        "close": 95.42,
-        "changePct": -4.58
-      },
-      {
-        "security": "743AP46",
-        "close": 95.42,
-        "changePct": -4.58
-      },
-      {
-        "security": "721BR33",
-        "close": 95.26,
-        "changePct": -4.74
-      },
-      {
-        "security": "758HR30",
-        "close": 100.51,
-        "changePct": -0.82
-      },
-      {
-        "security": "769HR48",
-        "close": 93.1,
+        "security": "BHAGYANGR",
+        "close": 88.22,
         "changePct": -2.0
       },
       {
-        "security": "736KL36",
-        "close": 95.27,
-        "changePct": -4.73
+        "security": "BIOPOL",
+        "close": 43.0,
+        "changePct": -1.94
       },
       {
-        "security": "744MH34",
-        "close": 95.27,
-        "changePct": -4.73
+        "security": "BLUECHIP",
+        "close": 1.56,
+        "changePct": -1.89
       },
       {
-        "security": "737PN36",
-        "close": 95.27,
-        "changePct": -4.73
+        "security": "BNAGROCHEM",
+        "close": 15.42,
+        "changePct": -4.99
       },
       {
-        "security": "737RJ34B",
-        "close": 95.96,
-        "changePct": -4.04
+        "security": "975BNAL28",
+        "close": 9718.0,
+        "changePct": -0.01
       },
       {
-        "security": "692TN30",
+        "security": "886REC34",
+        "close": 1208.0,
+        "changePct": -7.08
+      },
+      {
+        "security": "BRACEPORT",
+        "close": 78.5,
+        "changePct": -7.1
+      },
+      {
+        "security": "BRITANNIA",
+        "close": 4673.2,
+        "changePct": -0.57
+      },
+      {
+        "security": "CEDAAR",
+        "close": 15.0,
+        "changePct": -4.76
+      },
+      {
+        "security": "CELLPOINT",
+        "close": 14.9,
+        "changePct": -2.93
+      },
+      {
+        "security": "CHEMCRUX",
+        "close": 80.01,
+        "changePct": -0.68
+      },
+      {
+        "security": "CSSL",
+        "close": 73.9,
+        "changePct": -2.12
+      },
+      {
+        "security": "CONNPLEX",
+        "close": 227.0,
+        "changePct": -0.44
+      },
+      {
+        "security": "CRAYONS",
+        "close": 28.35,
+        "changePct": -4.55
+      },
+      {
+        "security": "CURRENT",
+        "close": 97.0,
+        "changePct": -2.02
+      },
+      {
+        "security": "DCG",
+        "close": 58.75,
+        "changePct": -4.94
+      },
+      {
+        "security": "DENEERS",
+        "close": 164.0,
+        "changePct": -1.18
+      },
+      {
+        "security": "DECCANTRAN",
+        "close": 16.0,
+        "changePct": -2.14
+      },
+      {
+        "security": "DELAPLEX",
+        "close": 103.45,
+        "changePct": -4.96
+      },
+      {
+        "security": "DIVISLAB",
+        "close": 11049.0,
+        "changePct": -0.91
+      },
+      {
+        "security": "DIVYADHAN",
+        "close": 40.0,
+        "changePct": -2.44
+      },
+      {
+        "security": "FLEXIADD",
+        "close": 10.05,
+        "changePct": -1.37
+      },
+      {
+        "security": "EASTSILK",
+        "close": 68.0,
+        "changePct": -3.6
+      },
+      {
+        "security": "925ECL28",
+        "close": 1042.0,
+        "changePct": -0.29
+      },
+      {
+        "security": "BBETF0432",
+        "close": 1340.0,
+        "changePct": -0.04
+      },
+      {
+        "security": "ELM250",
+        "close": 16.5,
+        "changePct": -1.67
+      },
+      {
+        "security": "ELITECON",
+        "close": 4.52,
+        "changePct": -4.84
+      },
+      {
+        "security": "EMPOWER",
+        "close": 1.06,
+        "changePct": -4.5
+      },
+      {
+        "security": "EPWINDIA",
+        "close": 241.0,
+        "changePct": -0.66
+      },
+      {
+        "security": "ESPRIT",
+        "close": 62.05,
+        "changePct": -1.51
+      },
+      {
+        "security": "FINBUD",
+        "close": 105.0,
+        "changePct": -1.5
+      },
+      {
+        "security": "FWSTC",
+        "close": 279.3,
+        "changePct": -5.0
+      },
+      {
+        "security": "NYKAA",
+        "close": 352.0,
+        "changePct": -1.68
+      },
+      {
+        "security": "FEL",
+        "close": 0.29,
+        "changePct": -3.33
+      },
+      {
+        "security": "GANGABATH",
+        "close": 21.7,
+        "changePct": -1.59
+      },
+      {
+        "security": "GANGAFORGE",
+        "close": 1.11,
+        "changePct": -4.31
+      },
+      {
+        "security": "GSTL",
+        "close": 9.25,
+        "changePct": -4.15
+      },
+      {
+        "security": "657GS2033A",
+        "close": 97.0,
+        "changePct": -0.05
+      },
+      {
+        "security": "692GS2039",
+        "close": 94.84,
+        "changePct": -2.38
+      },
+      {
+        "security": "622GS2035",
+        "close": 92.95,
+        "changePct": -0.69
+      },
+      {
+        "security": "653GS2031",
+        "close": 98.05,
+        "changePct": -1.95
+      },
+      {
+        "security": "667GS2050",
+        "close": 91.9,
+        "changePct": -0.11
+      },
+      {
+        "security": "676GS2061",
+        "close": 89.41,
+        "changePct": -0.16
+      },
+      {
+        "security": "679GS2034",
+        "close": 97.0,
+        "changePct": -1.02
+      },
+      {
+        "security": "717GS2030",
+        "close": 101.5,
+        "changePct": -0.44
+      },
+      {
+        "security": "736GS2052",
         "close": 99.0,
         "changePct": -1.0
       },
       {
-        "security": "743TN32",
-        "close": 97.65,
-        "changePct": -2.35
+        "security": "754GS2036",
+        "close": 105.95,
+        "changePct": -0.08
       },
       {
-        "security": "744TN34B",
-        "close": 96.24,
-        "changePct": -3.76
-      },
-      {
-        "security": "743TS43",
-        "close": 95.0,
-        "changePct": -5.0
-      },
-      {
-        "security": "774TS46",
-        "close": 93.0,
-        "changePct": -2.27
-      },
-      {
-        "security": "1025SCL34A",
-        "close": 975.0,
-        "changePct": -5.34
-      },
-      {
-        "security": "1040UCL27B",
-        "close": 995.04,
+        "security": "364D031226",
+        "close": 99.6,
         "changePct": -0.2
       },
       {
-        "security": "79NHIT40",
-        "close": 305.15,
-        "changePct": -0.76
+        "security": "364D261126",
+        "close": 99.85,
+        "changePct": -0.1
       },
       {
-        "security": "79NHIT47",
-        "close": 406.15,
-        "changePct": -0.7
+        "security": "91D031226",
+        "close": 99.38,
+        "changePct": -0.31
       },
       {
-        "security": "797IGT31",
-        "close": 1017.0,
-        "changePct": -0.27
+        "security": "91D110227",
+        "close": 98.28,
+        "changePct": -0.28
       },
       {
-        "security": "843IHFL29",
-        "close": 988.0,
-        "changePct": -0.4
+        "security": "GREENASIA",
+        "close": 76.0,
+        "changePct": -4.52
       },
       {
-        "security": "865IIFL28",
-        "close": 993.99,
-        "changePct": -0.0
+        "security": "BIRDYS",
+        "close": 62.65,
+        "changePct": -4.93
       },
       {
-        "security": "897MOFSL29",
-        "close": 1025.0,
-        "changePct": -0.19
+        "security": "GSMFOILS",
+        "close": 47.4,
+        "changePct": -4.91
       },
       {
-        "security": "9IHFL27",
-        "close": 1064.63,
-        "changePct": -0.47
+        "security": "GTLINFRA",
+        "close": 1.04,
+        "changePct": -0.95
       },
       {
-        "security": "9PFL31A",
-        "close": 1042.0,
-        "changePct": -0.19
-      },
-      {
-        "security": "93MOFSL34",
-        "close": 1045.01,
-        "changePct": -0.51
-      },
-      {
-        "security": "0SCL27",
-        "close": 1272.23,
-        "changePct": -0.22
-      },
-      {
-        "security": "IMC1",
-        "close": 253.0,
-        "changePct": -0.78
-      },
-      {
-        "security": "81TCHF28",
-        "close": 1018.0,
-        "changePct": -0.68
-      },
-      {
-        "security": "97SFL29",
-        "close": 1100.1,
-        "changePct": -0.89
-      },
-      {
-        "security": "898LTF29",
-        "close": 1050.0,
-        "changePct": -1.69
-      },
-      {
-        "security": "865TCAPS27",
-        "close": 1021.0,
-        "changePct": -0.06
-      },
-      {
-        "security": "SHEEL",
-        "close": 58.3,
-        "changePct": -4.43
-      },
-      {
-        "security": "SHILGRAVQ",
-        "close": 138.35,
-        "changePct": -1.88
-      },
-      {
-        "security": "SHIVAAGRO",
-        "close": 38.4,
-        "changePct": -0.98
-      },
-      {
-        "security": "SPCL",
-        "close": 46.0,
-        "changePct": -4.66
-      },
-      {
-        "security": "SHKSIL",
-        "close": 27.0,
-        "changePct": -3.4
-      },
-      {
-        "security": "ENRIN",
-        "close": 3021.5,
-        "changePct": -2.44
-      },
-      {
-        "security": "SKYTECH",
-        "close": 25.75,
-        "changePct": -4.98
-      },
-      {
-        "security": "SLONE",
-        "close": 113.05,
-        "changePct": -5.0
-      },
-      {
-        "security": "SMARTEN",
-        "close": 80.85,
-        "changePct": -4.99
-      },
-      {
-        "security": "SONAMAC",
-        "close": 28.4,
-        "changePct": -4.86
-      },
-      {
-        "security": "SONAL",
-        "close": 80.35,
-        "changePct": -1.28
-      },
-      {
-        "security": "SONUINFRA",
-        "close": 32.7,
-        "changePct": -4.94
-      },
-      {
-        "security": "SPELS",
-        "close": 71.07,
-        "changePct": -5.0
-      },
-      {
-        "security": "STLSTRINF",
-        "close": 21.15,
-        "changePct": -2.26
-      },
-      {
-        "security": "STLTECH",
-        "close": 641.5,
-        "changePct": -5.0
-      },
-      {
-        "security": "STUDIOLSD",
-        "close": 8.8,
-        "changePct": -2.22
-      },
-      {
-        "security": "SWARNSAR",
-        "close": 37.52,
-        "changePct": -4.99
-      },
-      {
-        "security": "SWASTIK",
-        "close": 14.25,
-        "changePct": -5.0
-      },
-      {
-        "security": "SYNOPTICS",
-        "close": 78.0,
+        "security": "HDFCLIFE",
+        "close": 575.5,
         "changePct": -3.29
       },
       {
-        "security": "TAC",
-        "close": 357.75,
-        "changePct": -4.99
-      },
-      {
-        "security": "TAURIAN",
-        "close": 691.0,
-        "changePct": -0.75
-      },
-      {
-        "security": "753IRFC30",
-        "close": 1086.0,
-        "changePct": -0.05
-      },
-      {
-        "security": "TEAMTECH",
-        "close": 162.5,
-        "changePct": -1.96
-      },
-      {
-        "security": "TECHERA",
-        "close": 106.3,
-        "changePct": -9.99
-      },
-      {
-        "security": "TECHNVISN",
-        "close": 3816.8,
+        "security": "HGSINDIALT",
+        "close": 211.85,
         "changePct": -5.0
       },
       {
-        "security": "TGL",
-        "close": 11.7,
-        "changePct": -1.68
+        "security": "HIMALAYAN",
+        "close": 69.5,
+        "changePct": -2.46
       },
       {
-        "security": "TCL",
-        "close": 126.0,
-        "changePct": -0.59
+        "security": "HOLMARC",
+        "close": 144.0,
+        "changePct": -1.84
       },
       {
-        "security": "THAKDEV",
-        "close": 137.31,
-        "changePct": -0.5
+        "security": "HRHNEXT",
+        "close": 22.6,
+        "changePct": -4.84
       },
       {
-        "security": "THESL",
-        "close": 10.35,
-        "changePct": -4.61
+        "security": "IBLFL",
+        "close": 60.85,
+        "changePct": -4.92
       },
       {
-        "security": "TIJARIA",
-        "close": 6.17,
-        "changePct": -1.91
+        "security": "ICDSLTD",
+        "close": 44.5,
+        "changePct": -1.11
       },
       {
-        "security": "TIKONA",
-        "close": 30.66,
+        "security": "1225IFL28",
+        "close": 6250.0,
+        "changePct": -0.79
+      },
+      {
+        "security": "837IIFL28",
+        "close": 978.2,
+        "changePct": -2.18
+      },
+      {
+        "security": "IL&FSTRANS",
+        "close": 1.53,
+        "changePct": -3.16
+      },
+      {
+        "security": "IEML",
+        "close": 37.4,
+        "changePct": -4.96
+      },
+      {
+        "security": "INDOTHAI",
+        "close": 28.91,
+        "changePct": -5.0
+      },
+      {
+        "security": "INSPIRE",
+        "close": 12.55,
+        "changePct": -4.92
+      },
+      {
+        "security": "INVENTURE",
+        "close": 0.92,
+        "changePct": -1.08
+      },
+      {
+        "security": "IVZINNIFTY",
+        "close": 289.5,
+        "changePct": -0.94
+      },
+      {
+        "security": "925ISF29",
+        "close": 9830.78,
+        "changePct": -0.85
+      },
+      {
+        "security": "950ISF27A",
+        "close": 99519.02,
+        "changePct": -0.1
+      },
+      {
+        "security": "IWARE",
+        "close": 357.05,
+        "changePct": -1.15
+      },
+      {
+        "security": "JAINIK",
+        "close": 153.25,
+        "changePct": -4.22
+      },
+      {
+        "security": "JAKHARIA",
+        "close": 53.2,
+        "changePct": -5.0
+      },
+      {
+        "security": "JETKNIT",
+        "close": 43.75,
         "changePct": -4.99
       },
       {
-        "security": "TECHLABS",
-        "close": 110.65,
-        "changePct": -4.98
-      },
-      {
-        "security": "TVVISION",
-        "close": 2.48,
-        "changePct": -4.98
-      },
-      {
-        "security": "UPHOT",
-        "close": 1485.0,
-        "changePct": -3.45
-      },
-      {
-        "security": "UMA",
-        "close": 17.0,
-        "changePct": -2.86
-      },
-      {
-        "security": "TCHF30",
-        "close": 1110.0,
-        "changePct": -0.89
-      },
-      {
-        "security": "IIFLZC28",
-        "close": 1689.0,
-        "changePct": -0.68
-      },
-      {
-        "security": "10IIFL28A",
-        "close": 1062.0,
-        "changePct": -0.65
-      },
-      {
-        "security": "10IIFL28",
-        "close": 1020.1,
-        "changePct": -0.58
-      },
-      {
-        "security": "10IIFL29",
-        "close": 1010.0,
-        "changePct": -4.72
-      },
-      {
-        "security": "885TCAPS29",
-        "close": 1074.0,
-        "changePct": -0.09
-      },
-      {
-        "security": "USHAFIN",
-        "close": 57.45,
-        "changePct": -2.96
-      },
-      {
-        "security": "ITBETA",
-        "close": 335.0,
-        "changePct": -0.53
-      },
-      {
-        "security": "VALIANTLAB",
-        "close": 100.82,
-        "changePct": -1.99
-      },
-      {
-        "security": "VBL",
-        "close": 430.0,
-        "changePct": -1.6
-      },
-      {
-        "security": "1025VCCL28",
-        "close": 96000.0,
-        "changePct": -0.51
-      },
-      {
-        "security": "115VCCL27",
-        "close": 99718.9,
-        "changePct": -0.51
-      },
-      {
-        "security": "VPFL",
-        "close": 69.25,
-        "changePct": -4.94
-      },
-      {
-        "security": "VEEKAYEM",
-        "close": 156.0,
-        "changePct": -4.82
-      },
-      {
-        "security": "VICTORYEV",
+        "security": "JFLLIFE",
         "close": 12.35,
         "changePct": -4.63
       },
       {
-        "security": "VIJAYPD",
-        "close": 66.2,
-        "changePct": -4.75
+        "security": "RETAIL",
+        "close": 26.5,
+        "changePct": -1.49
       },
       {
-        "security": "VINNY",
-        "close": 0.96,
-        "changePct": -1.03
+        "security": "JIWANRAM",
+        "close": 3.95,
+        "changePct": -3.66
       },
       {
-        "security": "WALPAR",
-        "close": 21.5,
-        "changePct": -2.71
+        "security": "KATARIA",
+        "close": 132.0,
+        "changePct": -2.22
       },
       {
-        "security": "WARDINMOBI",
-        "close": 3.49,
-        "changePct": -4.9
+        "security": "KAVDEFENCE",
+        "close": 70.68,
+        "changePct": -4.99
       },
       {
-        "security": "WIPRO",
-        "close": 189.89,
-        "changePct": -1.89
+        "security": "KHERIAAUTO",
+        "close": 90.05,
+        "changePct": -3.17
       },
       {
-        "security": "WOMANCART",
-        "close": 72.25,
+        "security": "LAKSHYA",
+        "close": 92.0,
+        "changePct": -0.59
+      },
+      {
+        "security": "LCCINFOTEC",
+        "close": 3.77,
+        "changePct": -4.8
+      },
+      {
+        "security": "LLOYDS",
+        "close": 59.6,
+        "changePct": -4.94
+      },
+      {
+        "security": "MVKAGRO",
+        "close": 172.8,
+        "changePct": -4.98
+      },
+      {
+        "security": "MACOBSTECH",
+        "close": 189.9,
+        "changePct": -1.61
+      },
+      {
+        "security": "MAGSON",
+        "close": 160.05,
+        "changePct": -6.95
+      },
+      {
+        "security": "MAITREYA",
+        "close": 110.05,
+        "changePct": -2.52
+      },
+      {
+        "security": "MAKS",
+        "close": 13.45,
+        "changePct": -4.95
+      },
+      {
+        "security": "MARUSHIKA",
+        "close": 120.0,
+        "changePct": -0.83
+      },
+      {
+        "security": "MAYASHEEL",
+        "close": 24.7,
+        "changePct": -5.18
+      },
+      {
+        "security": "MBECL",
+        "close": 290.55,
+        "changePct": -1.99
+      },
+      {
+        "security": "METROGLOBL",
+        "close": 117.0,
+        "changePct": -2.09
+      },
+      {
+        "security": "CONSUMER",
+        "close": 12.06,
+        "changePct": -1.55
+      },
+      {
+        "security": "MHHL",
+        "close": 28.0,
+        "changePct": -4.92
+      },
+      {
+        "security": "MOHITE",
+        "close": 2.37,
+        "changePct": -2.87
+      },
+      {
+        "security": "MONOPHARMA",
+        "close": 10.0,
+        "changePct": -2.44
+      },
+      {
+        "security": "MOSERVICE",
+        "close": 32.69,
+        "changePct": -1.0
+      },
+      {
+        "security": "MMEL",
+        "close": 36.2,
+        "changePct": -4.99
+      },
+      {
+        "security": "NDL",
+        "close": 2.44,
+        "changePct": -2.79
+      },
+      {
+        "security": "NEPTUNE",
+        "close": 175.25,
+        "changePct": -0.85
+      },
+      {
+        "security": "NEWJAISA",
+        "close": 17.35,
+        "changePct": -4.93
+      },
+      {
+        "security": "NFPSAMPOOR",
+        "close": 19.7,
+        "changePct": -0.25
+      },
+      {
+        "security": "NIKITA",
+        "close": 76.5,
+        "changePct": -4.26
+      },
+      {
+        "security": "LTGILTBEES",
+        "close": 29.62,
+        "changePct": -0.03
+      },
+      {
+        "security": "ONYX",
+        "close": 37.6,
+        "changePct": -4.93
+      },
+      {
+        "security": "OPTIVALUE",
+        "close": 205.0,
+        "changePct": -0.97
+      },
+      {
+        "security": "ORTEL",
+        "close": 1.31,
+        "changePct": -4.38
+      },
+      {
+        "security": "OSIAHYPER",
+        "close": 1.81,
+        "changePct": -1.63
+      },
+      {
+        "security": "PALASHSECU",
+        "close": 78.4,
+        "changePct": -2.0
+      },
+      {
+        "security": "PANSARI",
+        "close": 274.8,
+        "changePct": -0.05
+      },
+      {
+        "security": "PARAGON",
+        "close": 43.15,
+        "changePct": -1.26
+      },
+      {
+        "security": "PARAMOUNT",
+        "close": 38.95,
         "changePct": -5.0
       },
       {
-        "security": "YOGI",
-        "close": 156.0,
+        "security": "PARASPETRO",
+        "close": 2.04,
+        "changePct": -1.92
+      },
+      {
+        "security": "PARSVNATH",
+        "close": 2.52,
+        "changePct": -1.95
+      },
+      {
+        "security": "PASHUPATI",
+        "close": 30.11,
+        "changePct": -4.99
+      },
+      {
+        "security": "PIONRINV",
+        "close": 59.5,
+        "changePct": -5.82
+      },
+      {
+        "security": "PRAXIS",
+        "close": 4.69,
+        "changePct": -4.87
+      },
+      {
+        "security": "PRECISION",
+        "close": 6.2,
+        "changePct": -4.62
+      },
+      {
+        "security": "PRESSTONIC",
+        "close": 39.8,
+        "changePct": -4.9
+      },
+      {
+        "security": "PRESTIGE",
+        "close": 1657.4,
+        "changePct": -2.02
+      },
+      {
+        "security": "PULZ",
+        "close": 30.75,
+        "changePct": -4.95
+      },
+      {
+        "security": "PVP",
+        "close": 44.64,
+        "changePct": -4.98
+      },
+      {
+        "security": "RAJRILTD",
+        "close": 21.46,
+        "changePct": -1.96
+      },
+      {
+        "security": "ARENTERP",
+        "close": 32.58,
+        "changePct": -0.12
+      },
+      {
+        "security": "RCDL",
+        "close": 18.35,
+        "changePct": -1.87
+      },
+      {
+        "security": "RAJSREESUG",
+        "close": 28.01,
+        "changePct": -1.06
+      },
+      {
+        "security": "0RL34",
+        "close": 58150.0,
+        "changePct": -15.72
+      },
+      {
+        "security": "RCOM",
+        "close": 0.81,
+        "changePct": -1.22
+      },
+      {
+        "security": "RHFL",
+        "close": 1.48,
+        "changePct": -4.52
+      },
+      {
+        "security": "IVZBANKNF",
+        "close": 61.98,
+        "changePct": -0.27
+      },
+      {
+        "security": "RHETAN",
+        "close": 13.0,
+        "changePct": -0.08
+      },
+      {
+        "security": "ROXHITECH",
+        "close": 63.3,
+        "changePct": -3.14
+      },
+      {
+        "security": "SADHNANIQ",
+        "close": 2.43,
+        "changePct": -4.71
+      },
+      {
+        "security": "SAIFL",
+        "close": 4.0,
+        "changePct": -2.44
+      },
+      {
+        "security": "SANGANI",
+        "close": 54.5,
+        "changePct": -1.8
+      },
+      {
+        "security": "SAROJA",
+        "close": 34.3,
+        "changePct": -4.99
+      },
+      {
+        "security": "SCL01825",
+        "close": 1105.39,
+        "changePct": -0.33
+      },
+      {
+        "security": "971SCL30",
+        "close": 1021.92,
+        "changePct": -0.05
+      },
+      {
+        "security": "738AP49",
+        "close": 95.0,
+        "changePct": -5.0
+      },
+      {
+        "security": "743AP42B",
+        "close": 95.31,
+        "changePct": -4.69
+      },
+      {
+        "security": "761MP44",
+        "close": 92.12,
+        "changePct": -2.0
+      },
+      {
+        "security": "756TN54",
+        "close": 90.25,
+        "changePct": -5.0
+      },
+      {
+        "security": "757WB46",
+        "close": 95.0,
+        "changePct": -5.0
+      },
+      {
+        "security": "935LTF29",
+        "close": 1100.0,
+        "changePct": -0.09
+      },
+      {
+        "security": "IIFLZC28B",
+        "close": 1310.0,
+        "changePct": -0.38
+      },
+      {
+        "security": "10CAGL27",
+        "close": 1002.15,
+        "changePct": -2.23
+      },
+      {
+        "security": "1015SCL29B",
+        "close": 990.0,
+        "changePct": -0.88
+      },
+      {
+        "security": "965SCL25F",
+        "close": 710.0,
+        "changePct": -2.58
+      },
+      {
+        "security": "980SCL33",
+        "close": 700.2,
+        "changePct": -16.64
+      },
+      {
+        "security": "820IIFL27",
+        "close": 994.0,
+        "changePct": -0.26
+      },
+      {
+        "security": "82IGT31",
+        "close": 1043.0,
+        "changePct": -0.19
+      },
+      {
+        "security": "843IHFL29",
+        "close": 980.01,
+        "changePct": -0.81
+      },
+      {
+        "security": "875IHFL29",
+        "close": 1045.0,
+        "changePct": -2.34
+      },
+      {
+        "security": "89IHFL29",
+        "close": 980.0,
+        "changePct": -1.01
+      },
+      {
+        "security": "9PFL31A",
+        "close": 1030.0,
+        "changePct": -1.15
+      },
+      {
+        "security": "971SCL29B",
+        "close": 991.54,
+        "changePct": -0.75
+      },
+      {
+        "security": "971SCL28",
+        "close": 372.0,
+        "changePct": -13.89
+      },
+      {
+        "security": "865TCAPS27",
+        "close": 1020.0,
+        "changePct": -0.1
+      },
+      {
+        "security": "SETUINFRA",
+        "close": 0.43,
+        "changePct": -4.44
+      },
+      {
+        "security": "SHIVATEX",
+        "close": 163.16,
+        "changePct": -0.01
+      },
+      {
+        "security": "SHRENIK",
+        "close": 0.26,
+        "changePct": -3.7
+      },
+      {
+        "security": "SIDDHIKA",
+        "close": 211.85,
+        "changePct": -1.0
+      },
+      {
+        "security": "SIGNORIA",
+        "close": 120.0,
+        "changePct": -1.64
+      },
+      {
+        "security": "SIMBHALS",
+        "close": 6.3,
+        "changePct": -0.63
+      },
+      {
+        "security": "SIMCA",
+        "close": 500.0,
+        "changePct": -1.28
+      },
+      {
+        "security": "SKYTECH",
+        "close": 24.5,
+        "changePct": -4.85
+      },
+      {
+        "security": "SMARTEN",
+        "close": 76.85,
+        "changePct": -4.95
+      },
+      {
+        "security": "SMVD",
+        "close": 10.75,
+        "changePct": -4.87
+      },
+      {
+        "security": "SONAL",
+        "close": 79.0,
+        "changePct": -1.68
+      },
+      {
+        "security": "SPUNWEB",
+        "close": 103.0,
+        "changePct": -1.9
+      },
+      {
+        "security": "SUMAX",
+        "close": 94.5,
+        "changePct": -4.5
+      },
+      {
+        "security": "SOCL",
+        "close": 32.9,
+        "changePct": -4.91
+      },
+      {
+        "security": "SUPREMEIND",
+        "close": 3151.0,
+        "changePct": -2.49
+      },
+      {
+        "security": "SURYALAXMI",
+        "close": 56.01,
+        "changePct": -1.37
+      },
+      {
+        "security": "SUVIDHAA",
+        "close": 1.93,
+        "changePct": -1.53
+      },
+      {
+        "security": "TAC",
+        "close": 339.9,
+        "changePct": -4.99
+      },
+      {
+        "security": "TCS",
+        "close": 2379.5,
+        "changePct": -1.13
+      },
+      {
+        "security": "TGL",
+        "close": 11.5,
+        "changePct": -1.71
+      },
+      {
+        "security": "TEJA",
+        "close": 201.0,
+        "changePct": -3.37
+      },
+      {
+        "security": "PHOENIXLTD",
+        "close": 2204.6,
+        "changePct": -1.09
+      },
+      {
+        "security": "TIJARIA",
+        "close": 6.05,
+        "changePct": -1.94
+      },
+      {
+        "security": "TIKONA",
+        "close": 29.13,
+        "changePct": -4.99
+      },
+      {
+        "security": "TITAN",
+        "close": 4648.1,
+        "changePct": -5.3
+      },
+      {
+        "security": "TORNTPHARM",
+        "close": 4610.7,
+        "changePct": -1.24
+      },
+      {
+        "security": "TOYAMSL",
+        "close": 0.62,
+        "changePct": -3.13
+      },
+      {
+        "security": "TRANSWORLD",
+        "close": 185.05,
+        "changePct": -5.0
+      },
+      {
+        "security": "TECHLABS",
+        "close": 105.15,
+        "changePct": -4.97
+      },
+      {
+        "security": "1050UCL28",
+        "close": 1002.25,
+        "changePct": -0.62
+      },
+      {
+        "security": "96IIFL28A",
+        "close": 1005.0,
+        "changePct": -0.1
+      },
+      {
+        "security": "UTKAL",
+        "close": 45.45,
+        "changePct": -4.92
+      },
+      {
+        "security": "VLINFRA",
+        "close": 22.2,
+        "changePct": -4.93
+      },
+      {
+        "security": "VALIANTLAB",
+        "close": 98.81,
+        "changePct": -1.99
+      },
+      {
+        "security": "115VCCL31B",
+        "close": 9800.0,
+        "changePct": -2.95
+      },
+      {
+        "security": "VPFL",
+        "close": 65.8,
+        "changePct": -4.98
+      },
+      {
+        "security": "VERANDA",
+        "close": 28.88,
+        "changePct": -4.97
+      },
+      {
+        "security": "VERITAAS",
+        "close": 29.55,
+        "changePct": -4.98
+      },
+      {
+        "security": "VIGOR",
+        "close": 59.1,
+        "changePct": -4.98
+      },
+      {
+        "security": "VIKASECO",
+        "close": 0.98,
+        "changePct": -1.01
+      },
+      {
+        "security": "VIKASLIFE",
+        "close": 1.15,
+        "changePct": -1.71
+      },
+      {
+        "security": "VINNY",
+        "close": 0.95,
+        "changePct": -1.04
+      },
+      {
+        "security": "VIRTUALG",
+        "close": 0.43,
+        "changePct": -2.27
+      },
+      {
+        "security": "VISAMAN",
+        "close": 21.35,
+        "changePct": -4.9
+      },
+      {
+        "security": "VISDEM",
+        "close": 121.8,
+        "changePct": -1.14
+      },
+      {
+        "security": "VIVOBIOT",
+        "close": 15.4,
+        "changePct": -1.28
+      },
+      {
+        "security": "WALPAR",
+        "close": 20.5,
+        "changePct": -4.65
+      },
+      {
+        "security": "1075WCA28",
+        "close": 9765.0,
+        "changePct": -0.21
+      },
+      {
+        "security": "1075WCAP28",
+        "close": 98202.45,
+        "changePct": -0.82
+      },
+      {
+        "security": "WIPRO",
+        "close": 185.14,
         "changePct": -2.5
       },
       {
-        "security": "YUDIZ",
-        "close": 23.35,
-        "changePct": -4.69
+        "security": "YCCL",
+        "close": 10.9,
+        "changePct": -8.79
       }
     ]
   },
   "volatility": {
-    "medianRangePct": 3.23,
-    "highVolatility": 838,
-    "lowVolatility": 260,
+    "medianRangePct": 3.21,
+    "highVolatility": 815,
+    "lowVolatility": 217,
     "mostVolatile": [
       {
         "security": "IEML-RE1",
+        "close": 6.45,
+        "changePct": -28.33,
+        "rangePct": 59.69,
+        "tradeValue": 6150525.0
+      },
+      {
+        "security": "PACIFICI",
+        "close": 123.35,
+        "changePct": -2.88,
+        "rangePct": 30.72,
+        "tradeValue": 2137631.0
+      },
+      {
+        "security": "MAXPOSURE",
+        "close": 22.95,
+        "changePct": -15.0,
+        "rangePct": 25.05,
+        "tradeValue": 2416550.0
+      },
+      {
+        "security": "RILINFRA",
+        "close": 34.8,
+        "changePct": -3.47,
+        "rangePct": 24.57,
+        "tradeValue": 836035.0
+      },
+      {
+        "security": "ATLPP",
         "close": 9.0,
-        "changePct": 0.0,
-        "rangePct": 37.78,
-        "tradeValue": 6418975.0
+        "changePct": -4.26,
+        "rangePct": 23.89,
+        "tradeValue": 22198.0
       },
       {
-        "security": "DELPHIFX",
-        "close": 7.69,
-        "changePct": 6.22,
-        "rangePct": 22.63,
-        "tradeValue": 14889053.0
+        "security": "ORIANA",
+        "close": 183.55,
+        "changePct": -13.56,
+        "rangePct": 22.83,
+        "tradeValue": 370424869.0
       },
       {
-        "security": "965SCL25F",
-        "close": 728.8,
-        "changePct": -0.12,
-        "rangePct": 20.58,
-        "tradeValue": 354894.0
+        "security": "PRAENG",
+        "close": 16.56,
+        "changePct": -7.69,
+        "rangePct": 21.2,
+        "tradeValue": 3815436.0
       },
       {
-        "security": "AGL",
-        "close": 14.96,
-        "changePct": 14.81,
-        "rangePct": 19.32,
-        "tradeValue": 1414453570.0
+        "security": "MASKINVEST",
+        "close": 128.26,
+        "changePct": -3.75,
+        "rangePct": 20.27,
+        "tradeValue": 40836.0
       },
       {
-        "security": "WEWIN",
-        "close": 39.62,
-        "changePct": -2.65,
-        "rangePct": 18.8,
-        "tradeValue": 2303650.0
+        "security": "FAZE3Q",
+        "close": 612.05,
+        "changePct": 6.98,
+        "rangePct": 19.98,
+        "tradeValue": 2276947206.0
       },
       {
-        "security": "SALASAR",
-        "close": 5.78,
-        "changePct": 19.92,
-        "rangePct": 18.34,
-        "tradeValue": 210903703.0
+        "security": "DHRUV",
+        "close": 18.99,
+        "changePct": 0.53,
+        "rangePct": 19.8,
+        "tradeValue": 702382.0
       },
       {
-        "security": "IPRINGLTD",
-        "close": 137.56,
-        "changePct": 1.42,
-        "rangePct": 17.96,
-        "tradeValue": 1448784.0
+        "security": "KHAZANCHI",
+        "close": 716.7,
+        "changePct": 0.84,
+        "rangePct": 19.65,
+        "tradeValue": 31652634.0
       },
       {
-        "security": "RACE",
-        "close": 107.56,
-        "changePct": 5.34,
-        "rangePct": 17.56,
-        "tradeValue": 2647241.0
+        "security": "KONTOR",
+        "close": 51.3,
+        "changePct": 0.39,
+        "rangePct": 19.49,
+        "tradeValue": 670740.0
       },
       {
-        "security": "KDDL",
-        "close": 4560.4,
-        "changePct": 16.52,
-        "rangePct": 16.42,
-        "tradeValue": 4003181561.0
+        "security": "MFML",
+        "close": 18.89,
+        "changePct": 1.89,
+        "rangePct": 19.16,
+        "tradeValue": 1131839.0
+      },
+      {
+        "security": "DHARARAIL",
+        "close": 128.7,
+        "changePct": 7.97,
+        "rangePct": 18.65,
+        "tradeValue": 7521200.0
+      },
+      {
+        "security": "CRAVATEX",
+        "close": 325.9,
+        "changePct": -3.44,
+        "rangePct": 18.04,
+        "tradeValue": 26944.0
+      },
+      {
+        "security": "1119NFL27",
+        "close": 1077.0,
+        "changePct": 0.09,
+        "rangePct": 18.03,
+        "tradeValue": 17776.0
+      },
+      {
+        "security": "RPPINFRA",
+        "close": 47.57,
+        "changePct": 16.08,
+        "rangePct": 17.62,
+        "tradeValue": 9876862.0
+      },
+      {
+        "security": "KAMANWALA",
+        "close": 16.57,
+        "changePct": -5.58,
+        "rangePct": 17.44,
+        "tradeValue": 201886.0
+      },
+      {
+        "security": "SHANTI",
+        "close": 5.22,
+        "changePct": -11.68,
+        "rangePct": 17.43,
+        "tradeValue": 575261.0
       },
       {
         "security": "KEEPLEARN",
-        "close": 1.51,
-        "changePct": -8.48,
-        "rangePct": 15.89,
-        "tradeValue": 228329.0
+        "close": 1.48,
+        "changePct": -1.99,
+        "rangePct": 16.89,
+        "tradeValue": 84613.0
       },
       {
-        "security": "APEXECO",
-        "close": 200.5,
-        "changePct": -9.99,
-        "rangePct": 15.61,
-        "tradeValue": 40927060.0
+        "security": "SERVICE",
+        "close": 61.9,
+        "changePct": -3.28,
+        "rangePct": 16.8,
+        "tradeValue": 1527300.0
       },
       {
-        "security": "KMCSHIL",
-        "close": 194.52,
-        "changePct": 15.63,
-        "rangePct": 15.58,
-        "tradeValue": 3055515684.0
-      },
-      {
-        "security": "AKSHAR",
-        "close": 0.45,
-        "changePct": 2.27,
-        "rangePct": 15.56,
-        "tradeValue": 1458338.0
-      },
-      {
-        "security": "BALAXI",
-        "close": 26.47,
-        "changePct": 19.99,
-        "rangePct": 15.38,
-        "tradeValue": 6392259.0
+        "security": "KDDL",
+        "close": 4876.8,
+        "changePct": 6.94,
+        "rangePct": 16.77,
+        "tradeValue": 4383042368.0
       },
       {
         "security": "SUNLOC",
-        "close": 75.34,
-        "changePct": 3.21,
-        "rangePct": 15.26,
-        "tradeValue": 241643.0
+        "close": 75.21,
+        "changePct": -0.17,
+        "rangePct": 16.75,
+        "tradeValue": 30743.0
       },
       {
-        "security": "PIONEEREMB",
-        "close": 18.84,
-        "changePct": -0.48,
-        "rangePct": 14.7,
-        "tradeValue": 866722.0
+        "security": "SUMEDHA",
+        "close": 41.97,
+        "changePct": 8.67,
+        "rangePct": 16.27,
+        "tradeValue": 375698.0
       },
       {
-        "security": "SHYAMTEL",
-        "close": 10.86,
-        "changePct": -1.27,
-        "rangePct": 14.55,
-        "tradeValue": 143517.0
-      },
-      {
-        "security": "FILATEX",
-        "close": 108.48,
-        "changePct": 4.84,
-        "rangePct": 14.55,
-        "tradeValue": 2269520585.0
-      },
-      {
-        "security": "KRISHCA",
-        "close": 204.55,
-        "changePct": 14.95,
-        "rangePct": 14.42,
-        "tradeValue": 16923250.0
-      },
-      {
-        "security": "YATRA",
-        "close": 96.27,
-        "changePct": 2.69,
-        "rangePct": 14.22,
-        "tradeValue": 10429443157.0
-      },
-      {
-        "security": "FIRSTCRY",
-        "close": 178.97,
-        "changePct": 12.85,
-        "rangePct": 14.19,
-        "tradeValue": 24202043318.0
-      },
-      {
-        "security": "IGCL",
-        "close": 56.53,
-        "changePct": -7.13,
-        "rangePct": 14.17,
-        "tradeValue": 18598508.0
-      },
-      {
-        "security": "DECCANTRAN",
-        "close": 16.35,
-        "changePct": 1.55,
-        "rangePct": 14.07,
-        "tradeValue": 309000.0
-      },
-      {
-        "security": "BTML",
-        "close": 5.99,
-        "changePct": -7.56,
-        "rangePct": 13.02,
-        "tradeValue": 3784548.0
-      },
-      {
-        "security": "RRIL",
-        "close": 16.24,
-        "changePct": 4.91,
-        "rangePct": 12.99,
-        "tradeValue": 1068016.0
+        "security": "VEEFIN",
+        "close": 248.38,
+        "changePct": -1.51,
+        "rangePct": 15.96,
+        "tradeValue": 19034985.0
       }
     ]
   },
@@ -2422,14 +2222,14 @@
       ">10%"
     ],
     "values": [
-      1,
-      54,
-      497,
-      1453,
-      1254,
-      405,
-      71,
-      20
+      11,
+      84,
+      865,
+      1714,
+      743,
+      226,
+      47,
+      12
     ]
   },
   "fineDistribution": {
@@ -2452,708 +2252,708 @@
       ">15%"
     ],
     "values": [
-      1,
-      0,
+      4,
+      7,
       14,
-      40,
-      258,
-      239,
-      492,
-      961,
-      840,
-      414,
-      178,
-      227,
-      50,
-      21,
-      10,
-      10
+      70,
+      392,
+      473,
+      798,
+      916,
+      503,
+      240,
+      98,
+      128,
+      29,
+      18,
+      9,
+      3
     ]
   },
   "topGainers": [
     {
-      "security": "GROWW",
-      "prevClose": 100.0,
-      "close": 219.0,
-      "changePct": 119.0,
-      "tradeValue": 19053000000.0
-    },
-    {
-      "security": "HAPPYFORGE",
-      "prevClose": 1145.0,
-      "close": 1845.0,
-      "changePct": 61.14,
-      "tradeValue": 3012696810.0
-    },
-    {
-      "security": "GAJANAND",
-      "prevClose": 6.0,
-      "close": 7.2,
-      "changePct": 20.0,
-      "tradeValue": 209400.0
-    },
-    {
-      "security": "MODTHREAD",
-      "prevClose": 46.6,
-      "close": 55.92,
-      "changePct": 20.0,
-      "tradeValue": 1491665.0
+      "security": "OMPOWER",
+      "prevClose": 127.29,
+      "close": 152.74,
+      "changePct": 19.99,
+      "tradeValue": 651563980.0
     },
     {
       "security": "BALAXI",
-      "prevClose": 22.06,
-      "close": 26.47,
-      "changePct": 19.99,
-      "tradeValue": 6392259.0
+      "prevClose": 26.47,
+      "close": 31.65,
+      "changePct": 19.57,
+      "tradeValue": 53862118.0
     },
     {
-      "security": "IPHL",
-      "prevClose": 78.2,
-      "close": 93.8,
-      "changePct": 19.95,
-      "tradeValue": 61229400.0
+      "security": "RPPINFRA",
+      "prevClose": 40.98,
+      "close": 47.57,
+      "changePct": 16.08,
+      "tradeValue": 9876862.0
     },
     {
-      "security": "SALASAR",
-      "prevClose": 4.82,
-      "close": 5.78,
-      "changePct": 19.92,
-      "tradeValue": 210903703.0
+      "security": "890NHB34",
+      "prevClose": 6163.51,
+      "close": 7087.98,
+      "changePct": 15.0,
+      "tradeValue": 708798.0
     },
     {
-      "security": "TTKHLTCARE",
-      "prevClose": 925.75,
-      "close": 1096.75,
-      "changePct": 18.47,
-      "tradeValue": 1112465122.0
+      "security": "SKP",
+      "prevClose": 167.95,
+      "close": 190.8,
+      "changePct": 13.61,
+      "tradeValue": 8723175.0
     },
     {
-      "security": "890SFIL23A",
-      "prevClose": 375.01,
-      "close": 439.79,
-      "changePct": 17.27,
-      "tradeValue": 440.0
+      "security": "SUBROS",
+      "prevClose": 612.95,
+      "close": 693.25,
+      "changePct": 13.1,
+      "tradeValue": 4080771401.0
     },
     {
-      "security": "KDDL",
-      "prevClose": 3913.7,
-      "close": 4560.4,
-      "changePct": 16.52,
-      "tradeValue": 4003181561.0
+      "security": "JKSHAH",
+      "prevClose": 184.36,
+      "close": 207.99,
+      "changePct": 12.82,
+      "tradeValue": 155439216.0
     },
     {
-      "security": "KMCSHIL",
-      "prevClose": 168.22,
-      "close": 194.52,
-      "changePct": 15.63,
-      "tradeValue": 3055515684.0
+      "security": "WEWIN",
+      "prevClose": 39.62,
+      "close": 44.01,
+      "changePct": 11.08,
+      "tradeValue": 4581297.0
+    },
+    {
+      "security": "VESUVIUS",
+      "prevClose": 340.4,
+      "close": 377.2,
+      "changePct": 10.81,
+      "tradeValue": 7429721794.0
+    },
+    {
+      "security": "GREENLAM",
+      "prevClose": 206.15,
+      "close": 228.03,
+      "changePct": 10.61,
+      "tradeValue": 812635160.0
+    },
+    {
+      "security": "APOLLOPIPE",
+      "prevClose": 495.15,
+      "close": 547.35,
+      "changePct": 10.54,
+      "tradeValue": 610465275.0
+    },
+    {
+      "security": "BPLPHARMA",
+      "prevClose": 2208.0,
+      "close": 2440.0,
+      "changePct": 10.51,
+      "tradeValue": 267455260.0
+    },
+    {
+      "security": "VISHNUINFR",
+      "prevClose": 124.85,
+      "close": 136.8,
+      "changePct": 9.57,
+      "tradeValue": 3759675.0
+    },
+    {
+      "security": "GREAVESCOT",
+      "prevClose": 243.5,
+      "close": 266.63,
+      "changePct": 9.5,
+      "tradeValue": 9539862615.0
     },
     {
       "security": "SUNREST",
-      "prevClose": 33.05,
-      "close": 38.0,
-      "changePct": 14.98,
-      "tradeValue": 793120.0
+      "prevClose": 38.0,
+      "close": 41.45,
+      "changePct": 9.08,
+      "tradeValue": 1095840.0
     },
     {
-      "security": "KRISHCA",
-      "prevClose": 177.95,
-      "close": 204.55,
-      "changePct": 14.95,
-      "tradeValue": 16923250.0
+      "security": "CHEMFAB",
+      "prevClose": 310.65,
+      "close": 338.45,
+      "changePct": 8.95,
+      "tradeValue": 11402895.0
     },
     {
-      "security": "AGL",
-      "prevClose": 13.03,
-      "close": 14.96,
-      "changePct": 14.81,
-      "tradeValue": 1414453570.0
+      "security": "RVHL",
+      "prevClose": 36.0,
+      "close": 39.18,
+      "changePct": 8.83,
+      "tradeValue": 1129991.0
     },
     {
-      "security": "GREENASIA",
-      "prevClose": 70.3,
-      "close": 79.6,
-      "changePct": 13.23,
-      "tradeValue": 49676560.0
+      "security": "HEADSUP",
+      "prevClose": 5.39,
+      "close": 5.86,
+      "changePct": 8.72,
+      "tradeValue": 1090948.0
     },
     {
-      "security": "FIRSTCRY",
-      "prevClose": 158.59,
-      "close": 178.97,
-      "changePct": 12.85,
-      "tradeValue": 24202043318.0
+      "security": "SUMEDHA",
+      "prevClose": 38.62,
+      "close": 41.97,
+      "changePct": 8.67,
+      "tradeValue": 375698.0
     },
     {
-      "security": "E2ERAIL",
-      "prevClose": 227.2,
-      "close": 252.6,
-      "changePct": 11.18,
-      "tradeValue": 41362180.0
+      "security": "IGCL",
+      "prevClose": 56.53,
+      "close": 61.32,
+      "changePct": 8.47,
+      "tradeValue": 9811507.0
     },
     {
-      "security": "INDGN",
-      "prevClose": 590.0,
-      "close": 655.0,
-      "changePct": 11.02,
-      "tradeValue": 250210000.0
+      "security": "AJAXENGG",
+      "prevClose": 577.25,
+      "close": 623.9,
+      "changePct": 8.08,
+      "tradeValue": 429617861.0
     },
     {
-      "security": "971SCL28",
-      "prevClose": 390.0,
-      "close": 432.0,
-      "changePct": 10.77,
-      "tradeValue": 21600.0
+      "security": "WSI",
+      "prevClose": 72.48,
+      "close": 78.32,
+      "changePct": 8.06,
+      "tradeValue": 35616203.0
     },
     {
-      "security": "MADHAVBAUG",
-      "prevClose": 139.95,
-      "close": 154.7,
-      "changePct": 10.54,
-      "tradeValue": 7327360.0
+      "security": "805NMC33",
+      "prevClose": 118.0,
+      "close": 127.5,
+      "changePct": 8.05,
+      "tradeValue": 127268.0
     },
     {
-      "security": "SVGLOBAL",
-      "prevClose": 126.01,
-      "close": 139.1,
-      "changePct": 10.39,
-      "tradeValue": 133084.0
+      "security": "DHARARAIL",
+      "prevClose": 119.2,
+      "close": 128.7,
+      "changePct": 7.97,
+      "tradeValue": 7521200.0
     },
     {
-      "security": "LEAPIND",
-      "prevClose": 122.12,
-      "close": 134.26,
-      "changePct": 9.94,
-      "tradeValue": 1113321040.0
-    },
-    {
-      "security": "FLEXITUFF",
-      "prevClose": 4.65,
-      "close": 5.11,
-      "changePct": 9.89,
-      "tradeValue": 640758.0
-    },
-    {
-      "security": "ASALCBR",
-      "prevClose": 517.75,
-      "close": 566.95,
-      "changePct": 9.5,
-      "tradeValue": 117216258.0
-    },
-    {
-      "security": "TECILCHEM",
-      "prevClose": 8.81,
-      "close": 9.62,
-      "changePct": 9.19,
-      "tradeValue": 222542.0
+      "security": "INOXINDIA",
+      "prevClose": 1969.4,
+      "close": 2123.2,
+      "changePct": 7.81,
+      "tradeValue": 6623817467.0
     }
   ],
   "topLosers": [
     {
+      "security": "IEML-RE1",
+      "prevClose": 9.0,
+      "close": 6.45,
+      "changePct": -28.33,
+      "tradeValue": 6150525.0
+    },
+    {
+      "security": "980SCL33",
+      "prevClose": 840.0,
+      "close": 700.2,
+      "changePct": -16.64,
+      "tradeValue": 2801.0
+    },
+    {
       "security": "0RL34",
-      "prevClose": 86200.0,
-      "close": 69000.0,
-      "changePct": -19.95,
-      "tradeValue": 1725000.0
+      "prevClose": 69000.0,
+      "close": 58150.0,
+      "changePct": -15.72,
+      "tradeValue": 1453750.0
     },
     {
-      "security": "TECHERA",
-      "prevClose": 118.1,
-      "close": 106.3,
-      "changePct": -9.99,
-      "tradeValue": 41177680.0
+      "security": "MAXPOSURE",
+      "prevClose": 27.0,
+      "close": 22.95,
+      "changePct": -15.0,
+      "tradeValue": 2416550.0
     },
     {
-      "security": "APEXECO",
-      "prevClose": 222.75,
-      "close": 200.5,
-      "changePct": -9.99,
-      "tradeValue": 40927060.0
+      "security": "971SCL28",
+      "prevClose": 432.0,
+      "close": 372.0,
+      "changePct": -13.89,
+      "tradeValue": 16349.0
     },
     {
-      "security": "PANCHMAHQ",
-      "prevClose": 278.05,
-      "close": 252.65,
-      "changePct": -9.14,
-      "tradeValue": 9921201.0
+      "security": "ORIANA",
+      "prevClose": 212.35,
+      "close": 183.55,
+      "changePct": -13.56,
+      "tradeValue": 370424869.0
     },
     {
-      "security": "GENXAI",
-      "prevClose": 84.05,
-      "close": 76.65,
-      "changePct": -8.8,
-      "tradeValue": 6527100.0
+      "security": "SHANTI",
+      "prevClose": 5.91,
+      "close": 5.22,
+      "changePct": -11.68,
+      "tradeValue": 575261.0
     },
     {
-      "security": "KEEPLEARN",
-      "prevClose": 1.65,
-      "close": 1.51,
-      "changePct": -8.48,
-      "tradeValue": 228329.0
+      "security": "NAMOEWASTE",
+      "prevClose": 308.1,
+      "close": 274.0,
+      "changePct": -11.07,
+      "tradeValue": 37979820.0
     },
     {
-      "security": "BAGDIGITAL",
-      "prevClose": 112.9,
-      "close": 103.95,
-      "changePct": -7.93,
-      "tradeValue": 2739680.0
-    },
-    {
-      "security": "VIVIDEL",
-      "prevClose": 1055.3,
-      "close": 973.2,
-      "changePct": -7.78,
-      "tradeValue": 118063227.0
-    },
-    {
-      "security": "S&SPOWER",
-      "prevClose": 302.25,
-      "close": 278.95,
-      "changePct": -7.71,
-      "tradeValue": 1492946.0
-    },
-    {
-      "security": "MDL",
-      "prevClose": 65.8,
-      "close": 60.75,
-      "changePct": -7.67,
-      "tradeValue": 60750.0
-    },
-    {
-      "security": "BTML",
-      "prevClose": 6.48,
-      "close": 5.99,
-      "changePct": -7.56,
-      "tradeValue": 3784548.0
-    },
-    {
-      "security": "NORBTEAEXP",
-      "prevClose": 61.5,
-      "close": 57.0,
-      "changePct": -7.32,
-      "tradeValue": 114172.0
-    },
-    {
-      "security": "MARCO",
-      "prevClose": 35.25,
-      "close": 32.7,
-      "changePct": -7.23,
-      "tradeValue": 49050.0
-    },
-    {
-      "security": "IGCL",
-      "prevClose": 60.87,
-      "close": 56.53,
-      "changePct": -7.13,
-      "tradeValue": 18598508.0
-    },
-    {
-      "security": "ANSALBU",
-      "prevClose": 81.96,
-      "close": 76.2,
-      "changePct": -7.03,
-      "tradeValue": 496651.0
-    },
-    {
-      "security": "SPCENET",
-      "prevClose": 3.78,
-      "close": 3.53,
-      "changePct": -6.61,
-      "tradeValue": 5504111.0
-    },
-    {
-      "security": "TTL",
-      "prevClose": 6.85,
-      "close": 6.4,
-      "changePct": -6.57,
-      "tradeValue": 1772588.0
-    },
-    {
-      "security": "AIROLAM",
-      "prevClose": 101.71,
-      "close": 95.05,
-      "changePct": -6.55,
-      "tradeValue": 1930340.0
-    },
-    {
-      "security": "VIJSOLX",
-      "prevClose": 893.6,
-      "close": 835.3,
-      "changePct": -6.52,
-      "tradeValue": 3279562.0
-    },
-    {
-      "security": "DCAL",
-      "prevClose": 139.23,
-      "close": 130.34,
-      "changePct": -6.39,
-      "tradeValue": 246246081.0
-    },
-    {
-      "security": "SHAH",
-      "prevClose": 2.82,
-      "close": 2.64,
-      "changePct": -6.38,
-      "tradeValue": 5020312.0
-    },
-    {
-      "security": "SAHLIBHFI",
-      "prevClose": 75.27,
-      "close": 70.51,
-      "changePct": -6.32,
-      "tradeValue": 1633865.0
+      "security": "PUSHPA",
+      "prevClose": 158.3,
+      "close": 141.25,
+      "changePct": -10.77,
+      "tradeValue": 23631250.0
     },
     {
       "security": "OSELDEVICE",
-      "prevClose": 368.85,
-      "close": 345.75,
-      "changePct": -6.26,
-      "tradeValue": 13101740.0
+      "prevClose": 345.75,
+      "close": 309.8,
+      "changePct": -10.4,
+      "tradeValue": 26709690.0
     },
     {
-      "security": "GLFL",
-      "prevClose": 5.64,
-      "close": 5.29,
-      "changePct": -6.21,
-      "tradeValue": 202705.0
+      "security": "STANLEY",
+      "prevClose": 133.54,
+      "close": 119.81,
+      "changePct": -10.28,
+      "tradeValue": 88348189.0
     },
     {
-      "security": "SUNTECH",
-      "prevClose": 38.9,
-      "close": 36.5,
-      "changePct": -6.17,
-      "tradeValue": 1421600.0
+      "security": "JAYKAYPP",
+      "prevClose": 147.0,
+      "close": 133.27,
+      "changePct": -9.34,
+      "tradeValue": 2232786.0
+    },
+    {
+      "security": "YCCL",
+      "prevClose": 11.95,
+      "close": 10.9,
+      "changePct": -8.79,
+      "tradeValue": 393750.0
+    },
+    {
+      "security": "GPECO",
+      "prevClose": 350.7,
+      "close": 319.95,
+      "changePct": -8.77,
+      "tradeValue": 15069100.0
+    },
+    {
+      "security": "ADFFOODS",
+      "prevClose": 240.45,
+      "close": 219.62,
+      "changePct": -8.66,
+      "tradeValue": 73380686.0
+    },
+    {
+      "security": "QLINE",
+      "prevClose": 448.6,
+      "close": 411.5,
+      "changePct": -8.27,
+      "tradeValue": 103711540.0
+    },
+    {
+      "security": "PRAENG",
+      "prevClose": 17.94,
+      "close": 16.56,
+      "changePct": -7.69,
+      "tradeValue": 3815436.0
+    },
+    {
+      "security": "UNILEX",
+      "prevClose": 39.0,
+      "close": 36.05,
+      "changePct": -7.56,
+      "tradeValue": 344240.0
+    },
+    {
+      "security": "TROM",
+      "prevClose": 59.0,
+      "close": 54.55,
+      "changePct": -7.54,
+      "tradeValue": 835830.0
+    },
+    {
+      "security": "AGL",
+      "prevClose": 14.96,
+      "close": 13.87,
+      "changePct": -7.29,
+      "tradeValue": 255637903.0
+    },
+    {
+      "security": "CAPLIPOINT",
+      "prevClose": 2247.1,
+      "close": 2085.3,
+      "changePct": -7.2,
+      "tradeValue": 1491988946.0
+    },
+    {
+      "security": "KTKBANK",
+      "prevClose": 368.8,
+      "close": 342.35,
+      "changePct": -7.17,
+      "tradeValue": 1298337576.0
+    },
+    {
+      "security": "BRACEPORT",
+      "prevClose": 84.5,
+      "close": 78.5,
+      "changePct": -7.1,
+      "tradeValue": 1736000.0
+    },
+    {
+      "security": "886REC34",
+      "prevClose": 1299.99,
+      "close": 1208.0,
+      "changePct": -7.08,
+      "tradeValue": 280864.0
+    },
+    {
+      "security": "DCAL",
+      "prevClose": 130.34,
+      "close": 121.15,
+      "changePct": -7.05,
+      "tradeValue": 221974917.0
     }
   ],
   "mostTradedByValue": [
     {
-      "security": "HDFCBANK",
-      "close": 814.95,
-      "changePct": -0.19,
-      "tradeValue": 28484927899.0,
-      "trades": 300613
+      "security": "SBIN",
+      "close": 1135.0,
+      "changePct": 2.38,
+      "tradeValue": 39832516324.0,
+      "trades": 335053
     },
     {
-      "security": "BSE",
-      "close": 3864.9,
-      "changePct": -0.58,
-      "tradeValue": 28357112859.0,
-      "trades": 300575
-    },
-    {
-      "security": "ICICIBANK",
-      "close": 1598.7,
-      "changePct": 0.86,
-      "tradeValue": 24494525905.0,
-      "trades": 258597
-    },
-    {
-      "security": "FIRSTCRY",
-      "close": 178.97,
-      "changePct": 12.85,
-      "tradeValue": 24202043318.0,
-      "trades": 693083
-    },
-    {
-      "security": "ANGELONE",
-      "close": 349.8,
-      "changePct": 0.47,
-      "tradeValue": 24191481876.0,
-      "trades": 374653
+      "security": "IIFL",
+      "close": 661.95,
+      "changePct": 4.01,
+      "tradeValue": 26379091188.0,
+      "trades": 491415
     },
     {
       "security": "RELIANCE",
-      "close": 1367.0,
-      "changePct": 1.65,
-      "tradeValue": 21583824918.0,
-      "trades": 244741
+      "close": 1363.0,
+      "changePct": -0.29,
+      "tradeValue": 24849196854.0,
+      "trades": 319173
     },
     {
-      "security": "SBIN",
-      "close": 1108.6,
-      "changePct": 1.66,
-      "tradeValue": 18062896721.0,
-      "trades": 211372
+      "security": "HDFCBANK",
+      "close": 808.15,
+      "changePct": -0.83,
+      "tradeValue": 17486129110.0,
+      "trades": 267525
     },
     {
-      "security": "BHARTIARTL",
-      "close": 2138.3,
-      "changePct": -0.71,
-      "tradeValue": 15025670914.0,
-      "trades": 175308
+      "security": "ICICIBANK",
+      "close": 1601.3,
+      "changePct": 0.16,
+      "tradeValue": 17245298805.0,
+      "trades": 223208
     },
     {
-      "security": "GROWW",
-      "close": 227.53,
-      "changePct": 1.16,
-      "tradeValue": 12796845377.0,
-      "trades": 433795
+      "security": "BSE",
+      "close": 3755.7,
+      "changePct": -2.83,
+      "tradeValue": 16883792477.0,
+      "trades": 204139
     },
     {
-      "security": "KAYNES",
-      "close": 2858.0,
-      "changePct": -4.09,
-      "tradeValue": 12286253102.0,
-      "trades": 280029
+      "security": "AZAD",
+      "close": 2318.9,
+      "changePct": -1.94,
+      "tradeValue": 13749021263.0,
+      "trades": 90215
     },
     {
-      "security": "ETERNAL",
-      "close": 375.05,
-      "changePct": 1.06,
-      "tradeValue": 11414477414.0,
-      "trades": 141395
-    },
-    {
-      "security": "KALYANKJIL",
-      "close": 682.75,
-      "changePct": -3.59,
-      "tradeValue": 11353479600.0,
-      "trades": 173665
-    },
-    {
-      "security": "LAURUSLABS",
-      "close": 2338.0,
-      "changePct": 5.32,
-      "tradeValue": 11244925254.0,
-      "trades": 139579
-    },
-    {
-      "security": "YATRA",
-      "close": 96.27,
-      "changePct": 2.69,
-      "tradeValue": 10429443157.0,
-      "trades": 401663
-    },
-    {
-      "security": "COALINDIA",
-      "close": 391.55,
-      "changePct": -1.5,
-      "tradeValue": 9968632293.0,
-      "trades": 217881
-    },
-    {
-      "security": "JPL",
-      "close": 1395.9,
-      "changePct": -0.44,
-      "tradeValue": 9694758835.0,
-      "trades": 75888
-    },
-    {
-      "security": "AXISBANK",
-      "close": 1369.0,
-      "changePct": 1.98,
-      "tradeValue": 9546465853.0,
-      "trades": 148626
-    },
-    {
-      "security": "ASHOKLEY",
-      "close": 160.5,
-      "changePct": -4.17,
-      "tradeValue": 8762949399.0,
-      "trades": 172021
-    },
-    {
-      "security": "M&M",
-      "close": 3399.0,
-      "changePct": 1.8,
-      "tradeValue": 8755995965.0,
-      "trades": 115096
-    },
-    {
-      "security": "PNB",
-      "close": 150.0,
-      "changePct": 3.74,
-      "tradeValue": 8706143816.0,
-      "trades": 218432
-    },
-    {
-      "security": "TATACHEM",
-      "close": 649.45,
-      "changePct": 6.1,
-      "tradeValue": 8606011267.0,
-      "trades": 235638
-    },
-    {
-      "security": "LT",
-      "close": 4155.5,
-      "changePct": 0.37,
-      "tradeValue": 8114301890.0,
-      "trades": 90770
-    },
-    {
-      "security": "INFY",
-      "close": 1130.0,
-      "changePct": -1.32,
-      "tradeValue": 8103850398.0,
-      "trades": 128056
-    },
-    {
-      "security": "DIVISLAB",
-      "close": 11150.0,
-      "changePct": 0.63,
-      "tradeValue": 8099623938.0,
-      "trades": 58099
+      "security": "V2RETAIL",
+      "close": 141.61,
+      "changePct": -2.43,
+      "tradeValue": 13718513967.0,
+      "trades": 428581
     },
     {
       "security": "KOTAKBANK",
-      "close": 497.25,
-      "changePct": 0.62,
-      "tradeValue": 7761849618.0,
-      "trades": 172203
+      "close": 494.85,
+      "changePct": -0.48,
+      "tradeValue": 13486350434.0,
+      "trades": 287092
+    },
+    {
+      "security": "BAJFINANCE",
+      "close": 1093.85,
+      "changePct": -2.43,
+      "tradeValue": 10029299628.0,
+      "trades": 158117
+    },
+    {
+      "security": "GREAVESCOT",
+      "close": 266.63,
+      "changePct": 9.5,
+      "tradeValue": 9539862615.0,
+      "trades": 277912
+    },
+    {
+      "security": "MCX",
+      "close": 3619.0,
+      "changePct": -2.33,
+      "tradeValue": 9287138137.0,
+      "trades": 126923
+    },
+    {
+      "security": "JPL",
+      "close": 1388.5,
+      "changePct": -0.53,
+      "tradeValue": 9249886336.0,
+      "trades": 94440
+    },
+    {
+      "security": "SILVERBEES",
+      "close": 155.75,
+      "changePct": -3.11,
+      "tradeValue": 9193672983.0,
+      "trades": 183491
+    },
+    {
+      "security": "ANGELONE",
+      "close": 338.3,
+      "changePct": -3.29,
+      "tradeValue": 9183230241.0,
+      "trades": 208981
+    },
+    {
+      "security": "AXISBANK",
+      "close": 1360.0,
+      "changePct": -0.66,
+      "tradeValue": 9007303738.0,
+      "trades": 133174
+    },
+    {
+      "security": "URBANCO",
+      "close": 172.73,
+      "changePct": 6.87,
+      "tradeValue": 8683006467.0,
+      "trades": 263175
+    },
+    {
+      "security": "GOLDBEES",
+      "close": 107.85,
+      "changePct": -1.88,
+      "tradeValue": 8675069266.0,
+      "trades": 231718
+    },
+    {
+      "security": "KALYANKJIL",
+      "close": 650.0,
+      "changePct": -4.8,
+      "tradeValue": 8574114751.0,
+      "trades": 148192
+    },
+    {
+      "security": "BHARTIARTL",
+      "close": 2132.0,
+      "changePct": -0.29,
+      "tradeValue": 8497982052.0,
+      "trades": 158299
+    },
+    {
+      "security": "BLSPOLY",
+      "close": 279.98,
+      "changePct": 1.63,
+      "tradeValue": 7804877588.0,
+      "trades": 200146
+    },
+    {
+      "security": "GROWW",
+      "close": 223.52,
+      "changePct": -1.76,
+      "tradeValue": 7690783669.0,
+      "trades": 262396
+    },
+    {
+      "security": "VESUVIUS",
+      "close": 377.2,
+      "changePct": 10.81,
+      "tradeValue": 7429721794.0,
+      "trades": 254433
+    },
+    {
+      "security": "MARUTI",
+      "close": 12632.0,
+      "changePct": 0.06,
+      "tradeValue": 7314129738.0,
+      "trades": 64187
+    },
+    {
+      "security": "HINDALCO",
+      "close": 900.0,
+      "changePct": -2.99,
+      "tradeValue": 7019804128.0,
+      "trades": 101894
     }
   ],
   "mostTradedByQty": [
     {
-      "security": "IDEA",
-      "close": 12.3,
-      "changePct": -1.84,
-      "tradeQty": 277302059
-    },
-    {
       "security": "PCJEWELLER",
-      "close": 15.1,
-      "changePct": 0.0,
-      "tradeQty": 251399537
+      "close": 14.74,
+      "changePct": -2.38,
+      "tradeQty": 262522806
     },
     {
-      "security": "FIRSTCRY",
-      "close": 178.97,
-      "changePct": 12.85,
-      "tradeQty": 136854430
+      "security": "IDEA",
+      "close": 12.1,
+      "changePct": -1.63,
+      "tradeQty": 260198800
     },
     {
-      "security": "YESBANK",
-      "close": 17.85,
-      "changePct": -0.94,
-      "tradeQty": 114326796
-    },
-    {
-      "security": "YATRA",
-      "close": 96.27,
-      "changePct": 2.69,
-      "tradeQty": 106735606
-    },
-    {
-      "security": "AGL",
-      "close": 14.96,
-      "changePct": 14.81,
-      "tradeQty": 96612029
-    },
-    {
-      "security": "ANGELONE",
-      "close": 349.8,
-      "changePct": 0.47,
-      "tradeQty": 66636754
-    },
-    {
-      "security": "OLAELEC",
-      "close": 33.24,
-      "changePct": -1.45,
-      "tradeQty": 63321049
-    },
-    {
-      "security": "PNB",
-      "close": 150.0,
-      "changePct": 3.74,
-      "tradeQty": 58294970
-    },
-    {
-      "security": "GROWW",
-      "close": 227.53,
-      "changePct": 1.16,
-      "tradeQty": 55749160
-    },
-    {
-      "security": "CANBK",
-      "close": 134.0,
-      "changePct": 1.21,
-      "tradeQty": 54625507
-    },
-    {
-      "security": "MONEYVIEW",
-      "close": 57.93,
-      "changePct": -2.0,
-      "tradeQty": 53848773
-    },
-    {
-      "security": "ASHOKLEY",
-      "close": 160.5,
-      "changePct": -4.17,
-      "tradeQty": 52549505
-    },
-    {
-      "security": "TATSILV",
-      "close": 16.38,
-      "changePct": 0.0,
-      "tradeQty": 49493997
+      "security": "EASEMYTRIP",
+      "close": 6.39,
+      "changePct": 7.39,
+      "tradeQty": 151821607
     },
     {
       "security": "TATAGOLD",
-      "close": 12.96,
-      "changePct": 0.0,
-      "tradeQty": 49379154
+      "close": 12.71,
+      "changePct": -1.93,
+      "tradeQty": 102728496
     },
     {
-      "security": "DHANBANK",
-      "close": 43.17,
-      "changePct": 0.77,
-      "tradeQty": 47952061
+      "security": "V2RETAIL",
+      "close": 141.61,
+      "changePct": -2.43,
+      "tradeQty": 101067743
     },
     {
-      "security": "SILVERBEES",
-      "close": 160.75,
-      "changePct": 0.09,
-      "tradeQty": 46409026
-    },
-    {
-      "security": "SUZLON",
-      "close": 37.19,
-      "changePct": -0.64,
-      "tradeQty": 45071949
-    },
-    {
-      "security": "GOLDCASE",
-      "close": 20.92,
-      "changePct": -0.1,
-      "tradeQty": 38762816
-    },
-    {
-      "security": "SALASAR",
-      "close": 5.78,
-      "changePct": 19.92,
-      "tradeQty": 37560127
-    },
-    {
-      "security": "HDFCBANK",
-      "close": 814.95,
-      "changePct": -0.19,
-      "tradeQty": 34909357
+      "security": "YESBANK",
+      "close": 17.68,
+      "changePct": -0.95,
+      "tradeQty": 88013821
     },
     {
       "security": "GOLDBEES",
-      "close": 109.92,
+      "close": 107.85,
+      "changePct": -1.88,
+      "tradeQty": 80375704
+    },
+    {
+      "security": "SYNCOMF",
+      "close": 22.08,
+      "changePct": 5.7,
+      "tradeQty": 76571720
+    },
+    {
+      "security": "SAGILITY",
+      "close": 45.15,
+      "changePct": 2.87,
+      "tradeQty": 75292887
+    },
+    {
+      "security": "SILVERBEES",
+      "close": 155.75,
+      "changePct": -3.11,
+      "tradeQty": 58981801
+    },
+    {
+      "security": "SALASAR",
+      "close": 6.12,
+      "changePct": 5.88,
+      "tradeQty": 54083183
+    },
+    {
+      "security": "TATSILV",
+      "close": 15.88,
+      "changePct": -3.05,
+      "tradeQty": 52612412
+    },
+    {
+      "security": "URBANCO",
+      "close": 172.73,
+      "changePct": 6.87,
+      "tradeQty": 51334907
+    },
+    {
+      "security": "SUZLON",
+      "close": 36.13,
+      "changePct": -2.85,
+      "tradeQty": 46922655
+    },
+    {
+      "security": "OLAELEC",
+      "close": 32.58,
+      "changePct": -1.99,
+      "tradeQty": 43767225
+    },
+    {
+      "security": "IIFL",
+      "close": 661.95,
+      "changePct": 4.01,
+      "tradeQty": 39360867
+    },
+    {
+      "security": "ASHOKA",
+      "close": 115.2,
+      "changePct": 6.58,
+      "tradeQty": 37934887
+    },
+    {
+      "security": "TTML",
+      "close": 37.06,
       "changePct": -0.13,
-      "tradeQty": 34069924
+      "tradeQty": 36426230
     },
     {
-      "security": "MAHABANK",
-      "close": 95.99,
-      "changePct": 4.34,
-      "tradeQty": 33669858
+      "security": "GREAVESCOT",
+      "close": 266.63,
+      "changePct": 9.5,
+      "tradeQty": 36316006
     },
     {
-      "security": "APTUS",
-      "close": 188.58,
-      "changePct": 7.19,
-      "tradeQty": 30710881
+      "security": "MONEYVIEW",
+      "close": 57.14,
+      "changePct": -1.36,
+      "tradeQty": 35885912
     },
     {
-      "security": "ETERNAL",
-      "close": 375.05,
-      "changePct": 1.06,
-      "tradeQty": 30484971
+      "security": "PNB",
+      "close": 149.57,
+      "changePct": -0.29,
+      "tradeQty": 35794087
+    },
+    {
+      "security": "SBIN",
+      "close": 1135.0,
+      "changePct": 2.38,
+      "tradeQty": 35420675
+    },
+    {
+      "security": "GROWW",
+      "close": 223.52,
+      "changePct": -1.76,
+      "tradeQty": 33918637
+    },
+    {
+      "security": "JPPOWER",
+      "close": 13.31,
+      "changePct": -2.85,
+      "tradeQty": 33388604
+    },
+    {
+      "security": "ASHOKLEY",
+      "close": 162.45,
+      "changePct": 1.21,
+      "tradeQty": 32314607
     }
   ],
   "near52High": [],
   "near52Low": [],
-  "date": "17 Nov 2026"
+  "date": "18 Nov 2026"
 }
